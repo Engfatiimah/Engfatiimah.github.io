@@ -563,7 +563,7 @@ const SLIDES={vector:Array.from({length:18},(_,i)=>"vector-s"+(i+1)),flowpay:Arr
 
 /* ================= CONTENT ================= */
 const PROFILE={
- email:"Fatimahbinmh@gmail.com", phone:"+966 53 589 9658", github:"https://github.com/Engfatiimah", linkedin:"https://www.linkedin.com/in/fatimah-bin-mohammed-321552325"
+ email:"Fatimahbinmh@gmail.com", phone:"+966 53 589 9658", github:"", linkedin:"https://www.linkedin.com/in/fatimah-bin-mohammed-321552325"
 };
 const T={
  ar:{brand:"فاطمة بن محمد",brand_short:"فاطمة",name1:"فاطمة",name2:"بن محمد",
@@ -1015,7 +1015,7 @@ function renderContact(){
   <div class="ccard"><a class="cic" href="${gmail}" target="_blank" rel="noopener" aria-label="${d.c_email}">${ICON.mail}</a><div style="min-width:0"><div class="cl">${d.c_email}</div><a class="cv clink" href="${gmail}" target="_blank" rel="noopener" id="emailTxt">${P.email}</a></div><button class="copy" type="button" data-copy="${P.email}" data-target="emailTxt">${d.copy}</button></div>
   ${P.phone?`<div class="ccard"><a class="cic" href="tel:${P.phone.replace(/\s/g,"")}" aria-label="${d.c_phone}">${ICON.phone}</a><div style="min-width:0"><div class="cl">${d.c_phone}</div><a class="cv clink" href="tel:${P.phone.replace(/\s/g,"")}" dir="ltr" id="phoneTxt">${P.phone}</a></div><button class="copy" type="button" data-copy="${P.phone.replace(/\s/g,"")}" data-target="phoneTxt">${d.copy}</button></div>`:""}
   ${P.linkedin?`<a class="ccard" href="${P.linkedin}" target="_blank" rel="noopener"><span class="cic">${ICON.linkedin}</span><div><div class="cl">${d.c_li}</div><div class="cv">in/fatimah-bin-mohammed</div></div></a>`:""}
-  <a class="ccard" href="${P.github}" target="_blank" rel="noopener"><span class="cic">${ICON.github}</span><div style="min-width:0"><div class="cl">${d.c_gh}</div><div class="cv">github.com/Engfatiimah</div></div></a>`;
+  ${P.github?`<a class="ccard" href="${P.github}" target="_blank" rel="noopener"><span class="cic">${ICON.github}</span><div style="min-width:0"><div class="cl">${d.c_gh}</div><div class="cv">${P.github.replace("https://","")}</div></div></a>`:""}`;
  $$("#contactBox .copy").forEach(b=>b.onclick=()=>{
   const done=()=>{b.textContent=T[lang].copied;b.classList.add("ok");setTimeout(()=>{b.textContent=T[lang].copy;b.classList.remove("ok")},1600)};
   const fb=()=>{const r=document.createRange();r.selectNodeContents($("#"+b.dataset.target));const s=getSelection();s.removeAllRanges();s.addRange(r)};
