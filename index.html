@@ -84,7 +84,7 @@ svg.i{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.8;stro
 .pulse{width:8px;height:8px;border-radius:50%;background:#2FB380;position:relative}
 .pulse::after{content:"";position:absolute;inset:0;border-radius:50%;background:#2FB380;animation:ping 1.8s ease-out infinite}
 @keyframes ping{to{transform:scale(3);opacity:0}}
-.hero h1{font-size:clamp(36px,5.4vw,64px);font-weight:700;letter-spacing:-.02em;margin-block:18px 6px;line-height:1.08}
+.hero h1{font-size:clamp(36px,5.4vw,64px);font-weight:700;letter-spacing:-.02em;margin-block:0 6px;line-height:1.08}
 .hero h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.22em;margin-bottom:-.14em}
 .hero h1 .w>span{display:inline-block;transform:translateY(110%);animation:rise .9s var(--ease) forwards}
 @keyframes rise{to{transform:none}}
@@ -379,7 +379,7 @@ html[lang="ar"] .big-marq div{line-height:1.45;font-family:var(--f-body)}
 .team span{font-size:13px;padding:4px 11px;border-radius:999px;background:var(--bg-2);border:1px solid var(--line)}
 .team span.me{background:var(--teal);color:var(--on-teal);border-color:var(--teal)}
 .gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px}
-.gal button{position:relative;aspect-ratio:4/3;border-radius:10px;overflow:hidden;border:1px solid var(--line);padding:0;cursor:zoom-in;background:var(--bg-2)}
+.gal button{position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;border:1px solid var(--line);padding:0;cursor:zoom-in;background:var(--bg-2)}
 .gal img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .5s var(--ease)}
 .gal button:hover img{transform:scale(1.08)}
 .gal .more{position:absolute;inset:0;display:grid;place-items:center;background:rgba(14,75,72,.72);color:#fff;font-family:var(--f-display);font-weight:600;font-size:18px}
@@ -448,7 +448,6 @@ html[lang="ar"] .blk h5{font-size:12.5px;font-weight:600}
   <div class="blob a"></div><div class="blob b"></div>
   <div class="wrap">
     <div>
-      <span class="status"><span class="pulse"></span><span data-t="status"></span></span>
       <h1 id="heroName"></h1>
       <div class="htitle" data-t="title"></div>
       <div class="rot"><span class="lbl" data-t="rot_lbl"></span><span class="rotbox" id="rotbox"></span></div>
@@ -524,7 +523,7 @@ html[lang="ar"] .blk h5{font-size:12.5px;font-weight:600}
 /* ================= ASSETS ================= */
 const IMG={
  "basirah-cover": "images/basirah-cover.webp",
- "flowpay-cover": "images/flowpay-cover.webp",
+ "flowpay-card": "images/flowpay-card.webp",
  "flowpay-g1": "images/flowpay-g1.webp",
  "flowpay-g2": "images/flowpay-g2.webp",
  "flowpay-g3": "images/flowpay-g3.webp",
@@ -540,10 +539,7 @@ const IMG={
  "flowpay-s8": "images/flowpay-s8.webp",
  "flowpay-s9": "images/flowpay-s9.webp",
  "latable-cover": "images/latable-cover.webp",
- "scr-flowpay": "images/scr-flowpay.webp",
- "scr-latable": "images/scr-latable.webp",
- "scr-vector": "images/scr-vector.webp",
- "vector-cover": "images/vector-cover.webp",
+ "vector-card": "images/vector-card.webp",
  "vector-s1": "images/vector-s1.webp",
  "vector-s10": "images/vector-s10.webp",
  "vector-s11": "images/vector-s11.webp",
@@ -577,7 +573,7 @@ const T={
   intro:"أصمم وأبني تجارب تطبيقات تحل مشاكل حقيقية.",
   cta_projects:"استكشف أعمالي",cta_contact:"تواصل معي",
   about_title:"مرحبًا، أنا فاطمة 👋",
-  about:"طالبة في تخصص تقنية المعلومات بجامعة الملك سعود. أحب أفهم المشكلة قبل ما أبدأ الحل، وأستمتع بتحويل الأفكار إلى تطبيقات واضحة وسهلة يستخدمها الناس فعلًا. أشتغل على الرحلة كاملة: من البحث وفهم المستخدم، إلى تصميم الواجهات في Figma، إلى البرمجة بـ Flutter وSupabase. شخصية اجتماعية أحب العمل مع الفريق، ونشيطة في الأندية الطلابية والتطوع، وأستمتع بالتنظيم والتواصل وتعلّم كل شي جديد.",
+  about:"طالبة تقنية معلومات في جامعة الملك سعود، أجمع بين التصميم والبرمجة لبناء تطبيقات واضحة يسهل استخدامها. أبدأ كل مشروع بفهم المشكلة واحتياج المستخدم، ثم أحوّل الفكرة إلى تصميم متكامل وتطبيق يعمل، مستعينةً بالأدوات والتقنيات التي تناسب كل مشروع. أحب العمل الجماعي، وأشارك بفاعلية في الأندية الطلابية والعمل التطوعي، حيث أنمّي مهارات التنظيم والتواصل.",
   f_edu:"التعليم",f_edu_v:"تخصص تقنية المعلومات",f_edu_s:"جامعة الملك سعود · 2024 – الآن",
   f_loc:"الموقع",f_loc_v:"الرياض",f_loc_s:"المملكة العربية السعودية",
   f_now:"حاليًا",f_now_v:"لجنة التسويق",f_now_s:"مبادرة جسر",
@@ -589,10 +585,10 @@ const T={
   used_t:"اختر مهارة",used_h:"اضغط على أي مهارة لتعرف كيف أستخدمها وفي أي مشروع.",used_in:"استخدمتها في",
   sk_prog:"البرمجة",sk_dev:"التطوير والتصميم",sk_db:"قواعد البيانات",sk_soft:"مهارات شخصية",
   tap:"اضغط على البطاقة للاحتفال",view_proj:"عرض المشروع",view_post:"منشور LinkedIn",
-  cur:"حاليًا",contact_title:"خلّنا نتواصل",c_email:"البريد الإلكتروني",c_phone:"الجوال",c_gh:"GitHub",c_li:"LinkedIn",copy:"نسخ",copied:"تم النسخ",
+  cur:"حاليًا",contact_title:"للتواصل معي",c_email:"البريد الإلكتروني",c_phone:"الجوال",c_gh:"GitHub",c_li:"LinkedIn",copy:"نسخ",copied:"تم النسخ",
   to_top:"العودة للأعلى",loc:"الرياض، المملكة العربية السعودية",
   bigm:"لنبنِ <b>شيئًا</b> · صمّم · برمج · <b>أطلق</b> · ",
-  k1:"01 · عنّي",k2:"02 · أعمالي",k3:"03 · تواصل",copy_r:"© 2026 فاطمة بن محمد",logo:"ف",me:"فاطمة بن محمد",pl:["فيكتور","لا تيبل","فلو باي"],phcap:"لقطات حقيقية من أعمالي",open:"افتح المشروع"},
+  k1:"01 · عنّي",k2:"02 · أعمالي وإنجازاتي",k3:"03 · تواصل",copy_r:"© 2026 فاطمة بن محمد",logo:"ف",me:"فاطمة بن محمد",pl:["فيكتور","لا تيبل","فلو باي"],phcap:"لقطات حقيقية من أعمالي",open:"افتح المشروع"},
  en:{brand:"Fatimah Bin Mohammed",brand_short:"Fatimah",name1:"Fatimah",name2:"Bin Mohammed",
   nav_about:"About",nav_projects:"Projects",nav_skills:"Skills",nav_ach:"Achievements",nav_certs:"Certificates",nav_vol:"Volunteering",nav_contact:"Contact",
   status:"Ready for internships & new projects",title:"Information Technology major, King Saud University · Flutter Developer · UI/UX Designer",rot_lbl:"I'm",
@@ -600,7 +596,7 @@ const T={
   intro:"I design and build app experiences that solve real problems.",
   cta_projects:"Explore my work",cta_contact:"Get in touch",
   about_title:"Hi, I'm Fatimah 👋",
-  about:"I'm an Information Technology student at King Saud University. I like to understand the problem before jumping to a solution, and I enjoy turning ideas into clear, simple apps that people actually use. I work across the full journey: research and understanding users, interface design in Figma, and development with Flutter and Supabase. I'm a people person who loves working in a team, I'm active in student clubs and volunteering, and I enjoy organizing, communicating, and learning something new every day.",
+  about:"I'm an Information Technology student at King Saud University who combines design and development to build clear, easy-to-use apps. I start every project by understanding the problem and the user's needs, then turn the idea into a complete design and a working app, using whichever tools and technologies suit the project best. I enjoy teamwork and I'm active in student clubs and volunteering, where I grow my organizing and communication skills.",
   f_edu:"Education",f_edu_v:"Information Technology major",f_edu_s:"King Saud University · 2024 – present",
   f_loc:"Location",f_loc_v:"Riyadh",f_loc_s:"Saudi Arabia",
   f_now:"Currently",f_now_v:"Marketing Committee",f_now_s:"Jisr Initiative",
@@ -612,7 +608,7 @@ const T={
   used_t:"Pick a skill",used_h:"Tap any skill to see how I use it and in which projects.",used_in:"Used in",
   sk_prog:"Programming",sk_dev:"Development & design",sk_db:"Databases",sk_soft:"Professional",
   tap:"Tap the card to celebrate",view_proj:"View project",view_post:"LinkedIn post",
-  cur:"Current",contact_title:"Let's connect",c_email:"Email",c_phone:"Phone",c_gh:"GitHub",c_li:"LinkedIn",copy:"Copy",copied:"Copied",
+  cur:"Current",contact_title:"Get in touch",c_email:"Email",c_phone:"Phone",c_gh:"GitHub",c_li:"LinkedIn",copy:"Copy",copied:"Copied",
   to_top:"Back to top",loc:"Riyadh, Saudi Arabia",
   bigm:"LET'S BUILD <b>SOMETHING</b> · DESIGN · CODE · <b>LAUNCH</b> · ",
   k1:"01 · ABOUT",k2:"02 · WORK",k3:"03 · CONTACT",copy_r:"© 2026 Fatimah Bin Mohammed",logo:"F",me:"Fatimah Bin Mohammed",pl:["Vector","La Table","Flow Pay"],phcap:"REAL SCREENS FROM MY WORK",open:"Open project"}
@@ -634,69 +630,69 @@ const LE_SVG=`<svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice"><d
 <rect x="30" y="136" width="36" height="16" rx="8" fill="#fff" fill-opacity=".12"/><circle cx="40" cy="144" r="2" fill="#CFD8FF"/><circle cx="48" cy="144" r="2" fill="#CFD8FF" opacity=".7"/><circle cx="56" cy="144" r="2" fill="#CFD8FF" opacity=".45"/></g></svg>`;
 
 const PROJECTS=[
- {id:"vector",cats:["mobile"],team:true,main:"mobile",date:{ar:"أغسطس – سبتمبر 2026",en:"Aug 2026 – Sep 2026"},cover:"vector-cover",coverTop:true,
+ {id:"vector",cats:["mobile"],team:true,main:"mobile",date:{ar:"أغسطس – سبتمبر 2026",en:"Aug 2026 – Sep 2026"},cover:"vector-card",
   title:{ar:"فيكتور",en:"Vector"},tagline:{ar:"من الرؤية إلى الإنجاز.",en:"From Vision to Victory."},
-  short:{ar:"تطبيق يجمع المشاركين في الهاكاثونات بفرق تحتاج مهاراتهم.",en:"A hackathon team-matching app that helps participants find teams where their skills are needed."},
-  overview:{ar:"فيكتور يجمع اكتشاف الهاكاثونات والمهارات والتواصل بين الفرق في مكان واحد، عشان ما تتعطل فكرة حلوة بسبب عدم وجود فريق. المشروع النهائي لبوتكامب Flutter وDart من نادي طويق (جامعة الإمام)، وتم تنفيذه بالكامل: الهوية، والواجهات، والباك إند، والإطلاق الفعلي.",en:"Vector brings hackathon discovery, skills, and team connections into one place, so great ideas never stall for the lack of a team. Built as the final project of the Tuwaiq Club Flutter & Dart Bootcamp (IMSIU), shipped end-to-end: brand, UI, backend, and live deployment."},
-  problem:{ar:"المشارك ما يعرف أي فريق عنده مكان فاضي، والمكان الفاضي ما يوضح الدور المطلوب، والمحادثات المتفرقة تصعّب متابعة الطلبات.",en:"Participants don't know which teams still need someone; an open spot says little without a clear role; and scattered conversations make requests hard to follow."},
-  solution:{ar:"تصفح الهاكاثونات وفرقها، واعرف الأماكن الفاضية والأدوار الناقصة، ثم تواصل عبر طلبات الانضمام والدعوات مع متابعة حالتها.",en:"Discover hackathons and their teams, understand open spots and missing roles, then connect through join requests and invitations with live status tracking."},
-  features:{ar:["وضع الضيف وتسجيل على خطوتين مرتبط بـ LinkedIn وGitHub","ملف مهارات (من 1 إلى 6) مدعوم بإثباتات مرفوعة","تصفح الهاكاثونات حسب المجال (أمن، ذكاء اصطناعي، حكومة رقمية، طاقة)","عرض الفرق والأماكن الفاضية والأدوار الناقصة","طلبات الانضمام والدعوات في صندوق واحد مع متابعة الحالة","إنشاء وإدارة فرق من 3 إلى 5 أعضاء","باك إند آمن: تأكيد الإيميل، وصلاحيات على مستوى الصفوف، وتخزين خاص بروابط مؤقتة، وتشفير الملفات بـ SHA-256"],en:["Guest mode and two-step sign-up linked to LinkedIn and GitHub","Skill profiles (1–6 skills) backed by uploaded evidence","Hackathon discovery filtered by field (Security, AI, GovTech, Energy)","Team carousel showing open spots and missing roles","Join requests and invitations in one inbox, with live tracking","Create and manage teams of 3–5 members","Secure backend: email confirmation, Row-Level Security, private storage with signed URLs, SHA-256 file hashing"]},
+  short:{ar:"تطبيق يربط المشاركين في الهاكاثونات بالفرق التي تحتاج إلى مهاراتهم.",en:"A hackathon team-matching app that helps participants find teams where their skills are needed."},
+  overview:{ar:"يجمع «فيكتور» اكتشاف الهاكاثونات وإبراز المهارات والتواصل بين الفرق في منصة واحدة، حتى لا تتعثّر فكرة واعدة بسبب غياب الفريق المناسب. طُوِّر بوصفه المشروع الختامي لمعسكر Flutter وDart المقدَّم من نادي طويق في جامعة الإمام محمد بن سعود الإسلامية، ونُفِّذ بجميع مراحله: الهوية البصرية، والواجهات، والخادم الخلفي، والإطلاق الفعلي.",en:"Vector brings hackathon discovery, skills, and team connections into one place, so great ideas never stall for the lack of a team. Built as the final project of the Tuwaiq Club Flutter & Dart Bootcamp (IMSIU), shipped end-to-end: brand, UI, backend, and live deployment."},
+  problem:{ar:"لا يعرف المشارك أيّ الفرق ما زالت بحاجة إلى أعضاء، ولا يوضّح المقعد الشاغر الدورَ المطلوب، كما يُصعّب تشتّت المحادثات متابعةَ طلبات الانضمام.",en:"Participants don't know which teams still need someone; an open spot says little without a clear role; and scattered conversations make requests hard to follow."},
+  solution:{ar:"يتيح التطبيق تصفّح الهاكاثونات وفرقها، والاطلاع على المقاعد الشاغرة والأدوار الناقصة، ثم التواصل عبر طلبات الانضمام والدعوات مع متابعة حالتها لحظيًا.",en:"Discover hackathons and their teams, understand open spots and missing roles, then connect through join requests and invitations with live status tracking."},
+  features:{ar:["وضع الزائر، وتسجيل على مرحلتين مرتبط بحسابَي LinkedIn وGitHub", "ملف مهارات يضم من مهارة واحدة إلى ست مهارات، مدعومة بإثباتات مرفوعة", "تصفّح الهاكاثونات حسب المجال: الأمن السيبراني، والذكاء الاصطناعي، والحكومة الرقمية، والطاقة", "عرض الفرق مع المقاعد الشاغرة والأدوار الناقصة", "صندوق موحّد لطلبات الانضمام والدعوات مع متابعة حالتها", "إنشاء الفرق وإدارتها بعدد يتراوح بين ثلاثة وخمسة أعضاء", "خادم خلفي آمن: تأكيد البريد الإلكتروني، وصلاحيات على مستوى السجلات (RLS)، وتخزين خاص بروابط مؤقتة، وتجزئة الملفات بخوارزمية SHA-256"],en:["Guest mode and two-step sign-up linked to LinkedIn and GitHub","Skill profiles (1–6 skills) backed by uploaded evidence","Hackathon discovery filtered by field (Security, AI, GovTech, Energy)","Team carousel showing open spots and missing roles","Join requests and invitations in one inbox, with live tracking","Create and manage teams of 3–5 members","Secure backend: email confirmation, Row-Level Security, private storage with signed URLs, SHA-256 file hashing"]},
   tech:["Flutter","Dart","Supabase","PostgreSQL","SHA-256","GitHub"],skills:["flutter","dart","supabase","postgres","figma","uiux","team"],
-  role:{ar:"شريكة مؤسسة ومطورة: الهوية والواجهات وبرمجة Flutter وربطها مع Supabase.",en:"Co-founder and developer: brand, UI, and Flutter development with Supabase integration."},
+  role:{ar:"شريكة مؤسِّسة ومطوِّرة: تصميم الهوية البصرية والواجهات، وبرمجة التطبيق بـ Flutter وربطه بـ Supabase.",en:"Co-founder and developer: brand, UI, and Flutter development with Supabase integration."},
   members:["Sham Albinni","Fatimah Bin Mohammed"],
   links:[{k:"live",l:{ar:"جرّب التطبيق",en:"Live App"},u:"https://f-s-tuwaiq.github.io/Vector/"},{k:"github",l:{ar:"GitHub",en:"GitHub"},u:"https://github.com/F-S-Tuwaiq/Vector"},{k:"slides",l:{ar:"العرض التقديمي",en:"Presentation"},slides:"vector"}],
-  gallery:["vector-cover",...SLIDES.vector]},
- {id:"flowpay",cats:["uiux","hack"],team:true,main:"uiux",date:{ar:"سبتمبر 2025",en:"Sep 2025"},cover:"flowpay-cover",
-  award:{ar:"🏆 المركز السادس: هاكاثون البلاد للفنتك",en:"🏆 6th Place: Albilad FinTech Hackathon"},
-  title:{ar:"فلو باي",en:"Flow Pay"},tagline:{ar:"كل ريال في مكانه",en:"Every riyal in its place."},
-  short:{ar:"محفظة ذكية للعائلة وفرق العمل، لكل فرد بطاقة ولكل ريال مكانه.",en:"A smart family & team wallet that gives every member a card, and every riyal a place."},
-  overview:{ar:"تطبيق مالي يعتمد على محفظة مركزية تُشحن أسبوعياً أو شهرياً، وترتبط ببطاقات لكل فرد (الأب والأبناء، المدير والموظفين). يحدد المسؤول ميزانية لكل قطاع (مثل: محطات 300 ريال، تموينات 2000 ريال، مطاعم 3000 ريال) ويتحكم في طريقة الصرف ووقته ومكانه.",en:"A fintech app built around one central wallet, topped up weekly or monthly and linked to personal cards for each member (parents, children, managers, employees). The admin allocates budgets per sector (e.g., fuel 300 SAR, groceries 2,000 SAR, restaurants 3,000 SAR) and controls how, when, and where each member spends."},
-  problem:{ar:"غياب الفواتير الإلكترونية والتقارير الدقيقة للمصاريف المشتركة، وصعوبة متابعة مشتريات الأبناء والسائقين والموظفين، وعدم وجود ميزانية منظمة لكل قطاع، واحتمالية التلاعب أو الإسراف.",en:"No detailed e-invoices or accurate reports for shared spending; hard to track purchases by children, drivers, or employees; no organized per-sector budgeting; and a risk of misuse or overspending."},
-  solution:{ar:"محفظة مركزية ببطاقات فردية وميزانيات حسب القطاع وتحكم لحظي: المسؤول يشوف كل عملية فور حدوثها ويقدر يوافق أو يقيّد أو يحدد سقف الصرف لكل فرد.",en:"One central wallet with individual member cards, sector-based budgets, and real-time control: the admin sees every transaction as it happens and can approve, restrict, or cap spending per member."},
-  features:{ar:["محفظة مركزية ببطاقات فردية تستخدم نفس الرصيد","ميزانيات حسب القطاع مع توزيع تلقائي","صلاحيات دفع: صرف مباشر أو بالموافقة، مع قيود الوقت والمكان","فواتير إلكترونية تفصيلية تصل لمسؤول المحفظة","رصيد احتياطي للطوارئ لكل فرد","تحليلات الصرف حسب القطاع والأفراد والمتاجر","تسجيل عبر نفاذ، وشحن عبر Apple Pay ومدى"],en:["Central wallet with individual member cards sharing one balance","Sector-based budgets with auto-distribution","Payment permissions: direct or approval-required, with time and location limits","Detailed e-invoices sent to the wallet admin","Emergency reserve balance per member","Spending analytics by sector, member, and store","Nafath sign-up; top-up via Apple Pay and mada"]},
-  tech:["Figma","UI/UX",{ar:"التقنية المالية",en:"Fintech"},{ar:"نموذج العمل التجاري",en:"Business Model Canvas"}],skills:["figma","uiux","proto","team","comm","lead"],
-  role:{ar:"عضوة في الفريق: شاركت في بناء الفكرة وتصميم التطبيق ونموذج العمل، والعرض على مسرح Money20/20 Middle East.",en:"Team member: co-developed the concept, app design, and business model, and pitched on stage at Money20/20 Middle East."},
+  gallery:["vector-card","vector-s1","vector-s4","vector-s8","vector-s11","vector-s12","vector-s13"]},
+ {id:"flowpay",cats:["uiux","hack"],team:true,main:"uiux",date:{ar:"سبتمبر 2025",en:"Sep 2025"},cover:"flowpay-card",
+  award:{ar:"🏆 المركز السادس: هاكاثون بنك البلاد للفنتك",en:"🏆 6th Place: Bank Albilad FinTech Hackathon"},
+  title:{ar:"فلو باي",en:"Flow Pay"},tagline:{ar:"كل ريال في مكانه.",en:"Every riyal in its place."},
+  short:{ar:"محفظة رقمية ذكية تمنح العائلات وفرق العمل تحكّمًا كاملًا في الإنفاق المشترك.",en:"A smart digital wallet that gives families and teams full control over shared spending."},
+  overview:{ar:"«فلو باي» محفظة رقمية مشتركة صُمّمت للعائلات وفرق العمل؛ إذ يُشحن فيها رصيد مركزي واحد، ثم يُوزَّع على بطاقات فردية لكل عضو وفق ميزانيات محددة لكل قطاع، كالمطاعم والتموينات ومحطات الوقود. ويمنح التطبيق مسؤولَ المحفظة رؤية لحظية لكل عملية، وصلاحية ضبط حدود الإنفاق وأوقاته وأماكنه، ليصبح الصرف المشترك منظّمًا وشفافًا.",en:"Flow Pay is a shared digital wallet designed for families and teams: one central balance is topped up, then distributed to individual member cards according to per-sector budgets such as restaurants, groceries, and fuel. The admin gets a real-time view of every transaction and can set spending limits, times, and places, making shared spending organized and transparent."},
+  problem:{ar:"يفتقر الإنفاق المشترك داخل الأسرة أو فريق العمل غالبًا إلى الشفافية؛ فلا فواتير تفصيلية ولا تقارير دقيقة، ويصعب تتبّع مشتريات الأبناء أو السائقين أو الموظفين، في ظل غياب ميزانية واضحة لكل قطاع، مما يفتح الباب للإسراف وسوء الاستخدام.",en:"Shared spending in families and teams often lacks transparency: no detailed invoices or accurate reports, purchases by children, drivers, or employees are hard to track, and there is no clear budget per sector, which opens the door to overspending and misuse."},
+  solution:{ar:"رصيد مركزي تتفرّع منه بطاقات فردية، وميزانيات تُوزَّع تلقائيًا على القطاعات، وتحكّم لحظي يتيح للمسؤول الموافقة على العمليات أو تقييدها أو تحديد سقف الإنفاق لكل عضو، مع فواتير إلكترونية وتحليلات تكشف أين يذهب كل ريال.",en:"A central balance that branches into individual cards, budgets distributed automatically across sectors, and real-time control that lets the admin approve, restrict, or cap each member's spending, with e-invoices and analytics that show where every riyal goes."},
+  features:{ar:["محفظة مركزية ببطاقات فردية تشترك في رصيد واحد", "ميزانيات حسب القطاع مع توزيع تلقائي", "صلاحيات دفع مباشرة أو مشروطة بالموافقة، مع قيود زمنية ومكانية", "فواتير إلكترونية تفصيلية تصل إلى مسؤول المحفظة", "رصيد احتياطي للطوارئ لكل عضو", "تحليلات للإنفاق حسب القطاع والعضو والمتجر", "التسجيل عبر نفاذ، والشحن عبر Apple Pay ومدى"],en:["Central wallet with individual member cards sharing one balance","Sector-based budgets with auto-distribution","Payment permissions: direct or approval-required, with time and location limits","Detailed e-invoices sent to the wallet admin","Emergency reserve balance per member","Spending analytics by sector, member, and store","Nafath sign-up; top-up via Apple Pay and mada"]},
+  tech:["Figma","UI/UX",{ar:"التقنية المالية",en:"Fintech"}],skills:["figma","uiux","proto","team","comm","lead"],
+  role:{ar:"عضوة في الفريق: شاركتُ في بلورة الفكرة وتصميم التطبيق ونموذج العمل، وفي عرض المشروع على مسرح Money20/20 Middle East.",en:"Team member: co-developed the concept, app design, and business model, and pitched on stage at Money20/20 Middle East."},
   members:["Sara Abunuhait","Fatimah Bin Mohammed","Noura Almudlij","Hessa Alaskar"],
-  links:[{k:"linkedin",l:{ar:"منشور LinkedIn",en:"LinkedIn Post"},u:"https://www.linkedin.com/feed/update/urn:li:activity:7374489195924553728/"},{k:"slides",l:{ar:"العرض التقديمي",en:"Presentation"},slides:"flowpay"}],
-  gallery:["flowpay-cover","flowpay-g1","flowpay-g2","flowpay-g3"]},
+  links:[{k:"slides",l:{ar:"العرض التقديمي",en:"Presentation"},slides:"flowpay"}],
+  gallery:["flowpay-card","flowpay-g1","flowpay-g2","flowpay-g3"]},
  {id:"basirah",cats:["uiux"],team:true,main:"uiux",date:{ar:"يناير – أبريل 2026",en:"Jan 2026 – Apr 2026"},cover:"basirah-cover",coverTop:true,
   title:{ar:"بصيرة",en:"Basirah"},tagline:{ar:"رؤية واضحة، رعاية ذكية.",en:"Clear Vision, Smart Care."},
-  short:{ar:"تطبيق للعناية بالعين يساعد الناس يتابعون نظرهم ويحافظون على عادات صحية بين زيارات العيادة.",en:"An eye-care app that helps people track their vision and keep healthy eye habits between clinic visits."},
-  overview:{ar:"مشروع جماعي في تصميم تجربة المستخدم وتطوير التطبيقات. بصيرة يساعد المستخدم يفحص نظره من البيت، ويتابع نتائجه مع الوقت، ويستشير طبيب، ويبني عادات يومية للعناية بعيونه.",en:"A UI/UX and app development team project. Basirah helps users test their vision at home, track results over time, consult a doctor, and build daily eye-care habits."},
-  problem:{ar:"صحة العين تحتاج عادات يومية وفحوصات منتظمة، لكن كثير من الناس يفقدون المتابعة بين الزيارات: صعوبة الالتزام، وغياب سجل منظم للنظر والأدوية، ونسيان المواعيد، وتأخر اكتشاف تغيرات النظر.",en:"Good eye health needs daily habits and regular check-ups, yet many people lose track between clinic visits: habits are hard to keep, there's no organized record of vision or medication, appointments are forgotten, and gradual vision changes are detected late."},
-  solution:{ar:"تطبيق واحد يجمع فحص النظر من البيت، وسجل النظر، والاستشارة مع طبيب، والتذكيرات اليومية، عشان يبقى المستخدم متابع صحة عيونه بين الزيارات.",en:"One app that combines at-home vision testing, a vision history record, doctor consultations, and daily reminders, so users stay on top of their eye health between visits."},
-  features:{ar:["فحص نظر من البيت بتعليمات واضحة ونتائج فورية","سجل النظر برسم بياني مع الوقت ونصائح للمشاكل الشائعة","استشارة عيون: وصف الأعراض ومحادثة طبيب وملخص للحالة","عناية يومية: تذكيرات مخصصة، ومتابعة القطرات، وتاريخ انتهاء العدسات، وتمارين للعين","خيارات لسهولة الوصول والتخصيص"],en:["At-home vision test with guided instructions and instant results","Vision history charted over time, plus tips for common eye problems","Eye consultation: describe symptoms, chat with a doctor, get a care summary","Daily eye care: custom reminders, eye-drop tracker, lens-expiry tracking, guided eye exercises","Accessibility and customization options"]},
-  tech:["Figma",{ar:"تصميم UI/UX",en:"UI/UX Design"},{ar:"النماذج الأولية",en:"Prototyping"},{ar:"بحث المستخدم",en:"User Research"}],skills:["figma","uiux","proto","team"],
-  role:{ar:"قائدة المشروع ومصممة UI/UX ضمن فريق من 6: قدت الفريق ونظّمت سير العمل، وشاركت في رحلة المستخدم وتصميم الشاشات والنموذج التفاعلي على Figma.",en:"Project leader and UI/UX designer in a 6-member team: led the team and organized the workflow, and worked on user flows, screen design, and the interactive Figma prototype."},
+  short:{ar:"تطبيق للعناية بصحة العين، يساعد المستخدم على متابعة نظره والمحافظة على عادات صحية بين زيارات العيادة.",en:"An eye-care app that helps people track their vision and keep healthy eye habits between clinic visits."},
+  overview:{ar:"مشروع جماعي في تصميم تجربة المستخدم وتطوير التطبيقات. يساعد «بصيرة» المستخدمَ على فحص نظره من المنزل، ومتابعة نتائجه بمرور الوقت، واستشارة طبيب مختص، وبناء عادات يومية للعناية بعينيه.",en:"A UI/UX and app development team project. Basirah helps users test their vision at home, track results over time, consult a doctor, and build daily eye-care habits."},
+  problem:{ar:"تحتاج صحة العين إلى عادات يومية وفحوصات منتظمة، غير أن كثيرًا من الناس يفقدون المتابعة بين الزيارات؛ إذ يصعب عليهم الالتزام، ويفتقرون إلى سجل منظّم للنظر والأدوية، وينسون مواعيدهم، فيتأخر اكتشاف التغيّرات التدريجية في النظر.",en:"Good eye health needs daily habits and regular check-ups, yet many people lose track between clinic visits: habits are hard to keep, there's no organized record of vision or medication, appointments are forgotten, and gradual vision changes are detected late."},
+  solution:{ar:"تطبيق واحد يجمع فحص النظر المنزلي، وسجلّ النظر، والاستشارة الطبية، والتذكيرات اليومية، ليبقى المستخدم على اطلاع دائم بصحة عينيه بين الزيارات.",en:"One app that combines at-home vision testing, a vision history record, doctor consultations, and daily reminders, so users stay on top of their eye health between visits."},
+  features:{ar:["فحص منزلي للنظر بتعليمات واضحة ونتائج فورية", "سجل للنظر برسم بياني عبر الزمن، مع نصائح للمشكلات الشائعة", "استشارة طبية: وصف الأعراض، ومحادثة الطبيب، والحصول على ملخص للحالة", "عناية يومية: تذكيرات مخصّصة، ومتابعة القطرات، وتاريخ انتهاء العدسات، وتمارين موجّهة للعين", "خيارات لتسهيل الوصول وتخصيص التجربة"],en:["At-home vision test with guided instructions and instant results","Vision history charted over time, plus tips for common eye problems","Eye consultation: describe symptoms, chat with a doctor, get a care summary","Daily eye care: custom reminders, eye-drop tracker, lens-expiry tracking, guided eye exercises","Accessibility and customization options"]},
+  tech:["Figma",{ar:"تصميم UI/UX",en:"UI/UX Design"},{ar:"النماذج الأولية",en:"Prototyping"}],skills:["figma","uiux","proto","team"],
+  role:{ar:"قائدة المشروع ومصمّمة واجهات وتجربة مستخدم ضمن فريق من ستة أعضاء: قُدتُ الفريق ونظّمتُ سير العمل، وشاركتُ في تصميم رحلة المستخدم والشاشات والنموذج التفاعلي على Figma.",en:"Project leader and UI/UX designer in a 6-member team: led the team and organized the workflow, and worked on user flows, screen design, and the interactive Figma prototype."},
   members:["Fatimah Bin Mohammed","Shaima Aldrawiesh","Sarah Alhuzaymi","Raneem Alsheddi","Ghala Alharbi","Jana Alharbi"],
   links:[{k:"figma",l:{ar:"النموذج التفاعلي",en:"Figma Prototype"},u:"https://www.figma.com/proto/4K9z8hPdzT6BTMI9LzF0Hw/UX-phase-2?page-id=0%3A1&node-id=2052-1621&p=f&viewport=556%2C-581%2C0.42&t=GcICHqHdFga5k6Hj-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=9%3A148"},{k:"poster",l:{ar:"البوستر",en:"Poster"},img:"basirah-cover"}],
   gallery:["basirah-cover"]},
  {id:"latable",cats:["mobile"],team:false,main:"mobile",date:{ar:"أغسطس 2026",en:"Aug 2026"},cover:"latable-cover",
   award:{ar:"🏆 المركز الأول في التقييم",en:"🏆 1st Place in Evaluation"},
-  title:{ar:"لا تيبل",en:"La Table"},tagline:{ar:"تفضّل بالجلوس، الشيف الصغير بانتظارك.",en:"Pull up a chair — the little chef has been expecting you."},
-  short:{ar:"تطبيق يعرّفك على المطبخ الفرنسي بهوية دافئة وشخصية شيف أصلية، مبني بـ Flutter.",en:"A Flutter app that introduces French cuisine with a warm identity and an original chef mascot."},
-  overview:{ar:"مشروع فردي بـ Flutter يأخذك في جولة داخل المطبخ الفرنسي: تتصفّح الأطباق، وتشوف مكوّناتها بالتفصيل، وتحفظ المفضّلة عندك. صمّمت له هوية بصرية دافئة بألوان ورقية ولمسات أحمر كرزي، مع شخصية فأر شيف أصلية ترافق المستخدم من أول شاشة، وحركات تفاعلية تعطي التطبيق روحه الخاصة. بيانات الأطباق حقيقية من TheMealDB API. وحصل المشروع على المركز الأول في تقييم مشاريع معسكر Flutter المقدّم من أكاديمية طويق.",en:"A solo Flutter project that takes you on a tour of French cuisine: browse dishes, explore their ingredients in detail, and save your favorites. I designed a warm visual identity with paper tones and cherry-red accents, an original mouse-chef mascot that welcomes users from the first screen, and playful animations that give the app its own personality. Dish data comes from TheMealDB API. The project won first place in the project evaluation of the Flutter bootcamp presented by Tuwaiq Academy."},
-  problem:{ar:"أغلب تطبيقات الوصفات متشابهة: قوائم عامة وتصاميم جامدة ما تعكس دفء وشخصية المطبخ اللي تعرضه.",en:"Most recipe apps look the same: generic lists and cold layouts that don't reflect the warmth and character of the cuisine they show."},
-  solution:{ar:"تجربة بطابع خاص تحسسك إنك في مطعم باريسي، تجمع بين بيانات حية من API ونظام تصميم مميز مرسوم يدوياً مع أنيميشن ممتع.",en:"A themed experience that feels like sitting in a Paris bistro, pairing live API data with a distinctive hand-crafted design system and playful animations."},
-  features:{ar:["شاشة افتتاحية متحركة بعدة مراحل مع شخصية الشيف","تنقل من القائمة إلى تفاصيل الطبق والمكونات","قائمة المفضلة","تصميم مخصص لحالات التحميل والخطأ والصفحات الفاضية","نظام موحد لعناصر التصميم ومكتبة ويدجتس قابلة لإعادة الاستخدام"],en:["Animated multi-stage splash with a tap-to-continue chef character","Menu → dish details flow with ingredients","Favorites list","Branded loading, error, and empty states","Unified design-token system and a reusable widget library"]},
-  tech:["Flutter","Dart","REST API (TheMealDB)",{ar:"الحركة والأنيميشن",en:"Animations"}],skills:["flutter","dart","uiux"],
-  role:{ar:"مشروع فردي: التصميم والبرمجة. حصل على المركز الأول في تقييم معسكر Flutter من أكاديمية طويق.",en:"Solo project: design and development. Placed 1st in the Tuwaiq Academy Flutter bootcamp evaluation."},members:[],
+  title:{ar:"لا تيبل",en:"La Table"},tagline:{ar:"تفضّل بالجلوس، فالشيف الصغير في انتظارك.",en:"Pull up a chair — the little chef has been expecting you."},
+  short:{ar:"تطبيق يعرّف بالمطبخ الفرنسي بهوية بصرية دافئة وشخصية شيف أصلية، مبني بـ Flutter.",en:"A Flutter app that introduces French cuisine with a warm identity and an original chef mascot."},
+  overview:{ar:"مشروع فردي مبني بـ Flutter، يصحب المستخدم في جولة داخل المطبخ الفرنسي؛ إذ يتيح له تصفّح الأطباق، والاطلاع على مكوّناتها بالتفصيل، وحفظ ما يفضّله منها. صمّمتُ له هوية بصرية دافئة بألوان ورقية ولمسات من الأحمر الكرزي، مع شخصية فأر شيف أصلية ترافق المستخدم منذ الشاشة الأولى، وحركات تفاعلية تمنح التطبيق طابعه الخاص. وتُستمد بيانات الأطباق من TheMealDB API. وقد حصل المشروع على المركز الأول في تقييم مشاريع معسكر Flutter المقدَّم من أكاديمية طويق.",en:"A solo Flutter project that takes you on a tour of French cuisine: browse dishes, explore their ingredients in detail, and save your favorites. I designed a warm visual identity with paper tones and cherry-red accents, an original mouse-chef mascot that welcomes users from the first screen, and playful animations that give the app its own personality. Dish data comes from TheMealDB API. The project won first place in the project evaluation of the Flutter bootcamp presented by Tuwaiq Academy."},
+  problem:{ar:"تتشابه أغلب تطبيقات الوصفات في قوائمها العامة وتصاميمها الجامدة التي لا تعكس دفء المطبخ الذي تعرضه ولا شخصيته.",en:"Most recipe apps look the same: generic lists and cold layouts that don't reflect the warmth and character of the cuisine they show."},
+  solution:{ar:"تجربة ذات طابع خاص تنقل المستخدم إلى أجواء المطعم الباريسي، وتجمع بين بيانات حيّة من واجهة برمجية، ونظام تصميم مميّز مرسوم يدويًا، وحركات تفاعلية ممتعة.",en:"A themed experience that feels like sitting in a Paris bistro, pairing live API data with a distinctive hand-crafted design system and playful animations."},
+  features:{ar:["شاشة افتتاحية متحركة متعددة المراحل مع شخصية الشيف", "انتقال سلس من قائمة الأطباق إلى تفاصيل الطبق ومكوّناته", "قائمة للأطباق المفضّلة", "تصميم مخصّص لحالات التحميل والخطأ والصفحات الفارغة", "نظام موحّد لعناصر التصميم ومكتبة مكوّنات قابلة لإعادة الاستخدام"],en:["Animated multi-stage splash with a tap-to-continue chef character","Menu → dish details flow with ingredients","Favorites list","Branded loading, error, and empty states","Unified design-token system and a reusable widget library"]},
+  tech:["Flutter","Dart","REST API (TheMealDB)"],skills:["flutter","dart","uiux"],
+  role:{ar:"مشروع فردي: التصميم والبرمجة. وقد حصل على المركز الأول في تقييم مشاريع معسكر Flutter المقدَّم من أكاديمية طويق.",en:"Solo project: design and development. Placed 1st in the Tuwaiq Academy Flutter bootcamp evaluation."},members:[],
   links:[{k:"github",l:{ar:"GitHub",en:"GitHub"},u:"https://github.com/Engfatiimah/Fatimah_project2"}],
   gallery:["latable-cover"]},
  {id:"explorer",cats:["mobile"],main:"mobile",date:{ar:"2026",en:"2026"},svg:LE_SVG,
-  title:{ar:"المستكشف الصغير",en:"Little Explorer"},tagline:{ar:"الكواكب تتكلم!",en:"The planets talk back!"},
-  short:{ar:"تطبيق للأطفال يسألون فيه الكوكب نفسه، والكوكب يرد ويعرّف بنفسه بلغة بسيطة.",en:"A kids' app where children ask the planet itself, and it answers in simple words."},
-  overview:{ar:"المستكشف الصغير يعلّم الأطفال من 6 إلى 10 سنوات عن الكواكب بطريقة مختلفة: التعلّم يصير محادثة. الطفل يذكر أي كوكب ويسأله اللي يبي، والكوكب يرد بصيغة المتكلم وبجمل قصيرة وواضحة، مدعوم بـ Gemini API.",en:"Little Explorer teaches kids aged 6 to 10 about the planets in a new way: learning becomes a conversation. A child names any planet and asks it anything, and the planet replies in the first person with short, clear sentences, powered by the Gemini API."},
-  problem:{ar:"المعلومات العلمية عن الفضاء تُقدَّم للأطفال غالبًا كنصوص جامدة، فيفقدون الحماس بسرعة.",en:"Space facts are usually presented to kids as dry text, so their excitement fades quickly."},
-  solution:{ar:"شخصية لكل كوكب يتكلم عن نفسه، فيقود الطفل الاستكشاف بأسئلته ويتعلم وهو يلعب.",en:"Each planet becomes a character that talks about itself, so the child leads the exploration and learns through play."},
-  features:{ar:["شاشة محادثة واحدة مع شخصية «رفيق الفضاء»","كل كوكب يعرّف بنفسه بصيغة المتكلم عبر تعليمات نظام مكتوبة للأطفال","يفهم الأسئلة المتتابعة كجزء من نفس المحادثة","ردود قصيرة ولغة سهلة تناسب العمر","واجهة فضائية داكنة مبنية على dash_chat_2"],en:["One chat screen with a “Space Buddy” persona","Each planet introduces itself in the first person via a kid-friendly system prompt","Understands follow-up questions in context","Short, age-appropriate replies","Dark space-themed UI built on dash_chat_2"]},
-  tech:["Flutter","Dart","Gemini API","dash_chat_2"],skills:["flutter","dart"],
+  title:{ar:"المستكشف الصغير",en:"Little Explorer"},tagline:{ar:"الكواكب تتحدّث!",en:"The planets talk back!"},
+  short:{ar:"تطبيق تعليمي للأطفال يطرحون فيه أسئلتهم على الكواكب مباشرة، فتجيبهم بلغة بسيطة.",en:"A kids' app where children ask the planet itself, and it answers in simple words."},
+  overview:{ar:"يعلّم «المستكشف الصغير» الأطفالَ من سن السادسة إلى العاشرة عن الكواكب بأسلوب يحوّل التعلّم إلى محادثة؛ إذ يذكر الطفل اسم الكوكب ويسأله عمّا يشاء، فيجيبه الكوكب بصيغة المتكلم وبجمل قصيرة واضحة، اعتمادًا على واجهة Gemini API.",en:"Little Explorer teaches kids aged 6 to 10 about the planets in a new way: learning becomes a conversation. A child names any planet and asks it anything, and the planet replies in the first person with short, clear sentences, powered by the Gemini API."},
+  problem:{ar:"كثيرًا ما تُقدَّم المعلومات العلمية عن الفضاء للأطفال في صورة نصوص جامدة، فيخبو حماسهم سريعًا.",en:"Space facts are usually presented to kids as dry text, so their excitement fades quickly."},
+  solution:{ar:"يتحوّل كل كوكب إلى شخصية تتحدث عن نفسها، فيقود الطفل رحلة الاستكشاف بأسئلته ويتعلّم وهو يستمتع.",en:"Each planet becomes a character that talks about itself, so the child leads the exploration and learns through play."},
+  features:{ar:["شاشة محادثة واحدة مع شخصية «رفيق الفضاء»", "يعرّف كل كوكب بنفسه بصيغة المتكلم عبر تعليمات نظام مكتوبة خصيصًا للأطفال", "فهم الأسئلة المتتابعة بوصفها جزءًا من المحادثة نفسها", "إجابات قصيرة بلغة سهلة تناسب عمر الطفل", "واجهة فضائية داكنة مبنية بحزمة dash_chat_2"],en:["One chat screen with a “Space Buddy” persona","Each planet introduces itself in the first person via a kid-friendly system prompt","Understands follow-up questions in context","Short, age-appropriate replies","Dark space-themed UI built on dash_chat_2"]},
+  tech:["Flutter","Dart","Gemini API","Postman","dash_chat_2"],skills:["flutter","dart","postman"],
   role:{ar:"التصميم والبرمجة.",en:"Design and development."},members:[],links:[{k:"github",l:{ar:"GitHub",en:"GitHub"},u:"https://github.com/Engfatiimah/Fatimah_lab6"}],gallery:[]}
 ];
 
 const SKILLS=[
  {g:"sk_prog",items:[["java","Java"],["python","Python"],["dart","Dart"],["cpp","C++ (Arduino)"]]},
- {g:"sk_dev",items:[["flutter","Flutter"],["supabase","Supabase"],["figma","Figma"],["uiux","UI/UX"],["proto",{ar:"النماذج الأولية",en:"Prototyping"}]]},
+ {g:"sk_dev",items:[["flutter","Flutter"],["supabase","Supabase"],["figma","Figma"],["uiux","UI/UX"],["postman","Postman"],["proto",{ar:"النماذج الأولية",en:"Prototyping"}]]},
  {g:"sk_db",items:[["sql","SQL"],["apex","Oracle APEX"],["postgres","PostgreSQL"]]},
  {g:"sk_soft",items:[["lead",{ar:"القيادة",en:"Leadership"}],["team",{ar:"العمل الجماعي",en:"Teamwork"}],["comm",{ar:"التواصل",en:"Communication"}],["events",{ar:"تنسيق الفعاليات",en:"Event Coordination"}],["ps",{ar:"حل المشكلات",en:"Problem Solving"}],["detail",{ar:"الدقة",en:"Attention to Detail"}]]}
 ];
@@ -705,33 +701,34 @@ const SKILL_DESC={
  python:{ar:"أول لغة تعلمتها، وأستخدمها في المنطق البرمجي وتحليل البيانات.",en:"The first language I learned; I use it for programming logic and data analysis."},
  dart:{ar:"لغة تطبيقاتي في Flutter: برمجة كائنية وغير متزامنة ونماذج بيانات واضحة.",en:"The language behind my Flutter apps: OOP, async code and clean data models."},
  cpp:{ar:"برمجة المتحكمات الدقيقة وتجارب الإلكترونيات العملية على Arduino.",en:"Programming microcontrollers and hands-on electronics with Arduino."},
+ postman:{ar:"أختبر فيه واجهات البرمجة (APIs) وأجرّب الطلبات والاستجابات قبل ربطها بالتطبيق، كما في «المستكشف الصغير».",en:"I use it to test APIs and try out requests and responses before wiring them into the app, as in Little Explorer."},
  flutter:{ar:"أبني فيه تطبيقات جوال كاملة بواجهات متحركة وتجربة سلسة.",en:"I build complete mobile apps with it, with animated interfaces and smooth flows."},
  supabase:{ar:"الباك إند في فيكتور: قاعدة بيانات، مصادقة، صلاحيات، وتخزين خاص بروابط مؤقتة.",en:"Vector's backend: database, auth, row-level security, and private storage with signed URLs."},
- figma:{ar:"أصمم فيه الشاشات والنماذج التفاعلية قبل ما أبدأ البرمجة.",en:"Where I design screens and interactive prototypes before writing code."},
- uiux:{ar:"أبدأ من المستخدم: مشكلته، ثم رحلته، ثم الشاشة المناسبة.",en:"I start from the user: their problem, then their journey, then the right screen."},
+ figma:{ar:"أصمّم فيه الشاشات والنماذج التفاعلية قبل البدء في البرمجة.",en:"Where I design screens and interactive prototypes before writing code."},
+ uiux:{ar:"أبدأ من المستخدم: مشكلته، ثم رحلته، ثم الشاشة المناسبة له.",en:"I start from the user: their problem, then their journey, then the right screen."},
  proto:{ar:"نماذج تفاعلية تختبر الفكرة وتوضحها قبل التنفيذ.",en:"Interactive prototypes that test and explain an idea before it's built."},
  sql:{ar:"كتابة الاستعلامات وتصميم الجداول والعلاقات.",en:"Writing queries and designing tables and relationships."},
  apex:{ar:"بناء تطبيقات قواعد بيانات بسرعة ضمن دراستي.",en:"Building database apps quickly as part of my coursework."},
  postgres:{ar:"قاعدة بيانات فيكتور عبر Supabase مع سياسات أمان على مستوى الصفوف.",en:"Vector's database on Supabase, with row-level security policies."},
- lead:{ar:"أحب أنظّم الفريق وأوزع المهام وأتابع التنفيذ.",en:"I enjoy organizing a team, splitting tasks and following through."},
+ lead:{ar:"أحرص على تنظيم الفريق وتوزيع المهام ومتابعة التنفيذ.",en:"I enjoy organizing a team, splitting tasks and following through."},
  team:{ar:"أغلب مشاريعي جماعية، من فريق من اثنين إلى فريق من ستة.",en:"Most of my projects are team projects, from teams of two to teams of six."},
  comm:{ar:"من العرض على مسرح Money20/20 إلى التواصل مع الشركاء في الأندية الطلابية.",en:"From pitching on stage at Money20/20 to working with partners in student clubs."},
  events:{ar:"من تنظيم فعالية «خطط لمستقبلك» مع مؤسسة مسك والتطوع في برامج وطنية.",en:"From organizing the “Plan Your Future” event with Misk to volunteering in national programs."},
- ps:{ar:"أقسّم المشكلة لخطوات صغيرة وأجرّب لين أوصل للحل الأنظف.",en:"I break problems into small steps and iterate until I reach the cleanest solution."},
- detail:{ar:"التفاصيل الصغيرة هي اللي تفرق في تجربة المستخدم.",en:"Small details are what make the difference in a user's experience."}
+ ps:{ar:"أقسّم المشكلة إلى خطوات صغيرة، وأجرّب حتى أصل إلى الحل الأمثل.",en:"I break problems into small steps and iterate until I reach the cleanest solution."},
+ detail:{ar:"التفاصيل الصغيرة هي ما يصنع الفرق في تجربة المستخدم.",en:"Small details are what make the difference in a user's experience."}
 };
 
-const ACH={img:"flowpay-cover",
- t:{ar:"المركز السادس: هاكاثون البلاد للفنتك",en:"6th Place: Albilad FinTech Hackathon"},date:{ar:"سبتمبر 2025",en:"Sep 2025"},
- d:{ar:"من بين 175 فريق وأكثر من 1600 متقدم، وصل فريقنا ضمن 27 فريق في مرحلة التحكيم وحقق المركز السادس بتطبيق فلو باي، في هاكاثون نظمه بنك البلاد وفنتك السعودية ومنشآت. وعرضنا فكرتنا على المسرح في الحفل الختامي ضمن معرض Money20/20 Middle East.",en:"Out of 175 teams and 1,600+ applicants, our team was one of 27 finalists and placed 6th with Flow Pay, in a hackathon by Bank Albilad, Fintech Saudi, and Monsha'at. We pitched the app on stage at the closing ceremony, held as part of Money20/20 Middle East."},
+const ACH={img:"flowpay-card",
+ t:{ar:"المركز السادس: هاكاثون بنك البلاد للفنتك",en:"6th Place: Bank Albilad FinTech Hackathon"},date:{ar:"سبتمبر 2025",en:"Sep 2025"},
+ d:{ar:"من بين 175 فريقًا وأكثر من 1600 متقدّم، تأهّل فريقنا ضمن 27 فريقًا إلى مرحلة التحكيم، وحقّق المركز السادس بتطبيق «فلو باي» في هاكاثون نظّمه بنك البلاد وفنتك السعودية ومنشآت، وعرضنا الفكرة على المسرح في الحفل الختامي ضمن معرض Money20/20 Middle East.",en:"Out of 175 teams and 1,600+ applicants, our team was one of 27 finalists and placed 6th with Flow Pay, in a hackathon by Bank Albilad, Fintech Saudi, and Monsha'at. We pitched the app on stage at the closing ceremony, held as part of Money20/20 Middle East."},
  stats:[["175",{ar:"فريق",en:"teams"}],["1,600+",{ar:"متقدم",en:"applicants"}],[{ar:"أفضل 27",en:"Top 27"},{ar:"في التحكيم",en:"finalists"}]],
- project:"flowpay",link:"https://www.linkedin.com/feed/update/urn:li:activity:7374489195924553728/"};
+ project:"flowpay"};
 
 const CERTS=[
  {t:{ar:"معسكر تطوير تطبيقات Flutter",en:"Flutter App Development Bootcamp"},i:{ar:"نادي طويق، جامعة الإمام",en:"Tuwaiq Club, IMSIU"},d:{ar:"أغسطس – سبتمبر 2026",en:"Aug 2026 – Sep 2026"},c:"b",x:{ar:"بناء تطبيقات جوال متعددة المنصات بـ Flutter وDart: تنفيذ الواجهات وهيكلة التطبيق والتفاعل.",en:"Built cross-platform mobile apps with Flutter and Dart: UI implementation, app structure, and interactive functionality."}},
  {t:{ar:"برنامج Vibe Coding",en:"Vibe Coding Program"},i:{ar:"نادي طويق، جامعة الأميرة نورة",en:"Tuwaiq Club, PNU"},d:{ar:"أغسطس 2026",en:"Aug 2026"},c:"c",x:{ar:"البرمجة بمساعدة الذكاء الاصطناعي ودمج أدوات الذكاء التوليدي في تطوير البرمجيات.",en:"Explored AI-assisted coding and integrating generative AI tools into the software development process."}},
  {t:{ar:"أساسيات برمجة المتحكمات الدقيقة (Arduino)",en:"Fundamentals of Microcontroller Programming (Arduino)"},i:{ar:"أكاديمية طويق",en:"Tuwaiq Academy"},d:{ar:"مايو 2025",en:"May 2025"},c:"c",x:{ar:"أساسيات الكهرباء والإلكترونيات وبرمجة Arduino بلغة C++ بشكل عملي.",en:"Electricity and electronics fundamentals, and Arduino C++ programming through hands-on learning."}},
- {t:{ar:"برنامج تدريب دبلوماسية الطاقة",en:"Energy Diplomacy Internship"},i:{ar:"Women & Energy ومعهد السياسة العالمية (IWP)",en:"Women & Energy and the Institute of World Politics (IWP)"},d:{ar:"فبراير 2025",en:"Feb 2025"},c:"p",x:{ar:"برنامج مكثف عن أمن الطاقة والدبلوماسية وتحديات الطاقة العالمية، بالتعاون مع وزارة الطاقة.",en:"Intensive program on energy security, diplomacy, and global energy challenges, in collaboration with the Saudi Ministry of Energy."}},
+ {t:{ar:"برنامج تدريب دبلوماسية الطاقة",en:"Energy Diplomacy Internship"},i:{ar:"Women & Energy ومعهد السياسة العالمية (IWP)",en:"Women & Energy and the Institute of World Politics (IWP)"},d:{ar:"فبراير 2025",en:"Feb 2025"},c:"p",x:{ar:"برنامج مكثف عن أمن الطاقة والدبلوماسية وتحديات الطاقة العالمية، قدّمته مبادرة Women & Energy ومعهد السياسة العالمية (IWP)، بالتعاون مع وزارة الطاقة.",en:"An intensive program on energy security, diplomacy, and global energy challenges, delivered by Women & Energy and the Institute of World Politics (IWP), in collaboration with the Saudi Ministry of Energy."}},
  {t:{ar:"مبرمجو ذكاء المستقبل",en:"Future Intelligence Programmers"},i:{ar:"سدايا ووزارة التعليم",en:"SDAIA & Ministry of Education"},d:{ar:"مارس 2024",en:"Mar 2024"},c:"p",x:{ar:"أساسيات الذكاء الاصطناعي ومفاهيمه العلمية.",en:"Fundamentals of artificial intelligence and its scientific concepts."}},
  {t:{ar:"لغة البرمجة Python",en:"Python Programming Language"},i:{ar:"أكاديمية طويق",en:"Tuwaiq Academy"},d:{ar:"أكتوبر 2023",en:"Oct 2023"},c:"c",x:{ar:"أساسيات لغة Python وتطبيقاتها ومفاهيم البرمجة الأساسية.",en:"Foundations of Python programming, its applications, and core programming concepts."}}
 ];
@@ -747,7 +744,6 @@ const VOLS=[
  {ic:"bolt",o:{ar:"برنامج قيادات المرأة في دبلوماسية الطاقة",en:"Women in Energy Diplomacy Leadership Program"},r:{ar:"متطوعة",en:"Volunteer"},d:{ar:"فبراير 2025",en:"Feb 2025"},x:{ar:"تطوعت في برنامج يهدف لتمكين المرأة في المناصب القيادية في مختلف المجالات.",en:"Volunteered in a program that aims to empower more women in leadership roles across various fields."},n:{ar:"بتنظيم وزارة الطاقة بالتعاون مع Women & Energy وكابسارك.",en:"Organized by the Ministry of Energy with Women & Energy and KAPSARC."}}
 ];
 
-const SCREENS=[{id:"vector",img:"scr-vector",bar:"#3D2847"},{id:"latable",img:"scr-latable",bar:"#FBF6EE"},{id:"flowpay",img:"scr-flowpay",bar:"#EEF2F8"}];
 
 const ICON={
  arrow:'<svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
@@ -793,7 +789,7 @@ function setLang(){
  $("#langBtn").textContent=lang==="ar"?"EN":"ع";
  $("#heroName").innerHTML=`<span class="w"><span>${d.name1}</span></span> <span class="w"><span class="accent">${d.name2}</span></span>`;
  $$("#heroName .w>span").forEach((s,i)=>s.style.animationDelay=(reduce?0:(document.body.dataset.ready?0:1.1))+i*.12+"s");
- const mq=lang==="ar"?["Flutter","Dart","Supabase","Figma","تصميم UI/UX","النماذج الأولية","PostgreSQL","Python","Java","SQL","Oracle APEX","C++","العمل الجماعي","القيادة"]:["Flutter","Dart","Supabase","Figma","UI/UX","Prototyping","PostgreSQL","Python","Java","SQL","Oracle APEX","C++","Teamwork","Leadership"];
+ const mq=lang==="ar"?["Flutter","Dart","Supabase","Figma","تصميم UI/UX","النماذج الأولية","PostgreSQL","Postman","Python","Java","SQL","Oracle APEX","C++","العمل الجماعي","القيادة"]:["Flutter","Dart","Supabase","Figma","UI/UX","Prototyping","PostgreSQL","Postman","Python","Java","SQL","Oracle APEX","C++","Teamwork","Leadership"];
  $("#marq").innerHTML=[0,1].map(()=>`<span>${mq.join("</span><span>")}</span>`).join("");
  $("#bigm").innerHTML=d.bigm.repeat(4);
  renderBento();renderTabs();splitText();rotInit();renderFilters();renderProjects();renderSkills();renderAch();renderCerts();renderVols();renderContact();
@@ -805,7 +801,7 @@ function setLang(){
 function renderBento(){
  const d=T[lang];
  const f=(ic,k,teal)=>`<div class="tile fact rv${teal?" teal":""}"><span class="fic">${ICON[ic]}</span><span class="fl">${d["f_"+k]}</span><b>${d["f_"+k+"_v"]}</b><span class="s">${d["f_"+k+"_s"]}</span></div>`;
- $("#bento").innerHTML=`<div class="tile big rv"><p>${esc(d.about)}</p><div class="sig">${d.brand}</div></div>${f("cap","edu")}${f("pin","loc")}${f("spark","now",true)}${f("globe","lang")}`;
+ $("#bento").innerHTML=`<div class="tile big rv"><p>${esc(d.about)}</p></div>${f("cap","edu")}${f("pin","loc")}${f("spark","now",true)}${f("globe","lang")}`;
  reveal();
 }
 
