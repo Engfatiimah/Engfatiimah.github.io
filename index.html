@@ -1,0 +1,1123 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Fatimah Bin Mohammed — Portfolio</title>
+<meta name="description" content="IT student at King Saud University, Flutter developer and UI/UX designer. Projects, achievements, and certificates.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Readex+Pro:wght@300;400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#F6F1E8; --bg-2:#EFE8DB; --surface:#FFFCF6; --tint:#E2EEEA; --ink:#132C29; --muted:#5A6B67; --line:#DDD4C4;
+  --teal:#0E4B48; --teal-2:#1D6E68; --teal-3:#2F8F86; --terra:#C25E36; --terra-2:#E08157; --terra-soft:#F4DDD0; --on-teal:#F6F1E8;
+  --glass:rgba(255,252,246,.74); --shadow:0 1px 2px rgba(14,75,72,.06),0 14px 34px -18px rgba(14,75,72,.32);
+  --f-display:"Readex Pro","IBM Plex Sans Arabic",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans Arabic","Readex Pro",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --ease:cubic-bezier(.2,.8,.2,1); --spring:cubic-bezier(.34,1.56,.64,1);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;
+  --bg:#0B1615; --bg-2:#0F1D1C; --surface:#12211F; --tint:#163230; --ink:#EEE7DB; --muted:#98ABA6; --line:#223B38;
+  --teal:#58B2A6; --teal-2:#79C6BA; --teal-3:#9ED8CD; --terra:#E68A60; --terra-2:#F2A57F; --terra-soft:#3A2419; --on-teal:#0B1615;
+  --glass:rgba(18,33,31,.74); --shadow:0 1px 2px rgba(0,0,0,.3),0 14px 34px -16px rgba(0,0,0,.7);}}
+:root[data-theme="dark"]{color-scheme:dark;
+  --bg:#0B1615; --bg-2:#0F1D1C; --surface:#12211F; --tint:#163230; --ink:#EEE7DB; --muted:#98ABA6; --line:#223B38;
+  --teal:#58B2A6; --teal-2:#79C6BA; --teal-3:#9ED8CD; --terra:#E68A60; --terra-2:#F2A57F; --terra-soft:#3A2419; --on-teal:#0B1615;
+  --glass:rgba(18,33,31,.74); --shadow:0 1px 2px rgba(0,0,0,.3),0 14px 34px -16px rgba(0,0,0,.7);}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{overflow-x:clip}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:clip;transition:background .5s,color .5s}
+a{color:inherit}
+button{font:inherit;color:inherit}
+h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.25}
+p{margin:0}
+::selection{background:var(--terra);color:#fff}
+:focus-visible{outline:2px solid var(--terra);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1120px;margin-inline:auto;padding-inline:20px}
+svg.i{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* intro */
+.curtain{position:fixed;inset:0;z-index:100;background:var(--teal);display:grid;place-items:center;pointer-events:none;clip-path:inset(0 0 0 0);animation:curtain 1s var(--ease) .5s forwards}
+.curtain span{font-family:var(--f-display);font-weight:700;font-size:clamp(34px,6vw,64px);color:var(--on-teal);animation:cword .8s var(--ease) forwards}
+.curtain i{position:absolute;bottom:0;inset-inline:0;height:3px;background:var(--terra);transform-origin:left;animation:cbar .55s var(--ease) forwards}
+@keyframes curtain{to{clip-path:inset(0 0 100% 0)}}
+@keyframes cword{0%{opacity:0;transform:translateY(24px)}45%{opacity:1;transform:none}100%{opacity:1}}
+@keyframes cbar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+.progress{position:fixed;top:0;inset-inline:0;height:3px;z-index:90;background:linear-gradient(90deg,var(--teal),var(--terra));transform-origin:0 50%;transform:scaleX(0)}
+[dir="rtl"] .progress{transform-origin:100% 50%}
+.cur,.cur-ring{position:fixed;top:0;left:0;z-index:95;pointer-events:none;border-radius:50%;opacity:0;transition:opacity .3s}
+.cur{width:7px;height:7px;background:var(--terra);margin:-3.5px 0 0 -3.5px}
+.cur-ring{width:32px;height:32px;border:1.5px solid var(--teal);margin:-16px 0 0 -16px;transition:width .3s var(--ease),height .3s var(--ease),margin .3s var(--ease),background .3s,opacity .3s}
+.cur-ring.big{width:54px;height:54px;margin:-27px 0 0 -27px;background:color-mix(in srgb,var(--terra) 14%,transparent);border-color:var(--terra)}
+@media (pointer:fine){body.has-cur .cur,body.has-cur .cur-ring{opacity:1}}
+
+/* nav */
+.nav{position:fixed;top:calc(env(safe-area-inset-top,0px) + 12px);inset-inline:0;z-index:50;display:flex;justify-content:center;padding-inline:12px;transition:transform .4s var(--ease)}
+.nav.hide{transform:translateY(-130%)}
+.navin{display:flex;align-items:center;gap:4px;background:var(--glass);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);border:1px solid var(--line);border-radius:999px;padding:5px;box-shadow:var(--shadow);max-width:100%}
+.logo{width:34px;height:34px;border-radius:50%;background:var(--teal);color:var(--on-teal);display:grid;place-items:center;font-family:var(--f-display);font-weight:700;font-size:14px;text-decoration:none;flex:none;transition:transform .5s var(--spring)}
+.logo:hover{transform:rotate(-12deg) scale(1.08)}
+.navlinks{position:relative;display:flex;gap:1px}
+.navlinks a{position:relative;z-index:1;text-decoration:none;font-size:13px;padding:7px 12px;border-radius:999px;color:var(--muted);transition:color .3s;white-space:nowrap}
+.navlinks a.on{color:var(--on-teal)}
+.navpill{position:absolute;top:0;bottom:0;left:0;border-radius:999px;background:var(--teal);transition:transform .45s var(--ease),width .45s var(--ease),opacity .3s;opacity:0}
+.ibtn{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--surface);cursor:pointer;display:grid;place-items:center;flex:none;transition:transform .3s var(--spring),border-color .3s}
+.ibtn:hover{transform:scale(1.08);border-color:var(--terra)}
+.ibtn.txt{width:auto;padding-inline:11px;border-radius:999px;font-family:var(--f-mono);font-size:12px}
+@media (max-width:860px){.navlinks{display:none}}
+
+/* hero */
+.hero{position:relative;padding-block:104px 56px;overflow:hidden}
+#dots{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.42;z-index:0;animation:float 18s ease-in-out infinite alternate}
+.blob.a{width:360px;height:360px;background:var(--teal-3);top:-110px;inset-inline-end:-70px}
+.blob.b{width:300px;height:300px;background:var(--terra-2);bottom:-140px;inset-inline-start:-90px;animation-delay:-6s;opacity:.28}
+@keyframes float{to{transform:translate(40px,30px) scale(1.12)}}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:36px;align-items:center}
+.hero .wrap>div{max-width:760px}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.hero{padding-block:90px 36px}}
+.status{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;background:var(--surface);border:1px solid var(--line);padding:5px 13px 5px 9px;border-radius:999px}
+.pulse{width:8px;height:8px;border-radius:50%;background:#2FB380;position:relative}
+.pulse::after{content:"";position:absolute;inset:0;border-radius:50%;background:#2FB380;animation:ping 1.8s ease-out infinite}
+@keyframes ping{to{transform:scale(3);opacity:0}}
+.hero h1{font-size:clamp(36px,5.4vw,64px);font-weight:700;letter-spacing:-.02em;margin-block:18px 6px;line-height:1.08}
+.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.22em;margin-bottom:-.14em}
+.hero h1 .w>span{display:inline-block;transform:translateY(110%);animation:rise .9s var(--ease) forwards}
+@keyframes rise{to{transform:none}}
+.hero h1 .accent{color:var(--teal)}
+.htitle{font-family:var(--f-mono);font-size:12.5px;color:var(--muted);letter-spacing:.02em;margin-bottom:12px}
+.rot{font-family:var(--f-display);font-size:clamp(18px,2.2vw,24px);font-weight:500;display:flex;align-items:center;gap:10px;flex-wrap:wrap;min-height:1.5em}
+.rot .lbl{color:var(--muted);font-weight:400}
+.rotbox{position:relative;display:inline-grid;overflow:hidden;height:1.9em;line-height:1.9em;color:var(--terra)}
+.rotbox span{grid-area:1/1;transition:transform .6s var(--ease),opacity .6s;white-space:nowrap}
+.rotbox span.out{transform:translateY(-100%);opacity:0}
+.rotbox span.wait{transform:translateY(100%);opacity:0}
+.hero .lead{font-size:16px;color:var(--muted);max-width:50ch;margin-top:12px}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.btn{position:relative;display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:14px;padding:11px 18px;border-radius:12px;border:1px solid transparent;cursor:pointer;overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s,border-color .3s,color .3s,background .3s;isolation:isolate;background:transparent}
+.btn.primary{background:var(--teal);color:var(--on-teal);box-shadow:0 10px 22px -12px var(--teal)}
+.btn.primary::before{content:"";position:absolute;inset:0;background:var(--terra);z-index:-1;transform:scaleY(0);transform-origin:bottom;transition:transform .45s var(--ease)}
+.btn.primary:hover::before{transform:scaleY(1)}
+.btn.outline{border-color:var(--terra);color:var(--terra)}
+.btn.outline:hover{background:var(--terra);color:#fff}
+.btn.ghost{border-color:var(--line);background:var(--surface)}
+.btn.ghost:hover{border-color:var(--teal)}
+.btn .arr{transition:transform .35s var(--ease)}
+.btn:hover .arr{transform:translateX(4px)}
+[dir="rtl"] .btn .arr{transform:scaleX(-1)}
+[dir="rtl"] .btn:hover .arr{transform:scaleX(-1) translateX(4px)}
+
+/* phone */
+.stage{display:grid;justify-items:center;gap:14px;perspective:1200px}
+.phone{width:min(240px,70vw);aspect-ratio:9/18.5;border-radius:38px;background:#0A1312;padding:9px;box-shadow:0 34px 70px -30px rgba(14,75,72,.55),0 0 0 1px rgba(255,255,255,.06) inset;transform:rotateY(var(--ry,-8deg)) rotateX(var(--rx,4deg));transition:transform .5s var(--ease);position:relative;max-width:100%}
+.phone::before{content:"";position:absolute;top:15px;left:50%;width:70px;height:20px;margin-left:-35px;border-radius:12px;background:#000;z-index:5}
+.screens{position:relative;width:100%;height:100%;border-radius:30px;overflow:hidden;direction:ltr;text-align:left}
+.scr{position:absolute;inset:0;padding:30px 0 0;cursor:pointer;display:flex;flex-direction:column;gap:9px;transition:transform .7s var(--ease),opacity .7s var(--ease);opacity:0;transform:translateX(100%) scale(.96);color:#E8ECFF;font-family:"Readex Pro",sans-serif;background:radial-gradient(circle at 70% 10%,var(--bg1),#0B0F26 62%)}
+.scr.on{opacity:1;transform:none}
+.scr.prev{opacity:0;transform:translateX(-40%) scale(.92)}
+.scr img{display:block;width:100%;flex:1;min-height:0;object-fit:cover;object-position:top}
+.scr.on img{animation:scrin 5.2s ease-out both}
+@keyframes scrin{from{transform:scale(1.06)}to{transform:none}}
+.scr .open{position:absolute;bottom:12px;left:50%;transform:translateX(-50%) translateY(8px);font-family:var(--f-body);font-size:11px;font-weight:600;background:rgba(14,75,72,.92);color:#fff;padding:5px 12px;border-radius:999px;opacity:0;transition:all .35s var(--ease);white-space:nowrap}
+.phone:hover .scr.on .open{opacity:1;transform:translateX(-50%)}
+.scr .st{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 20% 30%,#fff,transparent),radial-gradient(1px 1px at 70% 60%,#fff,transparent),radial-gradient(1.5px 1.5px at 40% 80%,#cfd8ff,transparent),radial-gradient(1px 1px at 85% 20%,#fff,transparent),radial-gradient(1px 1px at 10% 70%,#fff,transparent);opacity:.8}
+.scr .hd{position:relative;display:flex;align-items:center;gap:9px;font-weight:600;font-size:13px;margin-top:2px;line-height:1.3}
+.scr .hd small{display:block;font-size:9.5px;font-weight:400;opacity:.6}
+.planet{width:28px;height:28px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--p1),var(--p2));position:relative;flex:none}
+.planet.ring::after{content:"";position:absolute;inset:10px -7px;border:2px solid #E9D3A5;border-radius:50%;transform:rotate(-18deg)}
+.msg{position:relative;max-width:86%;font-size:11px;line-height:1.5;padding:7px 10px;border-radius:14px;opacity:0;transform:translateY(10px)}
+.scr.on .msg{animation:up .5s var(--ease) forwards}
+.msg.k{align-self:flex-end;background:#9FB7FF;color:#0B0F26;border-bottom-right-radius:4px}
+.msg.p{background:rgba(255,255,255,.1);border-bottom-left-radius:4px}
+.scr.on .msg:nth-of-type(3){animation-delay:.3s}.scr.on .msg:nth-of-type(4){animation-delay:.9s}.scr.on .msg:nth-of-type(5){animation-delay:1.7s}.scr.on .msg:nth-of-type(6){animation-delay:2.3s}
+@keyframes up{to{transform:none;opacity:1}}
+.inbar{position:relative;margin-top:auto;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:6px 6px 6px 12px;font-size:10.5px;color:rgba(232,236,255,.55)}
+.inbar b{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:#9FB7FF;color:#0B0F26;font-size:12px}
+.ptabs{display:flex;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px}
+.ptabs button{position:relative;border:0;background:transparent;font-size:12px;padding:6px 12px;border-radius:999px;cursor:pointer;color:var(--muted);overflow:hidden;transition:color .3s}
+.ptabs button.on{color:var(--ink);background:var(--tint)}
+.ptabs .bar{position:absolute;left:9px;right:9px;bottom:2px;height:2px;border-radius:2px;background:var(--line);overflow:hidden}
+.ptabs .bar i{position:absolute;inset:0;background:var(--terra);transform:scaleX(0);transform-origin:left}
+.ptabs button.on .bar i{animation:fill 5.2s linear forwards}
+.stage.paused .ptabs button.on .bar i{animation-play-state:paused}
+@keyframes fill{to{transform:scaleX(1)}}
+.phcap{font-family:var(--f-mono);font-size:11px;color:var(--muted);letter-spacing:.04em}
+
+/* marquee */
+.marq{position:relative;background:var(--teal);color:var(--on-teal);transform:rotate(-1.6deg);margin-block:24px 40px;margin-inline:-20px;overflow:hidden;padding-block:11px;direction:ltr}
+.marq .track{display:flex;gap:28px;width:max-content;animation:marq 34s linear infinite;font-family:var(--f-display);font-size:18px;font-weight:500}
+.marq .track span{display:flex;align-items:center;gap:28px;white-space:nowrap}
+.marq .track span::after{content:"✦";color:var(--terra-2);font-size:13px}
+.marq:hover .track{animation-play-state:paused}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* sections */
+.sec{padding-block:56px}
+.shead{margin-bottom:26px}
+.kick{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;color:var(--terra);display:flex;align-items:center;gap:9px;margin-bottom:8px}
+.kick::before{content:"";width:22px;height:1.5px;background:currentColor}
+.shead h2{font-size:clamp(24px,3.2vw,38px);font-weight:600;letter-spacing:-.01em}
+.split .ch{display:inline-block;opacity:0;transform:translateY(.5em) rotate(4deg);transition:transform .7s var(--ease),opacity .7s}
+.split.in .ch{opacity:1;transform:none}
+
+/* about bento */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.tile{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:18px;overflow:hidden;transition:transform .5s var(--ease),border-color .4s,box-shadow .5s}
+.tile:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--teal) 45%,var(--line));box-shadow:var(--shadow)}
+.tile.big{grid-column:span 2;grid-row:span 2;display:flex;flex-direction:column;justify-content:space-between;gap:16px;padding:22px}
+.tile.big p{font-size:15.5px;line-height:1.85;max-width:60ch}
+.sig{font-family:var(--f-display);font-size:22px;font-weight:600;color:var(--teal)}
+.fact{display:flex;flex-direction:column;gap:6px}
+.fact .fic{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:var(--tint);color:var(--teal);margin-bottom:4px;transition:transform .5s var(--spring)}
+.fact:hover .fic{transform:rotate(-10deg) scale(1.08)}
+.fact .fl{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;color:var(--terra);text-transform:uppercase}
+.fact b{font-family:var(--f-display);font-weight:600;font-size:15px;line-height:1.45}
+.fact span.s{font-size:13px;color:var(--muted)}
+.tile.teal{background:var(--teal);color:var(--on-teal);border-color:transparent}
+.tile.teal .fic{background:rgba(255,255,255,.14);color:var(--on-teal)}
+.tile.teal .fl{color:var(--terra-2)}
+.tile.teal span.s{color:var(--on-teal);opacity:.8}
+@media (max-width:900px){.bento{grid-template-columns:repeat(2,1fr)}.tile.big{grid-row:auto}}
+@media (max-width:460px){.bento{grid-template-columns:1fr}.tile.big{grid-column:auto}}
+
+/* hub tabs */
+.tabs{position:relative;display:flex;gap:3px;padding:5px;background:var(--bg-2);border:1px solid var(--line);border-radius:16px;overflow-x:auto;scrollbar-width:none;max-width:100%;width:max-content}
+.tabs::-webkit-scrollbar{display:none}
+.tab{position:relative;z-index:1;border:0;background:transparent;cursor:pointer;padding:9px 16px;border-radius:12px;font-size:14px;font-weight:500;color:var(--muted);white-space:nowrap;transition:color .35s}
+.tab[aria-selected="true"]{color:var(--on-teal)}
+.tabind{position:absolute;top:5px;bottom:5px;left:0;border-radius:12px;background:var(--teal);box-shadow:0 8px 18px -10px var(--teal);transition:transform .5s var(--ease),width .5s var(--ease)}
+.panels{position:relative;margin-top:22px}
+.panel{display:none}
+.panel.on{display:block;animation:pin .6s var(--ease)}
+.panel.on.back{animation-name:pinb}
+@keyframes pin{from{opacity:0;transform:translateX(34px)}to{opacity:1;transform:none}}
+@keyframes pinb{from{opacity:0;transform:translateX(-34px)}to{opacity:1;transform:none}}
+[dir="rtl"] .panel.on{animation-name:pinb}
+[dir="rtl"] .panel.on.back{animation-name:pin}
+
+.fbar{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.fchip{border:1px solid var(--line);background:var(--surface);padding:6px 14px;border-radius:999px;font-size:13px;cursor:pointer;color:var(--muted);transition:all .35s var(--ease);display:inline-flex;gap:7px;align-items:center}
+.fchip em{font-style:normal;font-family:var(--f-mono);font-size:10.5px;opacity:.7}
+.fchip:hover{color:var(--ink);transform:translateY(-2px)}
+.fchip[aria-pressed="true"]{background:var(--terra);color:#fff;border-color:var(--terra)}
+
+/* project cards (one template) */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
+@media (max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.grid{grid-template-columns:1fr}}
+.card{position:relative;display:flex;flex-direction:column;text-align:start;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;cursor:pointer;transform-style:preserve-3d;transform:perspective(900px) rotateX(var(--rx,0)) rotateY(var(--ry,0));transition:transform .4s var(--ease),box-shadow .4s,border-color .4s}
+.card:hover{box-shadow:var(--shadow);border-color:color-mix(in srgb,var(--teal) 40%,var(--line))}
+.card.hide{display:none}
+.card .glare{position:absolute;inset:0;pointer-events:none;background:radial-gradient(360px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.2),transparent 45%);opacity:0;transition:opacity .4s;z-index:2}
+.card:hover .glare{opacity:1}
+.cover{position:relative;aspect-ratio:16/10;max-width:100%;overflow:hidden;background:var(--bg-2)}
+.cover img,.cover svg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease);direction:ltr}
+.cover img.top{object-position:top}
+.card:hover .cover img,.card:hover .cover svg{transform:scale(1.05)}
+.cv-bob{animation:bob2 5s ease-in-out infinite}@keyframes bob2{50%{transform:translateY(-4px)}}
+.award{position:absolute;top:10px;inset-inline-start:10px;z-index:1;font-size:11px;font-weight:600;background:var(--terra);color:#fff;padding:3px 10px;border-radius:999px;box-shadow:0 6px 14px -8px rgba(0,0,0,.5);max-width:calc(100% - 20px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card .body{padding:14px 16px 14px;display:flex;flex-direction:column;gap:7px;flex:1}
+.card h3{font-size:17px;font-weight:600}
+.card .sd{font-size:13.5px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:3.1em;line-height:1.6}
+.pills{display:flex;flex-wrap:wrap;gap:5px}
+.pills span{font-family:var(--f-mono);unicode-bidi:isolate;font-size:10.5px;background:var(--tint);color:var(--teal-2);padding:2px 8px;border-radius:6px;direction:ltr}
+.cfoot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:10px;border-top:1px dashed var(--line)}
+.cfoot .dt{font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+.cfoot .acts2{display:flex;align-items:center;gap:5px}
+.lic{width:28px;height:28px;border-radius:8px;border:1px solid var(--line);display:grid;place-items:center;color:var(--muted);background:transparent;cursor:pointer;text-decoration:none;transition:all .3s var(--ease)}
+.lic:hover{color:var(--on-teal);background:var(--teal);border-color:var(--teal);transform:translateY(-2px)}
+.lic svg{width:14px;height:14px}
+.det{font-size:12.5px;font-weight:600;color:var(--teal);display:inline-flex;align-items:center;gap:5px;padding-inline-start:4px}
+.det svg{width:14px;height:14px;transition:transform .35s var(--ease)}
+.card:hover .det svg{transform:translateX(3px)}
+[dir="rtl"] .det svg{transform:scaleX(-1)}
+[dir="rtl"] .card:hover .det svg{transform:scaleX(-1) translateX(3px)}
+
+/* skills */
+.skl{display:grid;grid-template-columns:1.25fr .75fr;gap:20px;align-items:start}
+@media (max-width:860px){.skl{grid-template-columns:1fr}}
+.sgroup{margin-bottom:18px}
+.sgroup h4{font-size:13.5px;color:var(--muted);font-weight:500;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.sgroup h4 i{width:7px;height:7px;border-radius:2px;background:var(--terra)}
+.spills{display:flex;flex-wrap:wrap;gap:7px}
+.pill{border:1px solid var(--line);background:var(--surface);padding:7px 13px;border-radius:12px;font-size:13.5px;cursor:pointer;transition:all .35s var(--ease)}
+.pill:hover{transform:translateY(-2px);border-color:var(--teal)}
+.pill[aria-pressed="true"]{background:var(--teal);color:var(--on-teal);border-color:var(--teal);transform:translateY(-2px)}
+.used{position:sticky;top:90px;background:var(--teal);color:var(--on-teal);border-radius:20px;padding:20px;min-height:200px;overflow:hidden}
+.used h4{font-size:20px;font-weight:600;margin-bottom:4px}
+.used .hint{opacity:.75;font-size:13px}
+.used .desc{margin-top:10px;font-size:14px;line-height:1.75;opacity:.92;animation:up .45s var(--ease) both}
+#usedL li{list-style:none;margin-top:7px;display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.1);padding:8px 11px;border-radius:11px;opacity:0;transform:translateY(10px);animation:up .45s var(--ease) forwards;cursor:pointer;font-size:13.5px}
+#usedL li:hover{background:rgba(255,255,255,.18)}
+#usedL li img{width:26px;height:26px;border-radius:7px;object-fit:cover;object-position:top}
+.used .ring{position:absolute;width:200px;height:200px;border-radius:50%;border:1.5px dashed rgba(255,255,255,.25);bottom:-90px;inset-inline-end:-70px;animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* achievement */
+.achs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;align-items:stretch}
+@media (max-width:760px){.achs{grid-template-columns:1fr}}
+.ach{position:relative;display:flex;flex-direction:column;border-radius:20px;overflow:hidden;background:linear-gradient(150deg,var(--teal),color-mix(in srgb,var(--teal) 72%,#000));color:var(--on-teal);cursor:pointer;transition:transform .45s var(--ease),box-shadow .45s}
+.ach:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.ach .img{position:relative;aspect-ratio:16/8;overflow:hidden}
+.ach .img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.ach:hover .img img{transform:scale(1.05)}
+.ach .in{padding:18px 20px 20px;display:flex;flex-direction:column;gap:9px;flex:1}
+.ach .ahead{display:flex;justify-content:space-between;align-items:center}
+.ach .medal{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.14);color:#F2C98A;transition:transform .5s var(--spring)}
+.ach:hover .medal{transform:rotate(-12deg) scale(1.1)}
+.ach .medal svg{width:19px;height:19px}
+.ach h3{font-size:18px}
+.ach .dt{font-family:var(--f-mono);font-size:11.5px;opacity:.75}
+.ach p{font-size:13.5px;opacity:.88;line-height:1.8}
+.stats{display:flex;flex-wrap:wrap;gap:6px}
+.stats span{font-size:12px;font-weight:500;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);padding:3px 10px;border-radius:999px}
+.stats b{font-family:var(--f-display);color:#F2C98A;margin-inline-end:4px}
+.ach .row{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:6px}
+.ach .btn{padding:8px 13px;font-size:12.5px}
+.ach .btn.l{background:var(--on-teal);color:var(--teal)}
+.ach .btn.o{border-color:rgba(255,255,255,.35);color:var(--on-teal)}
+.ach .btn.o:hover{background:rgba(255,255,255,.12)}
+.tapn{font-size:11.5px;color:var(--muted);margin-top:10px;text-align:center}
+/* certificates */
+.certs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media (max-width:900px){.certs{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.certs{grid-template-columns:1fr}}
+.cert{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:transform .45s var(--ease),box-shadow .45s,border-color .4s}
+.cert:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:color-mix(in srgb,var(--terra) 40%,var(--line))}
+.cph{position:relative;height:96px;display:flex;align-items:center;gap:12px;padding:0 16px;background:linear-gradient(135deg,var(--tint),var(--bg-2));overflow:hidden;border-bottom:1px solid var(--line)}
+.cph::before{content:"";position:absolute;inset:8px;border:1px solid color-mix(in srgb,var(--teal) 30%,transparent);border-radius:10px}
+.cph::after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;border:1px dashed color-mix(in srgb,var(--terra) 45%,transparent);inset-inline-end:-30px;top:-30px;transition:transform 1.2s var(--ease)}
+.cert:hover .cph::after{transform:rotate(90deg) scale(1.1)}
+.cph svg{width:34px;height:34px;stroke-width:1.2;color:var(--teal);position:relative}
+.cph .iss{position:relative;font-family:var(--f-display);font-size:13px;font-weight:500;color:var(--teal-2);line-height:1.4}
+.cert .cb{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.cert .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.cat{font-size:11px;font-weight:600;padding:2px 9px;border-radius:999px;background:var(--terra-soft);color:var(--terra)}
+.cert .dt{font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+.cert h4{font-size:15px;font-weight:600;line-height:1.4}
+.cert p{font-size:13px;color:var(--muted);line-height:1.7}
+
+/* volunteering */
+.vols{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media (max-width:760px){.vols{grid-template-columns:1fr}}
+.vol{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;gap:14px;transition:transform .45s var(--ease),box-shadow .45s,border-color .4s}
+.vol:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:color-mix(in srgb,var(--teal) 40%,var(--line))}
+.vol .vic{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:var(--tint);color:var(--teal);flex:none;transition:transform .5s var(--spring)}
+.vol:hover .vic{transform:rotate(-10deg)}
+.vol .vt{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+.vol .dt{font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+.cur-b{font-size:10.5px;font-weight:600;padding:2px 9px;border-radius:999px;background:var(--terra);color:#fff;display:inline-flex;align-items:center;gap:5px}
+.cur-b::before{content:"";width:5px;height:5px;border-radius:50%;background:#fff;animation:ping2 1.6s infinite}
+@keyframes ping2{50%{opacity:.3}}
+.vol h4{font-size:15.5px;font-weight:600;margin-top:3px}
+.vol .org{font-size:13px;color:var(--teal-2);font-weight:500}
+.vol p{font-size:13px;color:var(--muted);margin-top:5px;line-height:1.7}
+.vol .note{font-size:12px;color:var(--muted);opacity:.85;margin-top:4px}
+
+/* contact */
+.contact{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,auto);grid-auto-flow:column;gap:14px}
+@media (max-width:700px){.contact{grid-template-columns:1fr;grid-template-rows:none;grid-auto-flow:row}}
+.ccard{position:relative;display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px;text-decoration:none;overflow:hidden;transition:transform .45s var(--ease),border-color .4s,box-shadow .45s}
+.ccard:hover{transform:translateY(-4px);border-color:var(--teal);box-shadow:var(--shadow)}
+.ccard .cic{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:var(--teal);color:var(--on-teal);flex:none;transition:transform .5s var(--spring)}
+.ccard:hover .cic{transform:rotate(-10deg) scale(1.06)}
+.ccard .cl{font-family:var(--f-mono);font-size:11px;color:var(--terra);letter-spacing:.08em}
+.ccard .cv{font-size:14px;font-weight:500;direction:ltr;unicode-bidi:isolate;text-align:start;overflow-wrap:anywhere;user-select:all}
+.ccard .copy{margin-inline-start:auto;font-size:12px;font-weight:600;border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:5px 10px;cursor:pointer;flex:none}
+.ccard .copy:hover{border-color:var(--terra);color:var(--terra)}
+.ccard .copy.ok{background:var(--teal);color:var(--on-teal);border-color:var(--teal)}
+.ccard a.cic{text-decoration:none}
+.ccard .clink{display:block;color:inherit;text-decoration:none;transition:color .25s}
+.ccard .clink:hover{color:var(--terra);text-decoration:underline;text-underline-offset:3px}
+
+/* outro */
+.outro{position:relative;padding-block:60px 30px;overflow:hidden;text-align:center}
+.big-marq{direction:ltr;overflow:hidden;white-space:nowrap}
+html[lang="ar"] .big-marq div{line-height:1.45;font-family:var(--f-body)}
+.big-marq div{display:inline-block;font-family:var(--f-display);font-weight:700;font-size:clamp(44px,8.5vw,112px);line-height:1;letter-spacing:-.03em;animation:marq 26s linear infinite;color:transparent;-webkit-text-stroke:1.4px var(--teal)}
+.big-marq div b{color:var(--teal);-webkit-text-stroke:0}
+.outro .cta{justify-content:center}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px}
+
+/* modal (one template) */
+.modal{position:fixed;inset:0;z-index:70;display:grid;place-items:center;padding:14px;visibility:hidden}
+.modal .scrim{position:absolute;inset:0;background:rgba(6,18,17,.6);backdrop-filter:blur(6px);opacity:0;transition:opacity .45s}
+.modal.open{visibility:visible}
+.modal.open .scrim{opacity:1}
+.sheet{position:relative;background:var(--surface);border-radius:24px;width:min(820px,100%);max-height:92vh;overflow:auto;opacity:0;transform:translateY(40px) scale(.96);transition:transform .55s var(--ease),opacity .4s;overscroll-behavior:contain}
+.modal.open .sheet{opacity:1;transform:none}
+.sheet .cover{aspect-ratio:16/7}
+.x{position:sticky;top:12px;float:right;margin:12px 12px -52px 0;z-index:3;width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.94);color:#132C29;cursor:pointer;display:grid;place-items:center;transition:transform .4s var(--spring);box-shadow:0 4px 14px rgba(0,0,0,.2)}
+[dir="rtl"] .x{float:left;margin:12px 0 -52px 12px}
+.x:hover{transform:rotate(90deg)}
+.mbody{padding:22px 26px 26px;display:grid;gap:18px}
+.mbody.swap{animation:up .45s var(--ease) both}
+.mh h3{font-size:clamp(22px,3vw,30px)}
+.tagline{font-style:italic;color:var(--terra);font-family:var(--f-display);font-size:15px;margin-top:2px}
+.mh .award{position:static;display:inline-block;margin-top:10px;white-space:normal}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.meta span{font-size:12px;padding:4px 11px;border-radius:999px;border:1px solid var(--line);color:var(--muted);display:inline-flex;align-items:center;gap:6px}
+.meta svg{width:13px;height:13px}
+.lbar{display:flex;flex-wrap:wrap;gap:8px}
+.lbar .btn{padding:9px 15px;font-size:13px}
+.blk h5{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;color:var(--terra);margin:0 0 6px;font-weight:500;text-transform:uppercase}
+.blk p{font-size:14.5px;line-height:1.85;color:var(--ink)}
+.two2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:640px){.two2{grid-template-columns:1fr}}
+.box2{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.box2.pb{border-inline-start:3px solid var(--terra)}
+.box2.sb{border-inline-start:3px solid var(--teal)}
+.feats{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.feats li{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.7}
+.feats li .ck{width:18px;height:18px;border-radius:6px;background:var(--tint);color:var(--teal);display:grid;place-items:center;flex:none;margin-top:3px}
+.feats li .ck svg{width:11px;height:11px;stroke-width:3}
+.team{display:flex;flex-wrap:wrap;gap:6px}
+.team span{font-size:13px;padding:4px 11px;border-radius:999px;background:var(--bg-2);border:1px solid var(--line)}
+.team span.me{background:var(--teal);color:var(--on-teal);border-color:var(--teal)}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px}
+.gal button{position:relative;aspect-ratio:4/3;border-radius:10px;overflow:hidden;border:1px solid var(--line);padding:0;cursor:zoom-in;background:var(--bg-2)}
+.gal img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .5s var(--ease)}
+.gal button:hover img{transform:scale(1.08)}
+.gal .more{position:absolute;inset:0;display:grid;place-items:center;background:rgba(14,75,72,.72);color:#fff;font-family:var(--f-display);font-weight:600;font-size:18px}
+.pn{display:flex;justify-content:space-between;gap:10px;border-top:1px solid var(--line);padding-top:16px}
+.pn button{display:flex;flex-direction:column;gap:2px;border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:9px 14px;cursor:pointer;text-align:start;transition:all .3s var(--ease);max-width:48%}
+.pn button:hover{border-color:var(--teal);transform:translateY(-2px)}
+.pn button small{font-size:11px;color:var(--muted)}
+.pn button b{font-family:var(--f-display);font-size:14px;font-weight:600}
+.pn button.nx{margin-inline-start:auto;text-align:end}
+::view-transition-old(pcover),::view-transition-new(pcover){animation-duration:.55s;animation-timing-function:cubic-bezier(.2,.8,.2,1);height:100%;object-fit:cover}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:85;background:rgba(5,12,11,.94);display:grid;grid-template-rows:auto 1fr auto;visibility:hidden;opacity:0;transition:opacity .35s,visibility .35s}
+.lb.open{visibility:visible;opacity:1}
+.lbtop{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;color:#fff;font-family:var(--f-mono);font-size:12px}
+.lbtop button{width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.12);color:#fff;cursor:pointer;display:grid;place-items:center}
+.lbstage{position:relative;display:grid;place-items:center;padding:0 60px;min-height:0;overflow:hidden}
+.lbstage img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px;box-shadow:0 30px 60px -20px rgba(0,0,0,.6);animation:lbin .45s var(--ease)}
+@keyframes lbin{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+.lbnav{position:absolute;top:50%;margin-top:-22px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;cursor:pointer;display:grid;place-items:center;transition:background .3s}
+.lbnav:hover{background:var(--terra)}
+.lbnav.p{left:10px}.lbnav.n{right:10px}
+.lbthumbs{display:flex;gap:6px;overflow-x:auto;padding:12px 16px 16px;justify-content:center;scrollbar-width:thin;direction:ltr}
+.lbthumbs button{flex:none;width:64px;height:40px;border-radius:6px;overflow:hidden;border:2px solid transparent;padding:0;cursor:pointer;opacity:.5;transition:all .3s}
+.lbthumbs button.on{border-color:var(--terra-2);opacity:1}
+.lbthumbs img{width:100%;height:100%;object-fit:cover;object-position:top}
+@media (max-width:600px){.lbstage{padding:0 8px}.lbnav{display:none}}
+
+html[lang="ar"] .fl,html[lang="ar"] .blk h5,html[lang="ar"] .cfoot .dt,html[lang="ar"] .vol .dt,html[lang="ar"] .cert .dt,html[lang="ar"] .ach .dt,html[lang="ar"] .ach2 .dt,html[lang="ar"] .kick,html[lang="ar"] .htitle,html[lang="ar"] .ccard .cl,html[lang="ar"] .ach .tap,html[lang="ar"] .phcap{letter-spacing:0;font-family:var(--f-body)}
+html[lang="ar"] .blk h5{font-size:12.5px;font-weight:600}
+.lb{direction:ltr}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:90;width:100%;height:100%}
+.rv{transition:transform .9s var(--ease),opacity .9s var(--ease)}
+.rv.pre{transform:translateY(24px);opacity:.001}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.curtain{display:none}.rv.pre{opacity:1;transform:none}.split .ch{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+
+<div class="curtain" id="curtain" aria-hidden="true"><span data-t="brand_short"></span><i></i></div>
+<div class="progress" id="progress"></div>
+<div class="cur" id="cur"></div><div class="cur-ring" id="curRing"></div>
+<canvas id="confetti"></canvas>
+
+<nav class="nav" id="nav">
+  <div class="navin">
+    <a class="logo" href="#top" aria-label="Top" data-t="logo">ف</a>
+    <div class="navlinks" id="navlinks">
+      <span class="navpill" id="navpill"></span>
+      <a href="#about" data-t="nav_about"></a>
+      <a href="#work" data-tab="projects" data-t="nav_projects"></a>
+      <a href="#work" data-tab="skills" data-t="nav_skills"></a>
+      <a href="#work" data-tab="ach" data-t="nav_ach"></a>
+      <a href="#work" data-tab="certs" data-t="nav_certs"></a>
+      <a href="#work" data-tab="vol" data-t="nav_vol"></a>
+      <a href="#contact" data-t="nav_contact"></a>
+    </div>
+    <button class="ibtn" id="themeBtn" type="button" aria-label="Theme"><svg class="i" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+    <button class="ibtn txt" id="langBtn" type="button" aria-label="Language">EN</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="dots" aria-hidden="true"></canvas>
+  <div class="blob a"></div><div class="blob b"></div>
+  <div class="wrap">
+    <div>
+      <span class="status"><span class="pulse"></span><span data-t="status"></span></span>
+      <h1 id="heroName"></h1>
+      <div class="htitle" data-t="title"></div>
+      <div class="rot"><span class="lbl" data-t="rot_lbl"></span><span class="rotbox" id="rotbox"></span></div>
+      <p class="lead" data-t="intro"></p>
+      <div class="cta">
+        <a class="btn primary mag" href="#work"><span data-t="cta_projects"></span><svg class="i arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn outline mag" href="#contact" data-t="cta_contact"></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="marq" aria-hidden="true"><div class="track" id="marq"></div></div>
+
+<main>
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="shead"><div class="kick" data-t="k1"></div><h2 class="split" data-t="about_title"></h2></div>
+    <div class="bento" id="bento"></div>
+  </div>
+</section>
+
+<section class="sec" id="work">
+  <div class="wrap">
+    <div class="shead"><div class="kick" data-t="k2"></div><h2 class="split" data-t="work_title"></h2></div>
+    <div class="tabs" id="tabs" role="tablist"><span class="tabind" id="tabind"></span></div>
+    <div class="panels">
+      <div class="panel on" data-panel="projects" role="tabpanel"><div class="fbar" id="fbar"></div><div class="grid" id="grid"></div></div>
+      <div class="panel" data-panel="skills" role="tabpanel">
+        <div class="skl"><div id="skills"></div>
+          <aside class="used"><span class="ring"></span><h4 id="usedT"></h4><p class="hint" id="usedH"></p><div id="usedL"></div></aside>
+        </div>
+      </div>
+      <div class="panel" data-panel="ach" role="tabpanel"><div id="achBox"></div></div>
+      <div class="panel" data-panel="certs" role="tabpanel"><div class="certs" id="certs"></div></div>
+      <div class="panel" data-panel="vol" role="tabpanel"><div class="vols" id="vols"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="contact">
+  <div class="wrap">
+    <div class="shead"><div class="kick" data-t="k3"></div><h2 class="split" data-t="contact_title"></h2></div>
+    <div class="contact" id="contactBox"></div>
+  </div>
+</section>
+
+<section class="outro">
+  <div class="big-marq" aria-hidden="true"><div id="bigm"></div></div>
+  <div class="wrap">
+    <div class="cta"><a class="btn primary" href="#top" id="toTop"><span data-t="to_top"></span><svg class="i" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a></div>
+    <div class="foot"><span data-t="copy_r"></span><span data-t="loc"></span></div>
+  </div>
+</section>
+</main>
+
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="scrim" id="scrim"></div>
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <button class="x" id="mClose" type="button" aria-label="Close"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <div class="cover" id="mCover"></div>
+    <div class="mbody" id="mBody"></div>
+  </div>
+</div>
+
+<div class="lb" id="lb" aria-hidden="true">
+  <div class="lbtop"><span id="lbCount"></span><button type="button" id="lbClose" aria-label="Close"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  <div class="lbstage" id="lbStage"><button class="lbnav p" id="lbPrev" type="button" aria-label="Previous"><svg class="i" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button><img id="lbImg" alt=""><button class="lbnav n" id="lbNext" type="button" aria-label="Next"><svg class="i" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button></div>
+  <div class="lbthumbs" id="lbThumbs"></div>
+</div>
+
+<script>
+/* ================= ASSETS ================= */
+const IMG={
+ "basirah-cover": "images/basirah-cover.webp",
+ "flowpay-cover": "images/flowpay-cover.webp",
+ "flowpay-g1": "images/flowpay-g1.webp",
+ "flowpay-g2": "images/flowpay-g2.webp",
+ "flowpay-g3": "images/flowpay-g3.webp",
+ "flowpay-s1": "images/flowpay-s1.webp",
+ "flowpay-s10": "images/flowpay-s10.webp",
+ "flowpay-s11": "images/flowpay-s11.webp",
+ "flowpay-s2": "images/flowpay-s2.webp",
+ "flowpay-s3": "images/flowpay-s3.webp",
+ "flowpay-s4": "images/flowpay-s4.webp",
+ "flowpay-s5": "images/flowpay-s5.webp",
+ "flowpay-s6": "images/flowpay-s6.webp",
+ "flowpay-s7": "images/flowpay-s7.webp",
+ "flowpay-s8": "images/flowpay-s8.webp",
+ "flowpay-s9": "images/flowpay-s9.webp",
+ "latable-cover": "images/latable-cover.webp",
+ "scr-flowpay": "images/scr-flowpay.webp",
+ "scr-latable": "images/scr-latable.webp",
+ "scr-vector": "images/scr-vector.webp",
+ "vector-cover": "images/vector-cover.webp",
+ "vector-s1": "images/vector-s1.webp",
+ "vector-s10": "images/vector-s10.webp",
+ "vector-s11": "images/vector-s11.webp",
+ "vector-s12": "images/vector-s12.webp",
+ "vector-s13": "images/vector-s13.webp",
+ "vector-s14": "images/vector-s14.webp",
+ "vector-s15": "images/vector-s15.webp",
+ "vector-s16": "images/vector-s16.webp",
+ "vector-s17": "images/vector-s17.webp",
+ "vector-s18": "images/vector-s18.webp",
+ "vector-s2": "images/vector-s2.webp",
+ "vector-s3": "images/vector-s3.webp",
+ "vector-s4": "images/vector-s4.webp",
+ "vector-s5": "images/vector-s5.webp",
+ "vector-s6": "images/vector-s6.webp",
+ "vector-s7": "images/vector-s7.webp",
+ "vector-s8": "images/vector-s8.webp",
+ "vector-s9": "images/vector-s9.webp"
+};
+const SLIDES={vector:Array.from({length:18},(_,i)=>"vector-s"+(i+1)),flowpay:Array.from({length:11},(_,i)=>"flowpay-s"+(i+1))};
+
+/* ================= CONTENT ================= */
+const PROFILE={
+ email:"Fatimahbinmh@gmail.com", phone:"+966 53 589 9658", github:"https://github.com/Engfatiimah", linkedin:"https://www.linkedin.com/in/fatimah-bin-mohammed-321552325"
+};
+const T={
+ ar:{brand:"فاطمة بن محمد",brand_short:"فاطمة",name1:"فاطمة",name2:"بن محمد",
+  nav_about:"عنّي",nav_projects:"المشاريع",nav_skills:"المهارات",nav_ach:"الإنجازات",nav_certs:"الشهادات",nav_vol:"التطوع",nav_contact:"تواصل",
+  status:"جاهزة لفرص التدريب والمشاريع الجديدة",title:"تخصص تقنية المعلومات، جامعة الملك سعود · مطورة Flutter · مصممة UI/UX",rot_lbl:"أنا",
+  rot:["مطوّرة Flutter","مصممة UI/UX","أبني تطبيقات تحل مشاكل حقيقية","أهتم بأدق التفاصيل"],
+  intro:"أصمم وأبني تجارب تطبيقات تحل مشاكل حقيقية.",
+  cta_projects:"استكشف أعمالي",cta_contact:"تواصل معي",
+  about_title:"مرحبًا، أنا فاطمة 👋",
+  about:"طالبة في تخصص تقنية المعلومات بجامعة الملك سعود. أحب أفهم المشكلة قبل ما أبدأ الحل، وأستمتع بتحويل الأفكار إلى تطبيقات واضحة وسهلة يستخدمها الناس فعلًا. أشتغل على الرحلة كاملة: من البحث وفهم المستخدم، إلى تصميم الواجهات في Figma، إلى البرمجة بـ Flutter وSupabase. شخصية اجتماعية أحب العمل مع الفريق، ونشيطة في الأندية الطلابية والتطوع، وأستمتع بالتنظيم والتواصل وتعلّم كل شي جديد.",
+  f_edu:"التعليم",f_edu_v:"تخصص تقنية المعلومات",f_edu_s:"جامعة الملك سعود · 2024 – الآن",
+  f_loc:"الموقع",f_loc_v:"الرياض",f_loc_s:"المملكة العربية السعودية",
+  f_now:"حاليًا",f_now_v:"لجنة التسويق",f_now_s:"مبادرة جسر",
+  f_lang:"اللغات",f_lang_v:"العربية · الإنجليزية",f_lang_s:"العربية اللغة الأم · IELTS أكاديمي 6.5",
+  work_title:"أعمالي وإنجازاتي",t_projects:"المشاريع",t_skills:"المهارات",t_ach:"الإنجازات",t_certs:"الشهادات والدورات",t_vol:"التطوع والأنشطة",
+  f_all:"الكل",f_mobile:"تطبيقات جوال",f_uiux:"تصميم UI/UX",f_hack:"هاكاثونات",
+  details:"التفاصيل",solo:"فردي",teamp:"فريق",
+  s_over:"نظرة عامة",s_prob:"المشكلة",s_sol:"الحل",s_feat:"المميزات الرئيسية",s_tech:"التقنيات",s_role:"دوري",s_team:"الفريق",s_gal:"معرض الصور",prev:"المشروع السابق",next:"المشروع التالي",
+  used_t:"اختر مهارة",used_h:"اضغط على أي مهارة لتعرف كيف أستخدمها وفي أي مشروع.",used_in:"استخدمتها في",
+  sk_prog:"البرمجة",sk_dev:"التطوير والتصميم",sk_db:"قواعد البيانات",sk_soft:"مهارات شخصية",
+  tap:"اضغط على البطاقة للاحتفال",view_proj:"عرض المشروع",view_post:"منشور LinkedIn",
+  cur:"حاليًا",contact_title:"خلّنا نتواصل",c_email:"البريد الإلكتروني",c_phone:"الجوال",c_gh:"GitHub",c_li:"LinkedIn",copy:"نسخ",copied:"تم النسخ",
+  to_top:"العودة للأعلى",loc:"الرياض، المملكة العربية السعودية",
+  bigm:"لنبنِ <b>شيئًا</b> · صمّم · برمج · <b>أطلق</b> · ",
+  k1:"01 · عنّي",k2:"02 · أعمالي",k3:"03 · تواصل",copy_r:"© 2026 فاطمة بن محمد",logo:"ف",me:"فاطمة بن محمد",pl:["فيكتور","لا تيبل","فلو باي"],phcap:"لقطات حقيقية من أعمالي",open:"افتح المشروع"},
+ en:{brand:"Fatimah Bin Mohammed",brand_short:"Fatimah",name1:"Fatimah",name2:"Bin Mohammed",
+  nav_about:"About",nav_projects:"Projects",nav_skills:"Skills",nav_ach:"Achievements",nav_certs:"Certificates",nav_vol:"Volunteering",nav_contact:"Contact",
+  status:"Ready for internships & new projects",title:"Information Technology major, King Saud University · Flutter Developer · UI/UX Designer",rot_lbl:"I'm",
+  rot:["a Flutter developer","a UI/UX designer","building apps for real problems","all about the details"],
+  intro:"I design and build app experiences that solve real problems.",
+  cta_projects:"Explore my work",cta_contact:"Get in touch",
+  about_title:"Hi, I'm Fatimah 👋",
+  about:"I'm an Information Technology student at King Saud University. I like to understand the problem before jumping to a solution, and I enjoy turning ideas into clear, simple apps that people actually use. I work across the full journey: research and understanding users, interface design in Figma, and development with Flutter and Supabase. I'm a people person who loves working in a team, I'm active in student clubs and volunteering, and I enjoy organizing, communicating, and learning something new every day.",
+  f_edu:"Education",f_edu_v:"Information Technology major",f_edu_s:"King Saud University · 2024 – present",
+  f_loc:"Location",f_loc_v:"Riyadh",f_loc_s:"Saudi Arabia",
+  f_now:"Currently",f_now_v:"Marketing Committee",f_now_s:"Jisr Initiative",
+  f_lang:"Languages",f_lang_v:"Arabic · English",f_lang_s:"Arabic (native) · IELTS Academic 6.5",
+  work_title:"Work & achievements",t_projects:"Projects",t_skills:"Skills",t_ach:"Achievements",t_certs:"Certificates & courses",t_vol:"Volunteering & activities",
+  f_all:"All",f_mobile:"Mobile Apps",f_uiux:"UI/UX Design",f_hack:"Hackathons",
+  details:"Details",solo:"Solo",teamp:"Team",
+  s_over:"Overview",s_prob:"The problem",s_sol:"The solution",s_feat:"Key features",s_tech:"Tech stack",s_role:"My role",s_team:"Team",s_gal:"Gallery",prev:"Previous project",next:"Next project",
+  used_t:"Pick a skill",used_h:"Tap any skill to see how I use it and in which projects.",used_in:"Used in",
+  sk_prog:"Programming",sk_dev:"Development & design",sk_db:"Databases",sk_soft:"Professional",
+  tap:"Tap the card to celebrate",view_proj:"View project",view_post:"LinkedIn post",
+  cur:"Current",contact_title:"Let's connect",c_email:"Email",c_phone:"Phone",c_gh:"GitHub",c_li:"LinkedIn",copy:"Copy",copied:"Copied",
+  to_top:"Back to top",loc:"Riyadh, Saudi Arabia",
+  bigm:"LET'S BUILD <b>SOMETHING</b> · DESIGN · CODE · <b>LAUNCH</b> · ",
+  k1:"01 · ABOUT",k2:"02 · WORK",k3:"03 · CONTACT",copy_r:"© 2026 Fatimah Bin Mohammed",logo:"F",me:"Fatimah Bin Mohammed",pl:["Vector","La Table","Flow Pay"],phcap:"REAL SCREENS FROM MY WORK",open:"Open project"}
+};
+const NAMES_AR={"Sham Albinni": "شام البني", "Fatimah Bin Mohammed": "فاطمة بن محمد", "Sara Abunuhait": "سارة أبو نهيت", "Noura Almudlij": "نورة المدلج", "Hessa Alaskar": "حصة العسكر", "Shaima Aldrawiesh": "شيماء الدرويش", "Sarah Alhuzaymi": "سارة الحزيمي", "Raneem Alsheddi": "رنيم الشدي", "Ghala Alharbi": "غلا الحربي", "Jana Alharbi": "جنى الحربي"};
+const CATS={mobile:"f_mobile",uiux:"f_uiux",hack:"f_hack"};
+
+const LE_SVG=`<svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="leB" cx=".75" cy=".2" r="1"><stop offset="0" stop-color="#34408A"/><stop offset=".55" stop-color="#141A45"/><stop offset="1" stop-color="#090C22"/></radialGradient><radialGradient id="leS" cx=".35" cy=".3"><stop offset="0" stop-color="#FBE3AE"/><stop offset=".6" stop-color="#E0A95A"/><stop offset="1" stop-color="#A86F2C"/></radialGradient><radialGradient id="leM" cx=".35" cy=".3"><stop offset="0" stop-color="#F8A77A"/><stop offset="1" stop-color="#9A3418"/></radialGradient><radialGradient id="leE" cx=".35" cy=".3"><stop offset="0" stop-color="#9ADCF8"/><stop offset="1" stop-color="#1F5FA8"/></radialGradient><linearGradient id="leG" x1="0" x2="1"><stop offset="0" stop-color="#9FB7FF" stop-opacity=".0"/><stop offset=".5" stop-color="#9FB7FF" stop-opacity=".35"/><stop offset="1" stop-color="#9FB7FF" stop-opacity="0"/></linearGradient></defs>
+<rect width="320" height="200" fill="url(#leB)"/>
+<g fill="#fff"><circle cx="18" cy="22" r=".9" opacity=".8"/><circle cx="70" cy="14" r="1.1"/><circle cx="160" cy="26" r=".8" opacity=".7"/><circle cx="300" cy="18" r="1.2"/><circle cx="286" cy="70" r=".8" opacity=".6"/><circle cx="178" cy="180" r="1" opacity=".7"/><circle cx="12" cy="176" r="1.1" opacity=".8"/><circle cx="140" cy="120" r=".7" opacity=".6"/><circle cx="306" cy="130" r=".9" opacity=".7"/><circle cx="96" cy="186" r=".8"/></g>
+<path d="M-10 150 Q150 60 330 110" stroke="url(#leG)" stroke-width="1" fill="none"/>
+<circle cx="182" cy="46" r="9" fill="url(#leE)"/><path d="M177 43q3-3 6 0t5 2" stroke="#6FBF7A" stroke-width="2" fill="none" stroke-linecap="round"/>
+<circle cx="292" cy="160" r="12" fill="url(#leM)"/>
+<g class="cv-bob"><ellipse cx="240" cy="98" rx="68" ry="15" fill="none" stroke="#EBD3A0" stroke-opacity=".45" stroke-width="7" transform="rotate(-18 240 98)"/><circle cx="240" cy="98" r="40" fill="url(#leS)"/><path d="M204 88q36 8 72 0M202 102q38 7 76 -1" stroke="#B9823D" stroke-opacity=".35" stroke-width="3" fill="none"/><path d="M175 118a68 15 -18 0 0 130 -40" fill="none" stroke="#F3DEB1" stroke-width="3.5" transform="rotate(0)"/></g>
+<g font-family="Readex Pro,Segoe UI,sans-serif"><rect x="22" y="40" width="130" height="122" rx="16" fill="#fff" fill-opacity=".07" stroke="#fff" stroke-opacity=".14"/>
+<circle cx="38" cy="56" r="7" fill="url(#leS)"/><text x="51" y="59" font-size="9" font-weight="600" fill="#E8ECFF">Space Buddy</text>
+<rect x="74" y="72" width="68" height="20" rx="10" fill="#9FB7FF"/><text x="82" y="85" font-size="8.5" fill="#0B0F26">Who are you?</text>
+<rect x="30" y="98" width="100" height="30" rx="11" fill="#fff" fill-opacity=".12"/><text x="38" y="110" font-size="8.2" fill="#E8ECFF">I'm Saturn! My rings</text><text x="38" y="121" font-size="8.2" fill="#E8ECFF">are ice and rock.</text>
+<rect x="30" y="136" width="36" height="16" rx="8" fill="#fff" fill-opacity=".12"/><circle cx="40" cy="144" r="2" fill="#CFD8FF"/><circle cx="48" cy="144" r="2" fill="#CFD8FF" opacity=".7"/><circle cx="56" cy="144" r="2" fill="#CFD8FF" opacity=".45"/></g></svg>`;
+
+const PROJECTS=[
+ {id:"vector",cats:["mobile"],team:true,main:"mobile",date:{ar:"أغسطس – سبتمبر 2026",en:"Aug 2026 – Sep 2026"},cover:"vector-cover",coverTop:true,
+  title:{ar:"فيكتور",en:"Vector"},tagline:{ar:"من الرؤية إلى الإنجاز.",en:"From Vision to Victory."},
+  short:{ar:"تطبيق يجمع المشاركين في الهاكاثونات بفرق تحتاج مهاراتهم.",en:"A hackathon team-matching app that helps participants find teams where their skills are needed."},
+  overview:{ar:"فيكتور يجمع اكتشاف الهاكاثونات والمهارات والتواصل بين الفرق في مكان واحد، عشان ما تتعطل فكرة حلوة بسبب عدم وجود فريق. المشروع النهائي لبوتكامب Flutter وDart من نادي طويق (جامعة الإمام)، وتم تنفيذه بالكامل: الهوية، والواجهات، والباك إند، والإطلاق الفعلي.",en:"Vector brings hackathon discovery, skills, and team connections into one place, so great ideas never stall for the lack of a team. Built as the final project of the Tuwaiq Club Flutter & Dart Bootcamp (IMSIU), shipped end-to-end: brand, UI, backend, and live deployment."},
+  problem:{ar:"المشارك ما يعرف أي فريق عنده مكان فاضي، والمكان الفاضي ما يوضح الدور المطلوب، والمحادثات المتفرقة تصعّب متابعة الطلبات.",en:"Participants don't know which teams still need someone; an open spot says little without a clear role; and scattered conversations make requests hard to follow."},
+  solution:{ar:"تصفح الهاكاثونات وفرقها، واعرف الأماكن الفاضية والأدوار الناقصة، ثم تواصل عبر طلبات الانضمام والدعوات مع متابعة حالتها.",en:"Discover hackathons and their teams, understand open spots and missing roles, then connect through join requests and invitations with live status tracking."},
+  features:{ar:["وضع الضيف وتسجيل على خطوتين مرتبط بـ LinkedIn وGitHub","ملف مهارات (من 1 إلى 6) مدعوم بإثباتات مرفوعة","تصفح الهاكاثونات حسب المجال (أمن، ذكاء اصطناعي، حكومة رقمية، طاقة)","عرض الفرق والأماكن الفاضية والأدوار الناقصة","طلبات الانضمام والدعوات في صندوق واحد مع متابعة الحالة","إنشاء وإدارة فرق من 3 إلى 5 أعضاء","باك إند آمن: تأكيد الإيميل، وصلاحيات على مستوى الصفوف، وتخزين خاص بروابط مؤقتة، وتشفير الملفات بـ SHA-256"],en:["Guest mode and two-step sign-up linked to LinkedIn and GitHub","Skill profiles (1–6 skills) backed by uploaded evidence","Hackathon discovery filtered by field (Security, AI, GovTech, Energy)","Team carousel showing open spots and missing roles","Join requests and invitations in one inbox, with live tracking","Create and manage teams of 3–5 members","Secure backend: email confirmation, Row-Level Security, private storage with signed URLs, SHA-256 file hashing"]},
+  tech:["Flutter","Dart","Supabase","PostgreSQL","SHA-256","GitHub"],skills:["flutter","dart","supabase","postgres","figma","uiux","team"],
+  role:{ar:"شريكة مؤسسة ومطورة: الهوية والواجهات وبرمجة Flutter وربطها مع Supabase.",en:"Co-founder and developer: brand, UI, and Flutter development with Supabase integration."},
+  members:["Sham Albinni","Fatimah Bin Mohammed"],
+  links:[{k:"live",l:{ar:"جرّب التطبيق",en:"Live App"},u:"https://f-s-tuwaiq.github.io/Vector/"},{k:"github",l:{ar:"GitHub",en:"GitHub"},u:"https://github.com/F-S-Tuwaiq/Vector"},{k:"slides",l:{ar:"العرض التقديمي",en:"Presentation"},slides:"vector"}],
+  gallery:["vector-cover",...SLIDES.vector]},
+ {id:"flowpay",cats:["uiux","hack"],team:true,main:"uiux",date:{ar:"سبتمبر 2025",en:"Sep 2025"},cover:"flowpay-cover",
+  award:{ar:"🏆 المركز السادس: هاكاثون البلاد للفنتك",en:"🏆 6th Place: Albilad FinTech Hackathon"},
+  title:{ar:"فلو باي",en:"Flow Pay"},tagline:{ar:"كل ريال في مكانه",en:"Every riyal in its place."},
+  short:{ar:"محفظة ذكية للعائلة وفرق العمل، لكل فرد بطاقة ولكل ريال مكانه.",en:"A smart family & team wallet that gives every member a card, and every riyal a place."},
+  overview:{ar:"تطبيق مالي يعتمد على محفظة مركزية تُشحن أسبوعياً أو شهرياً، وترتبط ببطاقات لكل فرد (الأب والأبناء، المدير والموظفين). يحدد المسؤول ميزانية لكل قطاع (مثل: محطات 300 ريال، تموينات 2000 ريال، مطاعم 3000 ريال) ويتحكم في طريقة الصرف ووقته ومكانه.",en:"A fintech app built around one central wallet, topped up weekly or monthly and linked to personal cards for each member (parents, children, managers, employees). The admin allocates budgets per sector (e.g., fuel 300 SAR, groceries 2,000 SAR, restaurants 3,000 SAR) and controls how, when, and where each member spends."},
+  problem:{ar:"غياب الفواتير الإلكترونية والتقارير الدقيقة للمصاريف المشتركة، وصعوبة متابعة مشتريات الأبناء والسائقين والموظفين، وعدم وجود ميزانية منظمة لكل قطاع، واحتمالية التلاعب أو الإسراف.",en:"No detailed e-invoices or accurate reports for shared spending; hard to track purchases by children, drivers, or employees; no organized per-sector budgeting; and a risk of misuse or overspending."},
+  solution:{ar:"محفظة مركزية ببطاقات فردية وميزانيات حسب القطاع وتحكم لحظي: المسؤول يشوف كل عملية فور حدوثها ويقدر يوافق أو يقيّد أو يحدد سقف الصرف لكل فرد.",en:"One central wallet with individual member cards, sector-based budgets, and real-time control: the admin sees every transaction as it happens and can approve, restrict, or cap spending per member."},
+  features:{ar:["محفظة مركزية ببطاقات فردية تستخدم نفس الرصيد","ميزانيات حسب القطاع مع توزيع تلقائي","صلاحيات دفع: صرف مباشر أو بالموافقة، مع قيود الوقت والمكان","فواتير إلكترونية تفصيلية تصل لمسؤول المحفظة","رصيد احتياطي للطوارئ لكل فرد","تحليلات الصرف حسب القطاع والأفراد والمتاجر","تسجيل عبر نفاذ، وشحن عبر Apple Pay ومدى"],en:["Central wallet with individual member cards sharing one balance","Sector-based budgets with auto-distribution","Payment permissions: direct or approval-required, with time and location limits","Detailed e-invoices sent to the wallet admin","Emergency reserve balance per member","Spending analytics by sector, member, and store","Nafath sign-up; top-up via Apple Pay and mada"]},
+  tech:["Figma","UI/UX",{ar:"التقنية المالية",en:"Fintech"},{ar:"نموذج العمل التجاري",en:"Business Model Canvas"}],skills:["figma","uiux","proto","team","comm","lead"],
+  role:{ar:"عضوة في الفريق: شاركت في بناء الفكرة وتصميم التطبيق ونموذج العمل، والعرض على مسرح Money20/20 Middle East.",en:"Team member: co-developed the concept, app design, and business model, and pitched on stage at Money20/20 Middle East."},
+  members:["Sara Abunuhait","Fatimah Bin Mohammed","Noura Almudlij","Hessa Alaskar"],
+  links:[{k:"linkedin",l:{ar:"منشور LinkedIn",en:"LinkedIn Post"},u:"https://www.linkedin.com/feed/update/urn:li:activity:7374489195924553728/"},{k:"slides",l:{ar:"العرض التقديمي",en:"Presentation"},slides:"flowpay"}],
+  gallery:["flowpay-cover","flowpay-g1","flowpay-g2","flowpay-g3"]},
+ {id:"basirah",cats:["uiux"],team:true,main:"uiux",date:{ar:"يناير – أبريل 2026",en:"Jan 2026 – Apr 2026"},cover:"basirah-cover",coverTop:true,
+  title:{ar:"بصيرة",en:"Basirah"},tagline:{ar:"رؤية واضحة، رعاية ذكية.",en:"Clear Vision, Smart Care."},
+  short:{ar:"تطبيق للعناية بالعين يساعد الناس يتابعون نظرهم ويحافظون على عادات صحية بين زيارات العيادة.",en:"An eye-care app that helps people track their vision and keep healthy eye habits between clinic visits."},
+  overview:{ar:"مشروع جماعي في تصميم تجربة المستخدم وتطوير التطبيقات. بصيرة يساعد المستخدم يفحص نظره من البيت، ويتابع نتائجه مع الوقت، ويستشير طبيب، ويبني عادات يومية للعناية بعيونه.",en:"A UI/UX and app development team project. Basirah helps users test their vision at home, track results over time, consult a doctor, and build daily eye-care habits."},
+  problem:{ar:"صحة العين تحتاج عادات يومية وفحوصات منتظمة، لكن كثير من الناس يفقدون المتابعة بين الزيارات: صعوبة الالتزام، وغياب سجل منظم للنظر والأدوية، ونسيان المواعيد، وتأخر اكتشاف تغيرات النظر.",en:"Good eye health needs daily habits and regular check-ups, yet many people lose track between clinic visits: habits are hard to keep, there's no organized record of vision or medication, appointments are forgotten, and gradual vision changes are detected late."},
+  solution:{ar:"تطبيق واحد يجمع فحص النظر من البيت، وسجل النظر، والاستشارة مع طبيب، والتذكيرات اليومية، عشان يبقى المستخدم متابع صحة عيونه بين الزيارات.",en:"One app that combines at-home vision testing, a vision history record, doctor consultations, and daily reminders, so users stay on top of their eye health between visits."},
+  features:{ar:["فحص نظر من البيت بتعليمات واضحة ونتائج فورية","سجل النظر برسم بياني مع الوقت ونصائح للمشاكل الشائعة","استشارة عيون: وصف الأعراض ومحادثة طبيب وملخص للحالة","عناية يومية: تذكيرات مخصصة، ومتابعة القطرات، وتاريخ انتهاء العدسات، وتمارين للعين","خيارات لسهولة الوصول والتخصيص"],en:["At-home vision test with guided instructions and instant results","Vision history charted over time, plus tips for common eye problems","Eye consultation: describe symptoms, chat with a doctor, get a care summary","Daily eye care: custom reminders, eye-drop tracker, lens-expiry tracking, guided eye exercises","Accessibility and customization options"]},
+  tech:["Figma",{ar:"تصميم UI/UX",en:"UI/UX Design"},{ar:"النماذج الأولية",en:"Prototyping"},{ar:"بحث المستخدم",en:"User Research"}],skills:["figma","uiux","proto","team"],
+  role:{ar:"قائدة المشروع ومصممة UI/UX ضمن فريق من 6: قدت الفريق ونظّمت سير العمل، وشاركت في رحلة المستخدم وتصميم الشاشات والنموذج التفاعلي على Figma.",en:"Project leader and UI/UX designer in a 6-member team: led the team and organized the workflow, and worked on user flows, screen design, and the interactive Figma prototype."},
+  members:["Fatimah Bin Mohammed","Shaima Aldrawiesh","Sarah Alhuzaymi","Raneem Alsheddi","Ghala Alharbi","Jana Alharbi"],
+  links:[{k:"figma",l:{ar:"النموذج التفاعلي",en:"Figma Prototype"},u:"https://www.figma.com/proto/4K9z8hPdzT6BTMI9LzF0Hw/UX-phase-2?page-id=0%3A1&node-id=2052-1621&p=f&viewport=556%2C-581%2C0.42&t=GcICHqHdFga5k6Hj-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=9%3A148"},{k:"poster",l:{ar:"البوستر",en:"Poster"},img:"basirah-cover"}],
+  gallery:["basirah-cover"]},
+ {id:"latable",cats:["mobile"],team:false,main:"mobile",date:{ar:"أغسطس 2026",en:"Aug 2026"},cover:"latable-cover",
+  award:{ar:"🏆 المركز الأول في التقييم",en:"🏆 1st Place in Evaluation"},
+  title:{ar:"لا تيبل",en:"La Table"},tagline:{ar:"تفضّل بالجلوس، الشيف الصغير بانتظارك.",en:"Pull up a chair — the little chef has been expecting you."},
+  short:{ar:"تطبيق يعرّفك على المطبخ الفرنسي بهوية دافئة وشخصية شيف أصلية، مبني بـ Flutter.",en:"A Flutter app that introduces French cuisine with a warm identity and an original chef mascot."},
+  overview:{ar:"مشروع فردي بـ Flutter يأخذك في جولة داخل المطبخ الفرنسي: تتصفّح الأطباق، وتشوف مكوّناتها بالتفصيل، وتحفظ المفضّلة عندك. صمّمت له هوية بصرية دافئة بألوان ورقية ولمسات أحمر كرزي، مع شخصية فأر شيف أصلية ترافق المستخدم من أول شاشة، وحركات تفاعلية تعطي التطبيق روحه الخاصة. بيانات الأطباق حقيقية من TheMealDB API. وحصل المشروع على المركز الأول في تقييم مشاريع معسكر Flutter المقدّم من أكاديمية طويق.",en:"A solo Flutter project that takes you on a tour of French cuisine: browse dishes, explore their ingredients in detail, and save your favorites. I designed a warm visual identity with paper tones and cherry-red accents, an original mouse-chef mascot that welcomes users from the first screen, and playful animations that give the app its own personality. Dish data comes from TheMealDB API. The project won first place in the project evaluation of the Flutter bootcamp presented by Tuwaiq Academy."},
+  problem:{ar:"أغلب تطبيقات الوصفات متشابهة: قوائم عامة وتصاميم جامدة ما تعكس دفء وشخصية المطبخ اللي تعرضه.",en:"Most recipe apps look the same: generic lists and cold layouts that don't reflect the warmth and character of the cuisine they show."},
+  solution:{ar:"تجربة بطابع خاص تحسسك إنك في مطعم باريسي، تجمع بين بيانات حية من API ونظام تصميم مميز مرسوم يدوياً مع أنيميشن ممتع.",en:"A themed experience that feels like sitting in a Paris bistro, pairing live API data with a distinctive hand-crafted design system and playful animations."},
+  features:{ar:["شاشة افتتاحية متحركة بعدة مراحل مع شخصية الشيف","تنقل من القائمة إلى تفاصيل الطبق والمكونات","قائمة المفضلة","تصميم مخصص لحالات التحميل والخطأ والصفحات الفاضية","نظام موحد لعناصر التصميم ومكتبة ويدجتس قابلة لإعادة الاستخدام"],en:["Animated multi-stage splash with a tap-to-continue chef character","Menu → dish details flow with ingredients","Favorites list","Branded loading, error, and empty states","Unified design-token system and a reusable widget library"]},
+  tech:["Flutter","Dart","REST API (TheMealDB)",{ar:"الحركة والأنيميشن",en:"Animations"}],skills:["flutter","dart","uiux"],
+  role:{ar:"مشروع فردي: التصميم والبرمجة. حصل على المركز الأول في تقييم معسكر Flutter من أكاديمية طويق.",en:"Solo project: design and development. Placed 1st in the Tuwaiq Academy Flutter bootcamp evaluation."},members:[],
+  links:[{k:"github",l:{ar:"GitHub",en:"GitHub"},u:"https://github.com/Engfatiimah/Fatimah_project2"}],
+  gallery:["latable-cover"]},
+ {id:"explorer",cats:["mobile"],main:"mobile",date:{ar:"2026",en:"2026"},svg:LE_SVG,
+  title:{ar:"المستكشف الصغير",en:"Little Explorer"},tagline:{ar:"الكواكب تتكلم!",en:"The planets talk back!"},
+  short:{ar:"تطبيق للأطفال يسألون فيه الكوكب نفسه، والكوكب يرد ويعرّف بنفسه بلغة بسيطة.",en:"A kids' app where children ask the planet itself, and it answers in simple words."},
+  overview:{ar:"المستكشف الصغير يعلّم الأطفال من 6 إلى 10 سنوات عن الكواكب بطريقة مختلفة: التعلّم يصير محادثة. الطفل يذكر أي كوكب ويسأله اللي يبي، والكوكب يرد بصيغة المتكلم وبجمل قصيرة وواضحة، مدعوم بـ Gemini API.",en:"Little Explorer teaches kids aged 6 to 10 about the planets in a new way: learning becomes a conversation. A child names any planet and asks it anything, and the planet replies in the first person with short, clear sentences, powered by the Gemini API."},
+  problem:{ar:"المعلومات العلمية عن الفضاء تُقدَّم للأطفال غالبًا كنصوص جامدة، فيفقدون الحماس بسرعة.",en:"Space facts are usually presented to kids as dry text, so their excitement fades quickly."},
+  solution:{ar:"شخصية لكل كوكب يتكلم عن نفسه، فيقود الطفل الاستكشاف بأسئلته ويتعلم وهو يلعب.",en:"Each planet becomes a character that talks about itself, so the child leads the exploration and learns through play."},
+  features:{ar:["شاشة محادثة واحدة مع شخصية «رفيق الفضاء»","كل كوكب يعرّف بنفسه بصيغة المتكلم عبر تعليمات نظام مكتوبة للأطفال","يفهم الأسئلة المتتابعة كجزء من نفس المحادثة","ردود قصيرة ولغة سهلة تناسب العمر","واجهة فضائية داكنة مبنية على dash_chat_2"],en:["One chat screen with a “Space Buddy” persona","Each planet introduces itself in the first person via a kid-friendly system prompt","Understands follow-up questions in context","Short, age-appropriate replies","Dark space-themed UI built on dash_chat_2"]},
+  tech:["Flutter","Dart","Gemini API","dash_chat_2"],skills:["flutter","dart"],
+  role:{ar:"التصميم والبرمجة.",en:"Design and development."},members:[],links:[{k:"github",l:{ar:"GitHub",en:"GitHub"},u:"https://github.com/Engfatiimah/Fatimah_lab6"}],gallery:[]}
+];
+
+const SKILLS=[
+ {g:"sk_prog",items:[["java","Java"],["python","Python"],["dart","Dart"],["cpp","C++ (Arduino)"]]},
+ {g:"sk_dev",items:[["flutter","Flutter"],["supabase","Supabase"],["figma","Figma"],["uiux","UI/UX"],["proto",{ar:"النماذج الأولية",en:"Prototyping"}]]},
+ {g:"sk_db",items:[["sql","SQL"],["apex","Oracle APEX"],["postgres","PostgreSQL"]]},
+ {g:"sk_soft",items:[["lead",{ar:"القيادة",en:"Leadership"}],["team",{ar:"العمل الجماعي",en:"Teamwork"}],["comm",{ar:"التواصل",en:"Communication"}],["events",{ar:"تنسيق الفعاليات",en:"Event Coordination"}],["ps",{ar:"حل المشكلات",en:"Problem Solving"}],["detail",{ar:"الدقة",en:"Attention to Detail"}]]}
+];
+const SKILL_DESC={
+ java:{ar:"أساس البرمجة الكائنية في دراستي الجامعية.",en:"The foundation of object-oriented programming in my degree."},
+ python:{ar:"أول لغة تعلمتها، وأستخدمها في المنطق البرمجي وتحليل البيانات.",en:"The first language I learned; I use it for programming logic and data analysis."},
+ dart:{ar:"لغة تطبيقاتي في Flutter: برمجة كائنية وغير متزامنة ونماذج بيانات واضحة.",en:"The language behind my Flutter apps: OOP, async code and clean data models."},
+ cpp:{ar:"برمجة المتحكمات الدقيقة وتجارب الإلكترونيات العملية على Arduino.",en:"Programming microcontrollers and hands-on electronics with Arduino."},
+ flutter:{ar:"أبني فيه تطبيقات جوال كاملة بواجهات متحركة وتجربة سلسة.",en:"I build complete mobile apps with it, with animated interfaces and smooth flows."},
+ supabase:{ar:"الباك إند في فيكتور: قاعدة بيانات، مصادقة، صلاحيات، وتخزين خاص بروابط مؤقتة.",en:"Vector's backend: database, auth, row-level security, and private storage with signed URLs."},
+ figma:{ar:"أصمم فيه الشاشات والنماذج التفاعلية قبل ما أبدأ البرمجة.",en:"Where I design screens and interactive prototypes before writing code."},
+ uiux:{ar:"أبدأ من المستخدم: مشكلته، ثم رحلته، ثم الشاشة المناسبة.",en:"I start from the user: their problem, then their journey, then the right screen."},
+ proto:{ar:"نماذج تفاعلية تختبر الفكرة وتوضحها قبل التنفيذ.",en:"Interactive prototypes that test and explain an idea before it's built."},
+ sql:{ar:"كتابة الاستعلامات وتصميم الجداول والعلاقات.",en:"Writing queries and designing tables and relationships."},
+ apex:{ar:"بناء تطبيقات قواعد بيانات بسرعة ضمن دراستي.",en:"Building database apps quickly as part of my coursework."},
+ postgres:{ar:"قاعدة بيانات فيكتور عبر Supabase مع سياسات أمان على مستوى الصفوف.",en:"Vector's database on Supabase, with row-level security policies."},
+ lead:{ar:"أحب أنظّم الفريق وأوزع المهام وأتابع التنفيذ.",en:"I enjoy organizing a team, splitting tasks and following through."},
+ team:{ar:"أغلب مشاريعي جماعية، من فريق من اثنين إلى فريق من ستة.",en:"Most of my projects are team projects, from teams of two to teams of six."},
+ comm:{ar:"من العرض على مسرح Money20/20 إلى التواصل مع الشركاء في الأندية الطلابية.",en:"From pitching on stage at Money20/20 to working with partners in student clubs."},
+ events:{ar:"من تنظيم فعالية «خطط لمستقبلك» مع مؤسسة مسك والتطوع في برامج وطنية.",en:"From organizing the “Plan Your Future” event with Misk to volunteering in national programs."},
+ ps:{ar:"أقسّم المشكلة لخطوات صغيرة وأجرّب لين أوصل للحل الأنظف.",en:"I break problems into small steps and iterate until I reach the cleanest solution."},
+ detail:{ar:"التفاصيل الصغيرة هي اللي تفرق في تجربة المستخدم.",en:"Small details are what make the difference in a user's experience."}
+};
+
+const ACH={img:"flowpay-cover",
+ t:{ar:"المركز السادس: هاكاثون البلاد للفنتك",en:"6th Place: Albilad FinTech Hackathon"},date:{ar:"سبتمبر 2025",en:"Sep 2025"},
+ d:{ar:"من بين 175 فريق وأكثر من 1600 متقدم، وصل فريقنا ضمن 27 فريق في مرحلة التحكيم وحقق المركز السادس بتطبيق فلو باي، في هاكاثون نظمه بنك البلاد وفنتك السعودية ومنشآت. وعرضنا فكرتنا على المسرح في الحفل الختامي ضمن معرض Money20/20 Middle East.",en:"Out of 175 teams and 1,600+ applicants, our team was one of 27 finalists and placed 6th with Flow Pay, in a hackathon by Bank Albilad, Fintech Saudi, and Monsha'at. We pitched the app on stage at the closing ceremony, held as part of Money20/20 Middle East."},
+ stats:[["175",{ar:"فريق",en:"teams"}],["1,600+",{ar:"متقدم",en:"applicants"}],[{ar:"أفضل 27",en:"Top 27"},{ar:"في التحكيم",en:"finalists"}]],
+ project:"flowpay",link:"https://www.linkedin.com/feed/update/urn:li:activity:7374489195924553728/"};
+
+const CERTS=[
+ {t:{ar:"معسكر تطوير تطبيقات Flutter",en:"Flutter App Development Bootcamp"},i:{ar:"نادي طويق، جامعة الإمام",en:"Tuwaiq Club, IMSIU"},d:{ar:"أغسطس – سبتمبر 2026",en:"Aug 2026 – Sep 2026"},c:"b",x:{ar:"بناء تطبيقات جوال متعددة المنصات بـ Flutter وDart: تنفيذ الواجهات وهيكلة التطبيق والتفاعل.",en:"Built cross-platform mobile apps with Flutter and Dart: UI implementation, app structure, and interactive functionality."}},
+ {t:{ar:"برنامج Vibe Coding",en:"Vibe Coding Program"},i:{ar:"نادي طويق، جامعة الأميرة نورة",en:"Tuwaiq Club, PNU"},d:{ar:"أغسطس 2026",en:"Aug 2026"},c:"c",x:{ar:"البرمجة بمساعدة الذكاء الاصطناعي ودمج أدوات الذكاء التوليدي في تطوير البرمجيات.",en:"Explored AI-assisted coding and integrating generative AI tools into the software development process."}},
+ {t:{ar:"أساسيات برمجة المتحكمات الدقيقة (Arduino)",en:"Fundamentals of Microcontroller Programming (Arduino)"},i:{ar:"أكاديمية طويق",en:"Tuwaiq Academy"},d:{ar:"مايو 2025",en:"May 2025"},c:"c",x:{ar:"أساسيات الكهرباء والإلكترونيات وبرمجة Arduino بلغة C++ بشكل عملي.",en:"Electricity and electronics fundamentals, and Arduino C++ programming through hands-on learning."}},
+ {t:{ar:"برنامج تدريب دبلوماسية الطاقة",en:"Energy Diplomacy Internship"},i:{ar:"Women & Energy ومعهد السياسة العالمية (IWP)",en:"Women & Energy and the Institute of World Politics (IWP)"},d:{ar:"فبراير 2025",en:"Feb 2025"},c:"p",x:{ar:"برنامج مكثف عن أمن الطاقة والدبلوماسية وتحديات الطاقة العالمية، بالتعاون مع وزارة الطاقة.",en:"Intensive program on energy security, diplomacy, and global energy challenges, in collaboration with the Saudi Ministry of Energy."}},
+ {t:{ar:"مبرمجو ذكاء المستقبل",en:"Future Intelligence Programmers"},i:{ar:"سدايا ووزارة التعليم",en:"SDAIA & Ministry of Education"},d:{ar:"مارس 2024",en:"Mar 2024"},c:"p",x:{ar:"أساسيات الذكاء الاصطناعي ومفاهيمه العلمية.",en:"Fundamentals of artificial intelligence and its scientific concepts."}},
+ {t:{ar:"لغة البرمجة Python",en:"Python Programming Language"},i:{ar:"أكاديمية طويق",en:"Tuwaiq Academy"},d:{ar:"أكتوبر 2023",en:"Oct 2023"},c:"c",x:{ar:"أساسيات لغة Python وتطبيقاتها ومفاهيم البرمجة الأساسية.",en:"Foundations of Python programming, its applications, and core programming concepts."}}
+];
+const CCAT={b:{ar:"معسكر",en:"Bootcamp"},c:{ar:"دورة",en:"Course"},p:{ar:"برنامج",en:"Program"}};
+
+const ACH2={t:{ar:"المركز الأول: تقييم معسكر Flutter",en:"1st Place: Flutter Bootcamp Evaluation"},date:{ar:"أغسطس 2026",en:"Aug 2026"},
+ d:{ar:"حصل تطبيق لا تيبل على المركز الأول في تقييم مشاريع معسكر Flutter المقدّم من أكاديمية طويق.",en:"La Table placed first in the project evaluation of the Flutter bootcamp presented by Tuwaiq Academy."}};
+const VOLS=[
+ {cur:true,ic:"mega",o:{ar:"مبادرة جسر",en:"Jisr Initiative"},r:{ar:"عضوة في لجنة التسويق",en:"Marketing Committee Member"},d:{ar:"2026 – الآن",en:"2026 – Present"},x:{ar:"عضوة في لجنة التسويق بمبادرة جسر (نادي طلابي)، أساهم في المحتوى والوصول للجمهور.",en:"Member of the marketing committee at Jisr Initiative, a student club, supporting its content and outreach."}},
+ {ic:"pen",o:{ar:"نادي تقنية المستقبل (FTC)",en:"Future Technology Club (FTC)"},r:{ar:"عضوة في لجنة كتّاب المحتوى",en:"Content Writers Committee Member"},d:{ar:"",en:""},x:{ar:"أساهم في كتابة محتوى النادي وصياغة منشوراته وإعلانات فعالياته.",en:"Helping write the club's content, posts and event announcements."}},
+ {ic:"people",o:{ar:"فعالية «خطط لمستقبلك»، FTC ومؤسسة مسك",en:"Plan Your Future Event, FTC & Misk Foundation"},r:{ar:"عضوة في فريق الموارد البشرية",en:"HR Team Member"},d:{ar:"مايو 2026",en:"May 2026"},x:{ar:"نظمت المشاركين، ونسقت مهام المتطوعين، وتابعت سير عمل الفريق طوال الفعالية.",en:"Organized participants, coordinated volunteers' tasks, and ensured smooth team operations throughout the event."}},
+ {ic:"chat",o:{ar:"نادي تقنية المستقبل (FTC)",en:"Future Technology Club (FTC)"},r:{ar:"فريق العلاقات العامة",en:"Public Relations Team"},d:{ar:"أغسطس 2025 – يونيو 2026",en:"Aug 2025 – Jun 2026"},x:{ar:"أدرت التواصل مع الشركاء ودعمت حضور النادي وصورته العامة.",en:"Managed communication with partners and supported the club's outreach and public image."}},
+ {ic:"bolt",o:{ar:"برنامج قيادات المرأة في دبلوماسية الطاقة",en:"Women in Energy Diplomacy Leadership Program"},r:{ar:"متطوعة",en:"Volunteer"},d:{ar:"فبراير 2025",en:"Feb 2025"},x:{ar:"تطوعت في برنامج يهدف لتمكين المرأة في المناصب القيادية في مختلف المجالات.",en:"Volunteered in a program that aims to empower more women in leadership roles across various fields."},n:{ar:"بتنظيم وزارة الطاقة بالتعاون مع Women & Energy وكابسارك.",en:"Organized by the Ministry of Energy with Women & Energy and KAPSARC."}}
+];
+
+const SCREENS=[{id:"vector",img:"scr-vector",bar:"#3D2847"},{id:"latable",img:"scr-latable",bar:"#FBF6EE"},{id:"flowpay",img:"scr-flowpay",bar:"#EEF2F8"}];
+
+const ICON={
+ arrow:'<svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+ live:'<svg class="i" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>',
+ github:'<svg class="i" viewBox="0 0 24 24"><path d="M9 19c-4 1.5-4-2-6-2.5M15 21v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>',
+ slides:'<svg class="i" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8M10 8l4 2-4 2z"/></svg>',
+ linkedin:'<svg class="i" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>',
+ figma:'<svg class="i" viewBox="0 0 24 24"><path d="M9 3h3v6H9a3 3 0 0 1 0-6zM12 3h3a3 3 0 0 1 0 6h-3zM9 9h3v6H9a3 3 0 0 1 0-6zM12 12a3 3 0 1 0 6 0 3 3 0 0 0-6 0zM9 15h3v3a3 3 0 1 1-3-3z"/></svg>',
+ poster:'<svg class="i" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="10" cy="9" r="2"/><path d="M19 16l-4-4-8 9"/></svg>',
+ mail:'<svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
+ cert:'<svg class="i" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><circle cx="12" cy="10" r="2.6"/><path d="M10.5 12.3 9.5 20l2.5-1.5 2.5 1.5-1-7.7"/></svg>',
+ trophy:'<svg class="i" viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg>',
+ pen:'<svg class="i" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>',
+ mega:'<svg class="i" viewBox="0 0 24 24"><path d="M3 11v3a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1zM16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg>',
+ people:'<svg class="i" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/></svg>',
+ chat:'<svg class="i" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>',
+ bolt:'<svg class="i" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>',
+ cap:'<svg class="i" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5M22 9v6"/></svg>',
+ pin:'<svg class="i" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',
+ spark:'<svg class="i" viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg>',
+ globe:'<svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>',
+ cal:'<svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
+ user:'<svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>',
+ tag:'<svg class="i" viewBox="0 0 24 24"><path d="M3 12V3h9l9 9-9 9z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>',
+ phone:'<svg class="i" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>',
+ check:'<svg class="i" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>'
+};
+
+/* ================= ENGINE ================= */
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const fine=matchMedia("(pointer: fine)").matches;
+let lang="ar",filter="all",curTab="projects",skillSel=null;
+try{const s=localStorage.getItem("fp_lang");if(s==="ar"||s==="en")lang=s;const th=localStorage.getItem("fp_theme");if(th)document.documentElement.dataset.theme=th;}catch(e){}
+const L=o=>o==null?"":typeof o==="string"?o:o[lang];
+const img=(k,cls="")=>`<img src="${IMG[k]}" alt="" class="${cls}" loading="lazy" decoding="async">`;
+
+function setLang(){
+ const d=T[lang];
+ document.documentElement.lang=lang;document.title=lang==="ar"?"فاطمة بن محمد — معرض الأعمال":"Fatimah Bin Mohammed — Portfolio";document.documentElement.dir=lang==="ar"?"rtl":"ltr";
+ $$("[data-t]").forEach(el=>{const v=d[el.dataset.t];if(typeof v==="string")el.textContent=v;});
+ $("#langBtn").textContent=lang==="ar"?"EN":"ع";
+ $("#heroName").innerHTML=`<span class="w"><span>${d.name1}</span></span> <span class="w"><span class="accent">${d.name2}</span></span>`;
+ $$("#heroName .w>span").forEach((s,i)=>s.style.animationDelay=(reduce?0:(document.body.dataset.ready?0:1.1))+i*.12+"s");
+ const mq=lang==="ar"?["Flutter","Dart","Supabase","Figma","تصميم UI/UX","النماذج الأولية","PostgreSQL","Python","Java","SQL","Oracle APEX","C++","العمل الجماعي","القيادة"]:["Flutter","Dart","Supabase","Figma","UI/UX","Prototyping","PostgreSQL","Python","Java","SQL","Oracle APEX","C++","Teamwork","Leadership"];
+ $("#marq").innerHTML=[0,1].map(()=>`<span>${mq.join("</span><span>")}</span>`).join("");
+ $("#bigm").innerHTML=d.bigm.repeat(4);
+ renderBento();renderTabs();splitText();rotInit();renderFilters();renderProjects();renderSkills();renderAch();renderCerts();renderVols();renderContact();
+ if($("#modal").classList.contains("open")&&curP!=null)fillModal(curP);
+ requestAnimationFrame(()=>{moveInd($("#tabind"),$(`.tab[data-tab="${curTab}"]`));updateNav();});
+}
+
+/* about */
+function renderBento(){
+ const d=T[lang];
+ const f=(ic,k,teal)=>`<div class="tile fact rv${teal?" teal":""}"><span class="fic">${ICON[ic]}</span><span class="fl">${d["f_"+k]}</span><b>${d["f_"+k+"_v"]}</b><span class="s">${d["f_"+k+"_s"]}</span></div>`;
+ $("#bento").innerHTML=`<div class="tile big rv"><p>${esc(d.about)}</p><div class="sig">${d.brand}</div></div>${f("cap","edu")}${f("pin","loc")}${f("spark","now",true)}${f("globe","lang")}`;
+ reveal();
+}
+
+/* hero splits */
+function splitText(){
+ $$(".split").forEach(h=>{
+  const txt=h.textContent;h.innerHTML=txt.split(" ").map((w,i)=>`<span class="ch" style="transition-delay:${i*45}ms">${esc(w)}</span>`).join(" ");
+  h.classList.remove("in");if(inView(h))requestAnimationFrame(()=>h.classList.add("in"));else splitIO&&splitIO.observe(h);
+ });
+}
+const inView=el=>{const r=el.getBoundingClientRect();return r.top<innerHeight&&r.bottom>0};
+const splitIO="IntersectionObserver" in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");splitIO.unobserve(e.target)}}),{threshold:.3}):null;
+
+let rotI=0,rotTimer;
+function rotInit(){
+ const box=$("#rotbox"),words=T[lang].rot;
+ box.innerHTML=words.map((w,i)=>`<span class="${i===0?"":"wait"}">${esc(w)}</span>`).join("");rotI=0;
+ clearInterval(rotTimer);if(reduce)return;
+ rotTimer=setInterval(()=>{const sp=box.children,n=sp.length;const cur=sp[rotI],nx=sp[(rotI+1)%n];cur.className="out";nx.className="";setTimeout(()=>{cur.className="wait"},650);rotI=(rotI+1)%n;},2600);
+}
+
+/* phone */
+
+/* tabs */
+const TABS=["projects","skills","ach","certs","vol"];
+function renderTabs(){
+ const d=T[lang],names={projects:"t_projects",skills:"t_skills",ach:"t_ach",certs:"t_certs",vol:"t_vol"};
+ $$(".tab").forEach(t=>t.remove());
+ $("#tabs").insertAdjacentHTML("beforeend",TABS.map(k=>`<button class="tab" role="tab" data-tab="${k}" aria-selected="${k===curTab}">${d[names[k]]}</button>`).join(""));
+ $$(".tab").forEach(t=>t.onclick=()=>selectTab(t.dataset.tab));
+}
+function moveInd(ind,btn){if(!ind||!btn)return;ind.style.width=btn.offsetWidth+"px";ind.style.transform=`translateX(${btn.offsetLeft}px)`;}
+function selectTab(name){
+ if(name===curTab)return;
+ const back=TABS.indexOf(name)<TABS.indexOf(curTab);curTab=name;
+ $$(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.tab===name));
+ const btn=$(`.tab[data-tab="${name}"]`);moveInd($("#tabind"),btn);
+ $$(".panel").forEach(p=>p.classList.remove("on","back"));
+ const p=$(`.panel[data-panel="${name}"]`);void p.offsetWidth;p.classList.add("on");if(back)p.classList.add("back");
+ updateNav();
+}
+$("#tabs").addEventListener("keydown",e=>{if(!["ArrowLeft","ArrowRight"].includes(e.key))return;let i=TABS.indexOf(curTab);const fwd=(e.key==="ArrowLeft")===(lang==="ar");i=(i+(fwd?1:-1)+TABS.length)%TABS.length;selectTab(TABS[i]);$(`.tab[data-tab="${TABS[i]}"]`).focus();});
+$$("#navlinks a").forEach(a=>a.addEventListener("click",()=>{if(a.dataset.tab)selectTab(a.dataset.tab)}));
+
+/* projects */
+function renderFilters(){
+ const d=T[lang],cats=["all","mobile","uiux","hack"];
+ $("#fbar").innerHTML=cats.map(c=>`<button class="fchip" type="button" data-f="${c}" aria-pressed="${c===filter}">${d["f_"+c]}<em>${c==="all"?PROJECTS.length:PROJECTS.filter(p=>p.cats.includes(c)).length}</em></button>`).join("");
+ $$(".fchip").forEach(b=>b.onclick=()=>{filter=b.dataset.f;$$(".fchip").forEach(x=>x.setAttribute("aria-pressed",x===b));applyFilter(true);});
+}
+function coverHTML(p){return p.svg?p.svg:img(p.cover,p.coverTop?"top":"")}
+function linkEl(l,pid,cls){
+ const lab=esc(L(l.l));
+ if(l.u)return `<a class="${cls}" href="${l.u}" target="_blank" rel="noopener" title="${lab}" aria-label="${lab}">${ICON[l.k]}${cls.includes("btn")?`<span>${lab}</span>`:""}</a>`;
+ const data=l.slides?`data-slides="${l.slides}"`:`data-img="${l.img}"`;
+ return `<button type="button" class="${cls}" ${data} title="${lab}" aria-label="${lab}">${ICON[l.k]}${cls.includes("btn")?`<span>${lab}</span>`:""}</button>`;
+}
+function bindLinkBtns(root){
+ root.querySelectorAll("[data-slides],[data-img]").forEach(b=>b.addEventListener("click",e=>{e.stopPropagation();const s=b.dataset.slides?SLIDES[b.dataset.slides]:[b.dataset.img];openLB(s,0);}));
+ root.querySelectorAll("a.lic").forEach(a=>a.addEventListener("click",e=>e.stopPropagation()));
+}
+function renderProjects(){
+ const d=T[lang];
+ $("#grid").innerHTML=PROJECTS.map(p=>{
+  const extra=p.tech.length-4;
+  return `<article class="card tilt" data-id="${p.id}" tabindex="0" role="button" aria-label="${esc(L(p.title))}">
+  <span class="glare"></span>
+  <div class="cover">${coverHTML(p)}${p.award?`<span class="award">${esc(L(p.award))}</span>`:""}</div>
+  <div class="body"><h3>${esc(L(p.title))}</h3><p class="sd">${esc(L(p.short))}</p>
+  <div class="pills">${p.tech.slice(0,4).map(t=>`<span>${esc(L(t))}</span>`).join("")}${extra>0?`<span>+${extra}</span>`:""}</div>
+  <div class="cfoot"><span class="dt">${esc(L(p.date))}</span><span class="acts2">${p.links.slice(0,2).map(l=>linkEl(l,p.id,"lic")).join("")}<span class="det">${d.details}${ICON.arrow}</span></span></div></div>
+ </article>`}).join("");
+ $$(".card").forEach(c=>{c.onclick=()=>openModal(c.dataset.id,c);c.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openModal(c.dataset.id,c)}}});
+ bindLinkBtns($("#grid"));applyFilter(false);bindTilt();bindCursor();
+}
+function applyFilter(anim){
+ const cards=$$(".card");
+ const first=new Map(cards.filter(c=>!c.classList.contains("hide")).map(c=>[c,c.getBoundingClientRect()]));
+ cards.forEach(c=>{const p=PROJECTS.find(x=>x.id===c.dataset.id);c.classList.toggle("hide",filter!=="all"&&!p.cats.includes(filter))});
+ if(!anim||reduce||!Element.prototype.animate)return;
+ cards.filter(c=>!c.classList.contains("hide")).forEach((c,i)=>{
+  const b=c.getBoundingClientRect(),a=first.get(c);
+  if(a)c.animate([{transform:`translate(${a.left-b.left}px,${a.top-b.top}px)`},{transform:"none"}],{duration:600,easing:"cubic-bezier(.2,.8,.2,1)"});
+  else c.animate([{opacity:0,transform:"scale(.9) translateY(20px)"},{opacity:1,transform:"none"}],{duration:550,delay:i*50,easing:"cubic-bezier(.2,.8,.2,1)",fill:"backwards"});
+ });
+}
+function bindTilt(){
+ if(!fine||reduce)return;
+ $$(".tilt").forEach(el=>{
+  el.onpointermove=e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;el.style.setProperty("--ry",((x-.5)*7)+"deg");el.style.setProperty("--rx",(-(y-.5)*7)+"deg");el.style.setProperty("--gx",x*100+"%");el.style.setProperty("--gy",y*100+"%");};
+  el.onpointerleave=()=>{el.style.setProperty("--ry","0deg");el.style.setProperty("--rx","0deg")};
+ });
+}
+
+/* modal */
+let curP=null,lastFocus=null,openCard=null;
+function fillModal(i,swap){
+ const p=PROJECTS[i],d=T[lang];curP=i;
+ $("#mCover").innerHTML=coverHTML(p);
+ const blk=(k,v,cls="")=>v?`<div class="blk ${cls}"><h5>${d[k]}</h5>${v}</div>`:"";
+ const prev=PROJECTS[(i-1+PROJECTS.length)%PROJECTS.length],next=PROJECTS[(i+1)%PROJECTS.length];
+ const gal=p.gallery.length?`<div class="gal">${p.gallery.slice(0,8).map((g,k)=>`<button type="button" data-g="${k}">${img(g)}${k===7&&p.gallery.length>8?`<span class="more">+${p.gallery.length-8}</span>`:""}</button>`).join("")}</div>`:"";
+ const mb=$("#mBody");
+ mb.innerHTML=`
+  <div class="mh"><h3 id="mTitle">${esc(L(p.title))}</h3>${p.tagline?`<div class="tagline">${esc(L(p.tagline))}</div>`:""}${p.award?`<span class="award">${esc(L(p.award))}</span>`:""}
+   <div class="meta"><span>${ICON.cal}${esc(L(p.date))}</span>${p.team!=null?`<span>${ICON.user}${p.team?d.teamp:d.solo}</span>`:""}<span>${ICON.tag}${d["f_"+p.main]}</span></div></div>
+  ${p.links.length?`<div class="lbar">${p.links.map((l,k)=>linkEl(l,p.id,"btn "+(k===0?"primary":"ghost"))).join("")}</div>`:""}
+  ${blk("s_over",p.overview?`<p>${esc(L(p.overview))}</p>`:"")}
+  ${p.problem||p.solution?`<div class="two2">${p.problem?`<div class="box2 pb">${blk("s_prob",`<p>${esc(L(p.problem))}</p>`)}</div>`:""}${p.solution?`<div class="box2 sb">${blk("s_sol",`<p>${esc(L(p.solution))}</p>`)}</div>`:""}</div>`:""}
+  ${blk("s_feat",p.features?`<ul class="feats">${L(p.features).map(f=>`<li><span class="ck">${ICON.check}</span><span>${esc(f)}</span></li>`).join("")}</ul>`:"")}
+  ${blk("s_tech",`<div class="pills">${p.tech.map(t=>`<span>${esc(L(t))}</span>`).join("")}</div>`)}
+  ${blk("s_role",p.role?`<p>${esc(L(p.role))}</p>`:"")}
+  ${p.team&&p.members.length?blk("s_team",`<div class="team">${p.members.map(m=>`<span class="${m==="Fatimah Bin Mohammed"?"me":""}">${esc(lang==="ar"?(NAMES_AR[m]||m):m)}</span>`).join("")}</div>`):""}
+  ${blk("s_gal",gal)}
+  <div class="pn"><button type="button" id="pPrev"><small>${lang==="ar"?"→":"←"} ${d.prev}</small><b>${esc(L(prev.title))}</b></button><button type="button" class="nx" id="pNext"><small>${d.next} ${lang==="ar"?"←":"→"}</small><b>${esc(L(next.title))}</b></button></div>`;
+ if(swap){mb.classList.remove("swap");void mb.offsetWidth;mb.classList.add("swap");$("#sheet").scrollTo({top:0,behavior:reduce?"auto":"smooth"});}
+ bindLinkBtns(mb);
+ mb.querySelectorAll(".gal button").forEach(b=>b.onclick=()=>openLB(p.gallery,+b.dataset.g));
+ $("#pPrev").onclick=()=>fillModal((i-1+PROJECTS.length)%PROJECTS.length,true);
+ $("#pNext").onclick=()=>fillModal((i+1)%PROJECTS.length,true);
+ bindCursor();
+}
+function openModal(id,card){
+ const i=PROJECTS.findIndex(x=>x.id===id);lastFocus=document.activeElement;openCard=card;
+ const go=()=>{fillModal(i);$("#sheet").scrollTop=0;$("#modal").classList.add("open");$("#modal").setAttribute("aria-hidden","false");document.body.style.overflow="hidden";};
+ if(card&&document.startViewTransition&&!reduce){
+  const cov=card.querySelector(".cover");cov.style.viewTransitionName="pcover";
+  const t=document.startViewTransition(()=>{cov.style.viewTransitionName="";$("#mCover").style.viewTransitionName="pcover";go();});
+  t.finished.finally(()=>{$("#mCover").style.viewTransitionName="";});
+ }else go();
+ setTimeout(()=>$("#mClose").focus({preventScroll:true}),60);
+}
+function closeModal(){
+ if(!$("#modal").classList.contains("open"))return;
+ const done=()=>{$("#modal").classList.remove("open");$("#modal").setAttribute("aria-hidden","true");document.body.style.overflow="";};
+ const card=$(`.card[data-id="${PROJECTS[curP].id}"]`);
+ if(card&&!card.classList.contains("hide")&&document.startViewTransition&&!reduce&&inView(card)){
+  const cov=card.querySelector(".cover");$("#mCover").style.viewTransitionName="pcover";
+  const t=document.startViewTransition(()=>{$("#mCover").style.viewTransitionName="";cov.style.viewTransitionName="pcover";done();});
+  t.finished.finally(()=>{cov.style.viewTransitionName="";});
+ }else done();
+ if(lastFocus)lastFocus.focus({preventScroll:true});
+}
+$("#mClose").onclick=closeModal;$("#scrim").onclick=closeModal;
+
+/* lightbox */
+let lbSet=[],lbI=0;
+function openLB(set,i){
+ lbSet=set;lbI=i;$("#lbThumbs").innerHTML=set.length>1?set.map((k,j)=>`<button type="button" data-j="${j}">${img(k)}</button>`).join(""):"";
+ $$("#lbThumbs button").forEach(b=>b.onclick=()=>showLB(+b.dataset.j));
+ $("#lbPrev").hidden=$("#lbNext").hidden=set.length<2;
+ $("#lb").classList.add("open");$("#lb").setAttribute("aria-hidden","false");showLB(i);document.body.style.overflow="hidden";
+}
+function showLB(i){
+ lbI=(i+lbSet.length)%lbSet.length;const im=$("#lbImg");im.style.animation="none";im.offsetWidth;im.style.animation="";im.src=IMG[lbSet[lbI]];
+ $("#lbCount").textContent=`${lbI+1} / ${lbSet.length}`;
+ $$("#lbThumbs button").forEach((b,j)=>b.classList.toggle("on",j===lbI));
+ const on=$("#lbThumbs .on");on&&on.scrollIntoView({block:"nearest",inline:"center",behavior:reduce?"auto":"smooth"});
+}
+function closeLB(){$("#lb").classList.remove("open");$("#lb").setAttribute("aria-hidden","true");if(!$("#modal").classList.contains("open"))document.body.style.overflow="";}
+$("#lbClose").onclick=closeLB;$("#lbPrev").onclick=()=>showLB(lbI-1);$("#lbNext").onclick=()=>showLB(lbI+1);
+$("#lbStage").addEventListener("click",e=>{if(e.target.id==="lbStage")closeLB()});
+let tx=null;$("#lbStage").addEventListener("touchstart",e=>tx=e.touches[0].clientX,{passive:true});
+$("#lbStage").addEventListener("touchend",e=>{if(tx==null)return;const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)showLB(lbI+(dx<0?1:-1));tx=null});
+addEventListener("keydown",e=>{
+ if($("#lb").classList.contains("open")){if(e.key==="Escape")closeLB();if(e.key==="ArrowRight")showLB(lbI+1);if(e.key==="ArrowLeft")showLB(lbI-1);return;}
+ if(e.key==="Escape")closeModal();
+});
+
+/* skills */
+function renderSkills(){
+ const d=T[lang];
+ $("#skills").innerHTML=SKILLS.map(g=>`<div class="sgroup"><h4><i></i>${d[g.g]}</h4><div class="spills">${g.items.map(([id,n])=>`<button class="pill" type="button" data-s="${id}" aria-pressed="${id===skillSel}">${esc(L(n))}</button>`).join("")}</div></div>`).join("");
+ $$(".pill").forEach(b=>b.onclick=()=>{skillSel=b.dataset.s;$$(".pill").forEach(x=>x.setAttribute("aria-pressed",x===b));showUsed();});
+ showUsed();bindCursor();
+}
+function showUsed(){
+ const d=T[lang];
+ if(!skillSel){$("#usedT").textContent=d.used_t;$("#usedH").textContent=d.used_h;$("#usedL").innerHTML="";return;}
+ const it=SKILLS.flatMap(g=>g.items).find(x=>x[0]===skillSel),ps=PROJECTS.filter(p=>p.skills.includes(skillSel));
+ $("#usedT").textContent=L(it[1]);$("#usedH").textContent="";
+ $("#usedL").innerHTML=`<p class="desc">${esc(L(SKILL_DESC[skillSel]))}</p>`+(ps.length?`<p class="hint" style="margin-top:12px">${d.used_in}</p>`+ps.map((p,i)=>`<li data-id="${p.id}" style="animation-delay:${i*70}ms">${p.cover?img(p.cover):""}${esc(L(p.title))}</li>`).join(""):"");
+ $$("#usedL li").forEach(li=>li.onclick=()=>openModal(li.dataset.id,null));
+}
+
+/* achievements */
+function renderAch(){
+ const d=T[lang];
+ const list=[{...ACH},{img:"latable-cover",t:ACH2.t,date:ACH2.date,d:ACH2.d,stats:[],project:"latable"}];
+ $("#achBox").innerHTML=`<div class="achs">${list.map((a,k)=>`<div class="ach" data-k="${k}"><div class="img">${img(a.img)}</div><div class="in">
+  <div class="ahead"><span class="medal">${ICON.trophy}</span><span class="dt">${esc(L(a.date))}</span></div>
+  <h3>${esc(L(a.t))}</h3>${a.stats.length?`<div class="stats">${a.stats.map(([n,l])=>`<span><b>${esc(L(n))}</b>${esc(L(l))}</span>`).join("")}</div>`:""}
+  <p>${esc(L(a.d))}</p>
+  <div class="row"><button type="button" class="btn l" data-p="${a.project}">${d.view_proj}</button>${a.link?`<a class="btn o" href="${a.link}" target="_blank" rel="noopener">${ICON.linkedin}<span>${d.view_post}</span></a>`:""}</div></div></div>`).join("")}</div><div class="tapn">✦ ${d.tap}</div>`;
+ $$("#achBox [data-p]").forEach(b=>b.onclick=e=>{e.stopPropagation();openModal(b.dataset.p,null)});
+ $$("#achBox a").forEach(a=>a.onclick=e=>e.stopPropagation());
+ $$("#achBox .ach").forEach(c=>c.onclick=e=>confetti(e.clientX,e.clientY));
+ bindCursor();
+}
+function renderCerts(){
+ $("#certs").innerHTML=CERTS.map(c=>`<div class="cert"><div class="cph">${ICON.cert}<span class="iss">${esc(L(c.i))}</span></div><div class="cb"><div class="top"><span class="cat">${esc(L(CCAT[c.c]))}</span><span class="dt">${esc(L(c.d))}</span></div><h4>${esc(L(c.t))}</h4><p>${esc(L(c.x))}</p></div></div>`).join("");
+}
+function renderVols(){
+ const d=T[lang];
+ $("#vols").innerHTML=VOLS.map(v=>`<div class="vol"><span class="vic">${ICON[v.ic]}</span><div><div class="vt">${L(v.d)?`<span class="dt">${esc(L(v.d))}</span>`:""}${v.cur?`<span class="cur-b">${d.cur}</span>`:""}</div><h4>${esc(L(v.r))}</h4><div class="org">${esc(L(v.o))}</div><p>${esc(L(v.x))}</p>${v.n?`<div class="note">${esc(L(v.n))}</div>`:""}</div></div>`).join("");
+}
+function renderContact(){
+ const d=T[lang],P=PROFILE;
+ const gmail="https://mail.google.com/mail/?view=cm&fs=1&to="+encodeURIComponent(P.email);
+ $("#contactBox").innerHTML=`
+  <div class="ccard"><a class="cic" href="${gmail}" target="_blank" rel="noopener" aria-label="${d.c_email}">${ICON.mail}</a><div style="min-width:0"><div class="cl">${d.c_email}</div><a class="cv clink" href="${gmail}" target="_blank" rel="noopener" id="emailTxt">${P.email}</a></div><button class="copy" type="button" data-copy="${P.email}" data-target="emailTxt">${d.copy}</button></div>
+  ${P.phone?`<div class="ccard"><a class="cic" href="tel:${P.phone.replace(/\s/g,"")}" aria-label="${d.c_phone}">${ICON.phone}</a><div style="min-width:0"><div class="cl">${d.c_phone}</div><a class="cv clink" href="tel:${P.phone.replace(/\s/g,"")}" dir="ltr" id="phoneTxt">${P.phone}</a></div><button class="copy" type="button" data-copy="${P.phone.replace(/\s/g,"")}" data-target="phoneTxt">${d.copy}</button></div>`:""}
+  ${P.linkedin?`<a class="ccard" href="${P.linkedin}" target="_blank" rel="noopener"><span class="cic">${ICON.linkedin}</span><div><div class="cl">${d.c_li}</div><div class="cv">in/fatimah-bin-mohammed</div></div></a>`:""}
+  <a class="ccard" href="${P.github}" target="_blank" rel="noopener"><span class="cic">${ICON.github}</span><div style="min-width:0"><div class="cl">${d.c_gh}</div><div class="cv">github.com/Engfatiimah</div></div></a>`;
+ $$("#contactBox .copy").forEach(b=>b.onclick=()=>{
+  const done=()=>{b.textContent=T[lang].copied;b.classList.add("ok");setTimeout(()=>{b.textContent=T[lang].copy;b.classList.remove("ok")},1600)};
+  const fb=()=>{const r=document.createRange();r.selectNodeContents($("#"+b.dataset.target));const s=getSelection();s.removeAllRanges();s.addRange(r)};
+  try{navigator.clipboard.writeText(b.dataset.copy).then(done,fb)}catch(e){fb()}});
+ bindCursor();
+}
+
+/* confetti */
+const cv=$("#confetti"),cx=cv.getContext("2d");let parts=[],confRun=false;
+function confetti(x,y){
+ if(reduce)return;cv.width=innerWidth*devicePixelRatio;cv.height=innerHeight*devicePixelRatio;cx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+ const cols=["#0E4B48","#C25E36","#F2B880","#58B2A6","#E08157","#F6F1E8"];
+ for(let i=0;i<110;i++){const a=Math.random()*Math.PI*2,s=4+Math.random()*9;parts.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-6,r:Math.random()*6+4,c:cols[i%cols.length],rot:Math.random()*6,vr:Math.random()*.3-.15,life:1});}
+ if(!confRun){confRun=true;requestAnimationFrame(tickC)}
+}
+function tickC(){
+ cx.clearRect(0,0,innerWidth,innerHeight);
+ parts.forEach(p=>{p.vy+=.28;p.vx*=.99;p.x+=p.vx;p.y+=p.vy;p.rot+=p.vr;p.life-=.008;cx.save();cx.globalAlpha=Math.max(p.life,0);cx.translate(p.x,p.y);cx.rotate(p.rot);cx.fillStyle=p.c;cx.fillRect(-p.r/2,-p.r/4,p.r,p.r/2);cx.restore();});
+ parts=parts.filter(p=>p.life>0&&p.y<innerHeight+40);
+ if(parts.length)requestAnimationFrame(tickC);else{confRun=false;cx.clearRect(0,0,innerWidth,innerHeight)}
+}
+
+/* hero dots */
+const dc=$("#dots"),dctx=dc.getContext("2d");let mx=-999,my=-999,dotsOn=true,DW=0,DH=0;
+function sizeDots(){const r=dc.getBoundingClientRect();DW=r.width;DH=r.height;dc.width=DW*devicePixelRatio;dc.height=DH*devicePixelRatio;dctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);}
+function drawDots(){
+ if(!dotsOn)return;
+ const cs=getComputedStyle(document.documentElement),c1=cs.getPropertyValue("--line").trim(),c2=cs.getPropertyValue("--terra").trim();
+ dctx.clearRect(0,0,DW,DH);const g=26;
+ for(let y=g/2;y<DH;y+=g)for(let x=g/2;x<DW;x+=g){const dd=Math.hypot(x-mx,y-my),k=Math.max(0,1-dd/150);
+  dctx.beginPath();dctx.fillStyle=k>0.05?c2:c1;dctx.globalAlpha=k>0.05?.25+k*.75:.9;dctx.arc(x+(x-mx)*k*.12,y+(y-my)*k*.12,1.1+k*2.2,0,7);dctx.fill();}
+ dctx.globalAlpha=1;if(!reduce)requestAnimationFrame(drawDots);
+}
+$(".hero").addEventListener("pointermove",e=>{const r=dc.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;});
+$(".hero").addEventListener("pointerleave",()=>{mx=my=-999});
+new IntersectionObserver(es=>{const was=dotsOn;dotsOn=es[0].isIntersecting;if(dotsOn&&!was)drawDots();}).observe($(".hero"));
+addEventListener("resize",()=>{sizeDots();if(reduce)drawDots();moveInd($("#tabind"),$(`.tab[data-tab="${curTab}"]`));updateNav();});
+
+/* cursor + magnetic */
+const cur=$("#cur"),ring=$("#curRing");let cxp=0,cyp=0,rxp=0,ryp=0;
+if(fine&&!reduce){
+ addEventListener("pointermove",e=>{if(!document.body.classList.contains("has-cur")){document.body.classList.add("has-cur");rxp=e.clientX;ryp=e.clientY;}cxp=e.clientX;cyp=e.clientY;cur.style.transform=`translate(${cxp}px,${cyp}px)`;});
+ (function loop(){rxp+=(cxp-rxp)*.18;ryp+=(cyp-ryp)*.18;ring.style.transform=`translate(${rxp}px,${ryp}px)`;requestAnimationFrame(loop)})();
+}
+function bindCursor(){
+ if(!fine||reduce)return;
+ $$("a,button,.card,.ach").forEach(el=>{if(el.dataset.cb)return;el.dataset.cb=1;el.addEventListener("pointerenter",()=>ring.classList.add("big"));el.addEventListener("pointerleave",()=>ring.classList.remove("big"));});
+ $$(".mag").forEach(el=>{if(el.dataset.mg)return;el.dataset.mg=1;
+  el.addEventListener("pointermove",e=>{const r=el.getBoundingClientRect();el.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.22}px,${(e.clientY-r.top-r.height/2)*.3}px)`});
+  el.addEventListener("pointerleave",()=>el.style.transform="");});
+}
+
+/* nav */
+let lastY=0;
+function updateNav(){
+ const links=$$("#navlinks a"),pill=$("#navpill");let act=null;
+ const sec=id=>{const r=$(id).getBoundingClientRect();return r.top<innerHeight*.45&&r.bottom>120};
+ if(sec("#contact"))act=links.find(a=>a.getAttribute("href")==="#contact");
+ else if(sec("#work"))act=links.find(a=>a.dataset.tab===curTab);
+ else if(sec("#about"))act=links[0];
+ links.forEach(a=>a.classList.toggle("on",a===act));
+ if(act&&act.offsetWidth){pill.style.opacity=1;pill.style.width=act.offsetWidth+"px";pill.style.transform=`translateX(${act.offsetLeft}px)`;}else pill.style.opacity=0;
+}
+addEventListener("scroll",()=>{
+ const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;
+ $("#progress").style.transform=`scaleX(${h>0?y/h:0})`;
+ $("#nav").classList.toggle("hide",y>lastY&&y>400);lastY=y;updateNav();
+},{passive:true});
+
+/* reveal */
+const rvIO="IntersectionObserver" in window&&!reduce?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.remove("pre");rvIO.unobserve(e.target)}}),{rootMargin:"0px 0px -50px 0px"}):null;
+function reveal(){if(!rvIO)return;$$(".rv").forEach((el,i)=>{if(el.dataset.rv)return;el.dataset.rv=1;if(!inView(el)){el.classList.add("pre");el.style.transitionDelay=(i%5)*70+"ms";rvIO.observe(el)}});}
+
+/* toggles */
+$("#langBtn").onclick=()=>{lang=lang==="ar"?"en":"ar";try{localStorage.setItem("fp_lang",lang)}catch(e){}
+ if(document.startViewTransition&&!reduce)document.startViewTransition(setLang);else setLang();};
+$("#themeBtn").onclick=e=>{
+ const root=document.documentElement,isDark=root.dataset.theme?root.dataset.theme==="dark":matchMedia("(prefers-color-scheme: dark)").matches,nt=isDark?"light":"dark";
+ const apply=()=>{root.dataset.theme=nt;try{localStorage.setItem("fp_theme",nt)}catch(er){}if(reduce)drawDots();};
+ if(document.startViewTransition&&!reduce){const x=e.clientX,y=e.clientY,r=Math.hypot(Math.max(x,innerWidth-x),Math.max(y,innerHeight-y));
+  document.startViewTransition(apply).ready.then(()=>document.documentElement.animate({clipPath:[`circle(0 at ${x}px ${y}px)`,`circle(${r}px at ${x}px ${y}px)`]},{duration:650,easing:"cubic-bezier(.2,.8,.2,1)",pseudoElement:"::view-transition-new(root)"})).catch(()=>{});
+ }else apply();
+};
+
+/* in-page links: reliable smooth scroll */
+document.addEventListener("click",e=>{
+ const a=e.target.closest('a[href^="#"]');if(!a)return;
+ const id=a.getAttribute("href").slice(1);e.preventDefault();
+ const beh=reduce?"auto":"smooth";
+ if(!id||id==="top"){window.scrollTo({top:0,behavior:beh});return;}
+ const el=document.getElementById(id);if(!el)return;
+ const y=el.getBoundingClientRect().top+window.scrollY-70;
+ window.scrollTo({top:Math.max(0,y),behavior:beh});
+});
+/* boot */
+setLang();sizeDots();drawDots();reveal();bindCursor();
+setTimeout(()=>{document.body.dataset.ready=1;const c=$("#curtain");c&&c.remove()},reduce?0:1700);
+</script>
+
+</body>
+</html>
