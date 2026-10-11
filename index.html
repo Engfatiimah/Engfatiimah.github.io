@@ -997,7 +997,7 @@ function showUsed(){
 /* achievements */
 function renderAch(){
  const d=T[lang];
- const list=[{...ACH},{img:"latable-cover",t:ACH2.t,date:ACH2.date,d:ACH2.d,stats:[["24",{ar:"مشارك",en:"participants"}],["5",{ar:"محكّمين",en:"judges"}]],project:"latable"}];
+ const list=[{...ACH},{img:"latable-cover",t:ACH2.t,date:ACH2.date,d:ACH2.d,stats:[["20+",{ar:"مشارك",en:"participants"}],["5",{ar:"محكّمين",en:"judges"}]],project:"latable"}];
  $("#achBox").innerHTML=`<div class="achs">${list.map((a,k)=>`<div class="ach" data-k="${k}"><div class="img">${img(a.img)}</div><div class="in">
   <div class="ahead"><span class="medal">${ICON.trophy}</span><span class="dt">${esc(L(a.date))}</span></div>
   <h3>${esc(L(a.t))}</h3>${a.stats.length?`<div class="stats">${a.stats.map(([n,l])=>`<span><b>${esc(L(n))}</b>${esc(L(l))}</span>`).join("")}</div>`:""}
