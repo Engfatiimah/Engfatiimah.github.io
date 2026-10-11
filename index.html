@@ -41,7 +41,10 @@ svg.i{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.8;stro
 
 /* intro */
 .curtain{position:fixed;inset:0;z-index:100;background:var(--teal);display:grid;place-items:center;pointer-events:none;clip-path:inset(0 0 0 0);animation:curtain 1s var(--ease) .5s forwards}
-.curtain span{font-family:var(--f-display);font-weight:700;font-size:clamp(34px,6vw,64px);color:var(--on-teal);animation:cword .8s var(--ease) forwards}
+.curtain span{font-family:var(--f-display);font-weight:700;font-size:clamp(26px,4.5vw,46px);color:var(--on-teal);animation:cword .8s var(--ease) forwards}
+.curtain .cw{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+:root[dir=ltr] .curtain .cw{flex-direction:column-reverse}
+.curtain small{font-family:var(--f-display);font-size:clamp(13px,1.8vw,18px);color:var(--on-teal);opacity:.8;letter-spacing:.04em;animation:cword .8s var(--ease) forwards}
 .curtain i{position:absolute;bottom:0;inset-inline:0;height:3px;background:var(--terra);transform-origin:left;animation:cbar .55s var(--ease) forwards}
 @keyframes curtain{to{clip-path:inset(0 0 100% 0)}}
 @keyframes cword{0%{opacity:0;transform:translateY(24px)}45%{opacity:1;transform:none}100%{opacity:1}}
@@ -420,7 +423,7 @@ html[lang="ar"] .blk h5{font-size:12.5px;font-weight:600}
 <body>
 
 
-<div class="curtain" id="curtain" aria-hidden="true"><span data-t="brand"></span><i></i></div>
+<div class="curtain" id="curtain" aria-hidden="true"><div class="cw"><small data-t="curtain_lbl"></small><span data-t="brand"></span></div><i></i></div>
 <div class="progress" id="progress"></div>
 <div class="cur" id="cur"></div><div class="cur-ring" id="curRing"></div>
 <canvas id="confetti"></canvas>
@@ -566,7 +569,7 @@ const PROFILE={
  email:"Fatimahbinmh@gmail.com", phone:"+966 53 589 9658", github:"", linkedin:"https://www.linkedin.com/in/fatimah-bin-mohammed-321552325"
 };
 const T={
- ar:{brand:"فاطمة بن محمد",brand_short:"فاطمة",name1:"فاطمة",name2:"بن محمد",
+ ar:{brand:"فاطمة بن محمد",curtain_lbl:"ملف أعمال",brand_short:"فاطمة",name1:"فاطمة",name2:"بن محمد",
   nav_about:"عنّي",nav_projects:"المشاريع",nav_skills:"المهارات",nav_ach:"الإنجازات",nav_certs:"الشهادات",nav_vol:"التطوع",nav_contact:"تواصل",
   status:"جاهزة لفرص التدريب والمشاريع الجديدة",title:"تخصص تقنية المعلومات، جامعة الملك سعود · مطورة Flutter · مصممة UI/UX",rot_lbl:"أنا",
   rot:["مطوّرة Flutter","مصممة UI/UX","أبني تطبيقات تحل مشاكل حقيقية","أهتم بأدق التفاصيل"],
@@ -589,7 +592,7 @@ const T={
   to_top:"العودة للأعلى",loc:"الرياض، المملكة العربية السعودية",
   bigm:"لنبنِ <b>شيئًا</b> · صمّم · برمج · <b>أطلق</b> · ",
   k1:"01 · عنّي",k2:"02 · أعمالي وإنجازاتي",k3:"03 · تواصل",copy_r:"© 2026 فاطمة بن محمد",logo:"ف",me:"فاطمة بن محمد",pl:["فيكتور","لا تيبل","فلو باي"],phcap:"لقطات حقيقية من أعمالي",open:"افتح المشروع"},
- en:{brand:"Fatimah Bin Mohammed",brand_short:"Fatimah",name1:"Fatimah",name2:"Bin Mohammed",
+ en:{brand:"Fatimah Bin Mohammed",curtain_lbl:"Portfolio",brand_short:"Fatimah",name1:"Fatimah",name2:"Bin Mohammed",
   nav_about:"About",nav_projects:"Projects",nav_skills:"Skills",nav_ach:"Achievements",nav_certs:"Certificates",nav_vol:"Volunteering",nav_contact:"Contact",
   status:"Ready for internships & new projects",title:"Information Technology major, King Saud University · Flutter Developer · UI/UX Designer",rot_lbl:"I'm",
   rot:["a Flutter developer","a UI/UX designer","building apps for real problems","all about the details"],
