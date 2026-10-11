@@ -256,6 +256,7 @@ svg.i{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.8;stro
 .used .desc{margin-top:10px;font-size:14px;line-height:1.75;opacity:.92;animation:up .45s var(--ease) both}
 #usedL li{list-style:none;margin-top:7px;display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.1);padding:8px 11px;border-radius:11px;opacity:0;transform:translateY(10px);animation:up .45s var(--ease) forwards;cursor:pointer;font-size:13.5px}
 #usedL li:hover{background:rgba(255,255,255,.18)}
+#usedL li svg{width:26px;height:26px;border-radius:7px;flex:none}
 #usedL li img{width:26px;height:26px;border-radius:7px;object-fit:cover;object-position:top}
 .used .ring{position:absolute;width:200px;height:200px;border-radius:50%;border:1.5px dashed rgba(255,255,255,.25);bottom:-90px;inset-inline-end:-70px;animation:spin 40s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -640,8 +641,8 @@ const PROJECTS=[
   problem:{ar:"لا يعرف المشارك أيّ الفرق ما زالت بحاجة إلى أعضاء، ولا يوضّح المقعد الشاغر الدورَ المطلوب، كما يُصعّب تشتّت المحادثات متابعةَ طلبات الانضمام.",en:"Participants don't know which teams still need someone; an open spot says little without a clear role; and scattered conversations make requests hard to follow."},
   solution:{ar:"يتيح التطبيق تصفّح الهاكاثونات وفرقها، والاطلاع على المقاعد الشاغرة والأدوار الناقصة، ثم التواصل عبر طلبات الانضمام والدعوات مع متابعة حالتها لحظيًا.",en:"Discover hackathons and their teams, understand open spots and missing roles, then connect through join requests and invitations with live status tracking."},
   features:{ar:["وضع الزائر، وتسجيل على مرحلتين مرتبط بحسابَي LinkedIn وGitHub", "ملف مهارات يضم من مهارة واحدة إلى ست مهارات، مدعومة بإثباتات مرفوعة", "تصفّح الهاكاثونات حسب المجال: الأمن السيبراني، والذكاء الاصطناعي، والحكومة الرقمية، والطاقة", "عرض الفرق مع المقاعد الشاغرة والأدوار الناقصة", "صندوق موحّد لطلبات الانضمام والدعوات مع متابعة حالتها", "إنشاء الفرق وإدارتها بعدد يتراوح بين ثلاثة وخمسة أعضاء", "خادم خلفي آمن: تأكيد البريد الإلكتروني، وصلاحيات على مستوى السجلات (RLS)، وتخزين خاص بروابط مؤقتة، وتجزئة الملفات بخوارزمية SHA-256"],en:["Guest mode and two-step sign-up linked to LinkedIn and GitHub","Skill profiles (1–6 skills) backed by uploaded evidence","Hackathon discovery filtered by field (Security, AI, GovTech, Energy)","Team carousel showing open spots and missing roles","Join requests and invitations in one inbox, with live tracking","Create and manage teams of 3–5 members","Secure backend: email confirmation, Row-Level Security, private storage with signed URLs, SHA-256 file hashing"]},
-  tech:["Flutter","Dart","Supabase","PostgreSQL","SHA-256","GitHub"],skills:["flutter","dart","supabase","postgres","figma","uiux","team"],
-  role:{ar:"شريكة مؤسِّسة ومطوِّرة: تصميم الهوية البصرية والواجهات، وبرمجة التطبيق بـ Flutter وربطه بـ Supabase.",en:"Co-founder and developer: brand, UI, and Flutter development with Supabase integration."},
+  tech:["Flutter","Dart","Supabase","PostgreSQL","SHA-256","GitHub"],skills:["flutter","dart","supabase","postgres","figma","uiux","team","lead"],
+  role:{ar:"قائدة الفريق وشريكة مؤسِّسة ومطوِّرة: تصميم الهوية البصرية والواجهات، وبرمجة التطبيق بـ Flutter وربطه بـ Supabase.",en:"Team leader, co-founder and developer: brand, UI, and Flutter development with Supabase integration."},
   members:["Sham Albinni","Fatimah Bin Mohammed"],
   links:[{k:"live",l:{ar:"جرّب التطبيق",en:"Live App"},u:"https://f-s-tuwaiq.github.io/Vector/"},{k:"github",l:{ar:"GitHub",en:"GitHub"},u:"https://github.com/F-S-Tuwaiq/Vector"},{k:"slides",l:{ar:"العرض التقديمي",en:"Presentation"},slides:"vector"}],
   gallery:["vector-card","vector-s1","vector-s4","vector-s8","vector-s11","vector-s12","vector-s13"]},
@@ -654,7 +655,7 @@ const PROJECTS=[
   solution:{ar:"رصيد مركزي تتفرّع منه بطاقات فردية، وميزانيات تُوزَّع تلقائيًا على القطاعات، وتحكّم لحظي يتيح للمسؤول الموافقة على العمليات أو تقييدها أو تحديد سقف الإنفاق لكل عضو، مع فواتير إلكترونية وتحليلات تكشف أين يذهب كل ريال.",en:"A central balance that branches into individual cards, budgets distributed automatically across sectors, and real-time control that lets the admin approve, restrict, or cap each member's spending, with e-invoices and analytics that show where every riyal goes."},
   features:{ar:["محفظة مركزية ببطاقات فردية تشترك في رصيد واحد", "ميزانيات حسب القطاع مع توزيع تلقائي", "صلاحيات دفع مباشرة أو مشروطة بالموافقة، مع قيود زمنية ومكانية", "فواتير إلكترونية تفصيلية تصل إلى مسؤول المحفظة", "رصيد احتياطي للطوارئ لكل عضو", "تحليلات للإنفاق حسب القطاع والعضو والمتجر", "التسجيل عبر نفاذ، والشحن عبر Apple Pay ومدى"],en:["Central wallet with individual member cards sharing one balance","Sector-based budgets with auto-distribution","Payment permissions: direct or approval-required, with time and location limits","Detailed e-invoices sent to the wallet admin","Emergency reserve balance per member","Spending analytics by sector, member, and store","Nafath sign-up; top-up via Apple Pay and mada"]},
   tech:["Figma","UI/UX",{ar:"التقنية المالية",en:"Fintech"}],skills:["figma","uiux","proto","team","comm","lead"],
-  role:{ar:"عضوة في الفريق: شاركتُ في بلورة الفكرة وتصميم التطبيق ونموذج العمل، وفي عرض المشروع على مسرح Money20/20 Middle East.",en:"Team member: co-developed the concept, app design, and business model, and pitched on stage at Money20/20 Middle East."},
+  role:{ar:"قائدة الفريق: قدتُ الفريق، وشاركتُ في بلورة الفكرة وتصميم التطبيق ونموذج العمل، وفي عرض المشروع على مسرح Money20/20 Middle East.",en:"Team leader: led the team, co-developed the concept, app design, and business model, and pitched on stage at Money20/20 Middle East."},
   members:["Sara Abunuhait","Fatimah Bin Mohammed","Noura Almudlij","Hessa Alaskar"],
   links:[{k:"slides",l:{ar:"العرض التقديمي",en:"Presentation"},slides:"flowpay"}],
   gallery:["flowpay-card","flowpay-g1","flowpay-g2","flowpay-g3"]},
@@ -665,7 +666,7 @@ const PROJECTS=[
   problem:{ar:"تحتاج صحة العين إلى عادات يومية وفحوصات منتظمة، غير أن كثيرًا من الناس يفقدون المتابعة بين الزيارات؛ إذ يصعب عليهم الالتزام، ويفتقرون إلى سجل منظّم للنظر والأدوية، وينسون مواعيدهم، فيتأخر اكتشاف التغيّرات التدريجية في النظر.",en:"Good eye health needs daily habits and regular check-ups, yet many people lose track between clinic visits: habits are hard to keep, there's no organized record of vision or medication, appointments are forgotten, and gradual vision changes are detected late."},
   solution:{ar:"تطبيق واحد يجمع فحص النظر المنزلي، وسجلّ النظر، والاستشارة الطبية، والتذكيرات اليومية، ليبقى المستخدم على اطلاع دائم بصحة عينيه بين الزيارات.",en:"One app that combines at-home vision testing, a vision history record, doctor consultations, and daily reminders, so users stay on top of their eye health between visits."},
   features:{ar:["فحص منزلي للنظر بتعليمات واضحة ونتائج فورية", "سجل للنظر برسم بياني عبر الزمن، مع نصائح للمشكلات الشائعة", "استشارة طبية: وصف الأعراض، ومحادثة الطبيب، والحصول على ملخص للحالة", "عناية يومية: تذكيرات مخصّصة، ومتابعة القطرات، وتاريخ انتهاء العدسات، وتمارين موجّهة للعين", "خيارات لتسهيل الوصول وتخصيص التجربة"],en:["At-home vision test with guided instructions and instant results","Vision history charted over time, plus tips for common eye problems","Eye consultation: describe symptoms, chat with a doctor, get a care summary","Daily eye care: custom reminders, eye-drop tracker, lens-expiry tracking, guided eye exercises","Accessibility and customization options"]},
-  tech:["Figma",{ar:"تصميم UI/UX",en:"UI/UX Design"},{ar:"النماذج الأولية",en:"Prototyping"}],skills:["figma","uiux","proto","team"],
+  tech:["Figma",{ar:"تصميم UI/UX",en:"UI/UX Design"},{ar:"النماذج الأولية",en:"Prototyping"}],skills:["figma","uiux","proto","team","lead"],
   role:{ar:"قائدة المشروع ومصمّمة واجهات وتجربة مستخدم ضمن فريق من ستة أعضاء: قُدتُ الفريق ونظّمتُ سير العمل، وشاركتُ في تصميم رحلة المستخدم والشاشات والنموذج التفاعلي على Figma.",en:"Project leader and UI/UX designer in a 6-member team: led the team and organized the workflow, and worked on user flows, screen design, and the interactive Figma prototype."},
   members:["Fatimah Bin Mohammed","Shaima Aldrawiesh","Sarah Alhuzaymi","Raneem Alsheddi","Ghala Alharbi","Jana Alharbi"],
   links:[{k:"figma",l:{ar:"النموذج التفاعلي",en:"Figma Prototype"},u:"https://www.figma.com/proto/4K9z8hPdzT6BTMI9LzF0Hw/UX-phase-2?page-id=0%3A1&node-id=2052-1621&p=f&viewport=556%2C-581%2C0.42&t=GcICHqHdFga5k6Hj-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=9%3A148"},{k:"poster",l:{ar:"البوستر",en:"Poster"},img:"basirah-cover"}],
@@ -713,10 +714,10 @@ const SKILL_DESC={
  sql:{ar:"كتابة الاستعلامات وتصميم الجداول والعلاقات.",en:"Writing queries and designing tables and relationships."},
  apex:{ar:"بناء تطبيقات قواعد بيانات بسرعة ضمن دراستي.",en:"Building database apps quickly as part of my coursework."},
  postgres:{ar:"قاعدة بيانات فيكتور عبر Supabase مع سياسات أمان على مستوى الصفوف.",en:"Vector's database on Supabase, with row-level security policies."},
- lead:{ar:"أحرص على تنظيم الفريق وتوزيع المهام ومتابعة التنفيذ.",en:"I enjoy organizing a team, splitting tasks and following through."},
+ lead:{ar:"قدتُ فرق «فيكتور» و«فلو باي» و«بصيرة»: تنظيم الفريق وتوزيع المهام ومتابعة التنفيذ.",en:"I led the teams behind Vector, Flow Pay and Basirah: organizing the team, splitting tasks and following through."},
  team:{ar:"أغلب مشاريعي جماعية، من فريق من اثنين إلى فريق من ستة.",en:"Most of my projects are team projects, from teams of two to teams of six."},
- comm:{ar:"من العرض على مسرح Money20/20 إلى التواصل مع الشركاء في الأندية الطلابية.",en:"From pitching on stage at Money20/20 to working with partners in student clubs."},
- events:{ar:"من تنظيم فعالية «خطط لمستقبلك» مع مؤسسة مسك والتطوع في برامج وطنية.",en:"From organizing the “Plan Your Future” event with Misk to volunteering in national programs."},
+ comm:{ar:"أتواصل بوضوح وثقة مع الفرق والشركاء والجمهور، سواء في العرض أو الكتابة أو العمل اليومي.",en:"I communicate clearly and confidently with teams, partners and audiences, whether presenting, writing or in day-to-day work."},
+ events:{ar:"نسّقتُ عددًا من الفعاليات والبرامج والمعارض، منها «خطط لمستقبلك» مع مؤسسة مسك، وبرنامج قيادات المرأة في دبلوماسية الطاقة، ومعرض كسوة فرح.",en:"I have coordinated a range of events, programs and exhibitions, including “Plan Your Future” with Misk, the Women in Energy Diplomacy Leadership Program and the Kiswat Farah exhibition."},
  ps:{ar:"أقسّم المشكلة إلى خطوات صغيرة، وأجرّب حتى أصل إلى الحل الأمثل.",en:"I break problems into small steps and iterate until I reach the cleanest solution."},
  detail:{ar:"التفاصيل الصغيرة هي ما يصنع الفرق في تجربة المستخدم.",en:"Small details are what make the difference in a user's experience."}
 };
@@ -989,7 +990,7 @@ function showUsed(){
  if(!skillSel){$("#usedT").textContent=d.used_t;$("#usedH").textContent=d.used_h;$("#usedL").innerHTML="";return;}
  const it=SKILLS.flatMap(g=>g.items).find(x=>x[0]===skillSel),ps=PROJECTS.filter(p=>p.skills.includes(skillSel));
  $("#usedT").textContent=L(it[1]);$("#usedH").textContent="";
- $("#usedL").innerHTML=`<p class="desc">${esc(L(SKILL_DESC[skillSel]))}</p>`+(ps.length?`<p class="hint" style="margin-top:12px">${d.used_in}</p>`+ps.map((p,i)=>`<li data-id="${p.id}" style="animation-delay:${i*70}ms">${p.cover?img(p.cover):""}${esc(L(p.title))}</li>`).join(""):"");
+ $("#usedL").innerHTML=`<p class="desc">${esc(L(SKILL_DESC[skillSel]))}</p>`+(ps.length?`<p class="hint" style="margin-top:12px">${d.used_in}</p>`+ps.map((p,i)=>`<li data-id="${p.id}" style="animation-delay:${i*70}ms">${coverHTML(p)}${esc(L(p.title))}</li>`).join(""):"");
  $$("#usedL li").forEach(li=>li.onclick=()=>openModal(li.dataset.id,null));
 }
 
